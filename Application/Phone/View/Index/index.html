@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+    <title>易回购-首页</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/phone2.0/style/base.css" />
+    <link rel="stylesheet" href="__PUBLIC__/phone2.0/style/index.css" />
+    <link rel="stylesheet" href="__PUBLIC__/phone2.0/style/swiper.min.css" />
+    <meta name="description" content="易回购：专业的二手电子产品回收平台。业务范围包括：手机回收、手机以旧换新、二手手机估价、二手苹果手机回收、二手三星手机回收、二手平板电脑回收、二手笔记本回收、二手数码相机回收。闲置变现，二手回收，选择易回购。" />
+    <meta name="Keywords" content="手机回收,二手手机回收,二手手机,旧手机回收,手机回收价格,手机换购,二手手机回收估价,易回购网，手机以旧换新，笔记本回收,平板回收,易回购,回收手机多少钱,手机回收网" />
+    <link REL = "Shortcut Icon" href="__PUBLIC__/phone/logo.ico"> 
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/phone/style/public.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container-fluid conter">
+      <div class="row logo">
+        <div class="col-xs-12"><img src="__PUBLIC__/phone2.0/images/web-index_03.jpg"></div>
+      </div>
+      <div class="row c-label">
+        <div class="col-xs-12"><img src="__PUBLIC__/phone2.0/images/web-index_05.jpg"></div>
+      </div>
+      <div class="row c-input">
+        <div class="col-xs-12"><a href="<?php echo U('Search/search/'); ?>"><img src="__PUBLIC__/phone2.0/images/input-2.jpg"></a></div>
+      </div>
+      <div class="row c-menu">
+        <div class="col-xs-6 c-menu-left c-menu-bottom"><a href="<?php echo U('Search/index/cid/1'); ?>"><img src="__PUBLIC__/phone2.0/images/menu-06.jpg"></a></div>
+        <div class="col-xs-6 c-menu-bottom"><a href="<?php echo U('Search/index/cid/2'); ?>"><img src="__PUBLIC__/phone2.0/images/menu-03.jpg"></a></div>
+        <div class="col-xs-6 c-menu-left"><a href="<?php echo U('Search/index/cid/3'); ?>"><img src="__PUBLIC__/phone2.0/images/menu-05.jpg"></a></div>
+        <div class="col-xs-6"><a href="<?php echo U('Search/index/cid/5'); ?>"><img src="__PUBLIC__/phone2.0/images/menu-02.jpg"></a></div>
+      </div>
+      <div class="row c-banner">
+        <div class="col-xs-12">
+          <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <volist name="ad_list" id="ad">
+               <div class="swiper-slide"><a href="{$ad.ad_url}"><img src="__PUBLIC__/uploads/{$ad.ad_img}"></a></div>
+            </volist>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <include file="Public/footer" />
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-2.0.2.min.js" ></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/swiper.min.js" ></script>
+    <script type="text/javascript" src="__PUBLIC__/phone2.0/js/public.js" ></script>
+    <script>
+      var mySwiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: 3000,
+      });
+    </script>
+  </body>
+</html>
+
+
+

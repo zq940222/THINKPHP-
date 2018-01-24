@@ -1,0 +1,318 @@
+@import url("base.css");
+.one-lf{
+	box-sizing:content-box;
+}
+.top-one{
+	width:1200px;
+	height:60px;
+	line-height:60px;
+	margin:0 auto;
+	background:#FFF
+}
+.logo{
+	width:255px;
+	height:60px;
+	float:left;
+}
+.tel-pb{
+	box-sizing:content-box;
+}
+.nav{
+	width:555px;
+	height:60px;
+	float:right;
+	cursor:pointer
+}
+.a-xq{
+	overflow: hidden;
+}
+.nav-lf{
+	width:333px;
+	height:50px;
+	text-align:center;
+	float:left;
+	display:inlin;
+	margin-top:10px;
+}
+
+.nav-lf li{
+	width:111px;
+	line-height:42px;
+	text-align:center;
+	float:left
+}
+
+.nav-lf li a{
+	font-size:16px;
+	color:#666666;
+}
+
+.nav-lf li a:hover{
+	color:#61bd52
+}
+
+.one-a{
+	position:relative;
+}
+
+.nav-lf.one-a a{
+	color:#61bd52;
+}
+
+.nav-lf li.one-a .one-a-a1{
+	color:#61bd52;
+	}
+	
+.nav-lf li.one-a a{
+	width:81px;
+	box-sizing:content-box;
+	display:block;
+	line-height:42px;
+	text-align:center;
+	margin:0 auto;
+}
+
+.nav-lf li.one-bb{
+	width:111px;
+	line-height:42px;
+	background:#FFF;
+	color:#61bd52;
+	position:relative;
+}
+
+.nav-lf li.one-bb a{
+	width:81px;
+	display:block;
+	line-height:42px;
+	text-align:center;
+	margin:0 auto;
+}
+
+.one-a a img{
+	float:right;
+	margin-top:20px;
+}
+	
+.one-b{
+	width:111px;
+	height:166px;
+	display:none;
+	background:#FFF;
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:5;
+	box-shadow:#999 0px 0px 3px 0px;
+	display:none
+}
+
+.nav-lf li.one-a .one-b a{
+	width:111px;
+	line-height:30px;
+	display:block;
+	float:left;
+	text-align:left;
+	color:#666666;
+	font-size:14px;
+	padding-left:18px
+}
+.nav-lf li.one-a .one-b a:hover{
+	color:#61bd52
+	}
+
+
+.one-a img{
+	float:right;
+	margin-top:27px;
+}
+
+.nav-lf li.one-a>img:hover{
+	transform:rotate(179deg)
+}
+
+.nav-rf{
+	width:222px;
+	height:60px;
+	float:right
+}
+
+.nav-rf li{
+	width:103px;
+	height:32px;
+	float:right;
+	margin-top:14px;
+	position:relative;
+}
+
+.nav-rf li:hover{
+	box-shadow:#ccc 3px 3px 2px; 
+}
+
+.nav-rf li img{
+	float:left
+}
+
+.nav-rf li em{
+	width:16px;
+	height:15px;
+	background:url(../img/nav-gw02.png) no-repeat center center;
+	position:absolute;
+	top:-5px;
+	right:14px;
+	line-height:15px;
+	text-align:center;
+	color:#FFF;
+	font-size:10px
+}
+/*top   end*/
+#main-box{
+	width:100%;
+	background:#fff;
+}
+.f-main_{
+	width:100%;
+	background:#fff;
+}
+.f-main_ .info_{
+	width:1200px;
+	margin:0 auto;
+}
+.f-main_{
+	width:1200px;
+
+	margin:0 auto;	
+}
+.f-main_ .Us-logo{
+	float:left;
+	height:387px;
+}
+.f-main_ .Us-logo img{
+	margin-top:106px;
+}
+.f-main_ .title{
+	float:right;
+	width:908px;
+	font-size:14px;
+	color:#666;
+	padding:76px 42px 82px 0;
+	line-height: 260%;
+	box-sizing:content-box;
+}
+.f-main{
+	background:#e9f0f5;
+}
+#content{
+	width:1200px;
+	margin:0 auto;
+	position:relative;
+}
+#content .time_{
+	display: block;
+	width:175px;
+	height:808px;
+	margin:0 auto;
+	position:relative;
+}
+#content .time_ em{
+	font-size:16px;
+	display: block;
+	width:70px;
+	line-height: 70px;
+	text-align: center;
+	color:#fff;
+	background:#61bd52;
+	border-radius: 50%;
+	margin:0 auto;
+	border:6px solid #acefa1;
+}
+#content .time_ i{
+	display: block;
+	width:2px;
+	height:51px;
+	background:#9d9b9b;
+	margin:0 auto;
+}
+#content .time_ .a{
+	position:absolute;
+	top:0;
+	right:175px;
+	width:340px;
+	overflow: hidden;
+}
+
+#content .a li.marginR{
+	margin-right:46px;
+}
+#content .time_ .b{
+	width:316px;
+	position:absolute;
+	left:175px;
+	top:144px;
+}
+#content .time_ p{
+	font-size:16px;
+	color:#666;
+}
+#content .time_ p.c{
+	position:absolute;
+	top:298px;
+	right:175px;
+	width:150px;
+}
+#content .time_ p.d{
+	position:absolute;
+	top:428px;
+	left:175px;
+	width:120px;
+}
+#content .time_ p.e{
+	position:absolute;
+	top:566px;
+	right:175px;
+	width:275px;
+}
+#content .time_ p.f{
+	position:absolute;
+	top:694px;
+	left:175px;
+	width:130px;
+}
+#content2{
+	width:100%;
+	height:510px;
+	background:#fff;
+}
+#content2 .info{
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+}
+#content2 .info span{
+	float:left;
+	width:250px;
+	margin-right:39px;
+	margin-top:106px;
+	overflow: hidden;
+	border-radius: 16px;
+}
+#cd-timeline .span_{
+	font-size:16px;
+	color:#fff;
+	text-align: center;
+	line-height: 60px;
+}
+.cd-timeline-img{
+	background:#61bd52!important;
+}
+.cd-timeline-block .cd-timeline-content p em{
+	width:216px;
+	background:url("../images/Us2.jpg")no-repeat left center;
+	float:left;
+	padding-left:10px;
+	font-size:14px;
+	color:#666;
+	line-height: 170%;
+}
+.cd-timeline-block .cd-timeline-content p.b_ em{
+	width:218px;
+}

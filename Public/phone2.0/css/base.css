@@ -1,0 +1,26 @@
+body,ul,li,h1,h2,h3,h4,h5,h6,p,form{
+	margin:0;
+	padding:0;
+	list-style: none;
+	font-family: "Microsoft YaHei";
+}
+img{
+	border: 0;
+}
+a{
+	text-decoration: none!important;
+}
+i,em{
+	font-style: normal;
+}
+b,h3,h4,h5{
+	font-weight: normal;
+}
+.clear{
+	clear:both;
+}
+input[type="submit"],input[type="button"]{
+	margin:0;
+	padding:0;
+	list-style: none;
+}

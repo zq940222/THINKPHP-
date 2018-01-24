@@ -1,0 +1,100 @@
+@import url("base.css");
+
+a:visited {color: #333}
+.title h5{
+	background:#eeeef0;
+	padding:16px 0;
+	color:#333;
+}
+.box h5{
+		background:#eeeef0;
+	padding:16px 0;
+	color:#333;
+}
+.constainer-fluid{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+.title{
+	padding-right:0;
+	padding-left:0;
+}
+.title h5.pinpai{
+	text-align: center;
+}
+.title .info{
+	overflow: scroll; 
+	height: 270px;
+}
+.title .info ul{
+	border-right:1px solid #eeeef0;
+}
+.title .info::-webkit-scrollbar{width:0;height:0}
+.title .info li{
+	padding:16px 0;
+	border-bottom:1px solid #eeeef0;
+	text-align: center;
+}
+.title .info li a{
+	color:#333;
+	text-decoration:none;
+}
+.title  .info li i{
+	float:right;
+	width:11px;
+	margin-top:-20px;
+	height:20px;
+	display: none;
+}
+.title .info .first{
+	background:#0c9873;
+}
+.title .info .first i{
+	display: block;
+}
+.title .info .first a{
+	color:#fff;
+}
+.title .info img{
+	max-width:100%;
+}
+.box .xinghao{
+	background:#eeeef0;
+	padding-left:8%;
+}
+.box{
+	padding-left:0;
+	padding-right:0;
+}
+.box li{
+	padding:16px;
+	border-bottom: 1px solid #eeeef0
+
+}
+.box li i{
+	float:left;
+	width:2px;
+	height:15px;
+	background:rgba(0,0,0,0.0);
+	margin-left:2%;
+	margin-right:2%;
+	margin-top:2px;
+	
+}
+.box li.first_{
+	color:#1cb089;
+}
+.box li.first_ i{
+	background: #1cb089;
+}
+.btn{
+	background:#1cb089;
+	color:#fff;
+	position:fixed;
+	bottom:60px;
+	left:0;
+	padding: 10px;
+}
+.check i{
+	display: block!important
+}

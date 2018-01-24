@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易回购 -- 回购车</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/shop.css"/>
+<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+<body>
+    <include file="Public/2.0hint"/>
+    <include file="Public/2.0header"/>
+    <div class="nav">
+    	<div class="navlf">
+        	<a href="/"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+        </div>
+        <div class="navrf">
+        	<img src="__PUBLIC__/Pc2.0/img/cccc.jpg" />
+        </div>
+    </div>
+    <form name="name1" autocomplete="off"> 
+    <div class="menu">
+            <div class="later">
+                <ul id="tab">
+                    <li class="current">回收车</li>
+                    <a href="http://shop.ehuigou.com/flow.php?step=cart"><li>购物车</li></a>
+                </ul>
+            </div>
+
+            <div class="menu-one">
+                <div class="subtop">
+                    <div class="subtop-a"><input type="checkbox" id="radio" name="" value="" class="subinput"><label for="radio"><a>全选</a></label></div>
+                    <div class="subtop-b">商品</div>
+                    <div class="subtop-c">回收价</div>
+                    <div class="subtop-d">评估时间</div>
+                    <div class="subtop-e">操作</div>
+                </div>
+                <!--sky-->
+                <div class="sky">
+                    <div class="left-sky">
+                        <img src="__PUBLIC__/Pc2.0/img/sky.png">
+                    </div>
+                    <div class="right-sky">
+                        <span>回收车内暂时没有商品，登录后将显示您之前加入的商品</span>
+                        <p><a href="#">登录</a></p>
+                        <i><a href="#">去回收></a></i>
+                    </div>
+                </div>
+                <!--sky end-->
+                <volist name="list" id="vo">
+                    <div class="subcent border">
+                        <div class="subcent-a"><input type="checkbox" name="ty" value="{$vo.cart_id}" class="ceninput" price="{$vo.user_price|default="0"}"></div>
+                        <div class="subcent-b">
+                            <div class="ovh">
+                                <img src="__PUBLIC__/Uploads/{$vo.types.type_photo}" />
+                                <a href="__ROOT__/item/index/id/{$vo.type_id}" target="_blank">{$vo.types.type_name}</a>
+                            </div>
+                                <div class="cvvc"><i class="eye">评估概况</i>
+                                    <ol class="eye-ol">
+                                        <h3>{$vo.types.type_name}</h3>
+                                        <volist name="vo.left" id="vos">
+                                            <li>
+                                                <u>{$vos.0}</u>
+                                                <b>{$vos.1}</b>
+                                            </li>
+                                        </volist>
+                                        <volist name="vo.right" id="vos" key="roots">
+                                                <li>
+                                                    <u>{$vos.0}</u>
+                                                    <b>{$vos.1}</b>
+                                                </li>
+                                        </volist>
+
+                                    </ol>
+                                </div>
+                        </div>
+                        <div class="subcent-c"><a style="color:#ef543b" class="price_{$vo.cart_id}">￥{$vo.user_price|default="0"}</a>&nbsp;<em class="subem-a id-{$vo.cart_id}-a" style="display:none">￥20</em><em class="subem-b id-{$vo.cart_id}-b" style="display:none">￥20</em></div>
+                        <div class="subcent-d">{$vo.add_time|date="Y-m-d H:i",###}</div>
+                        <div class="subcent-e" style="height:75px"><span><a href="__URL__/delete/id/{$vo.cart_id}">删除</a></span>
+                        <span><a href="javascript:void(0);" class="save_price" ids="{$vo.cart_id}">更新价格</a></span></div>
+                    </div>
+                </volist>
+            </div>
+      		<div class="subbottom">
+            	<div class="subtop-a" style="width:80px;"><input type="checkbox" name="" id="sub-b" value="" class="subinput"><label for="sub-b"><a>全选</a></label></div>
+                <div class="bottom-b"><a href="#" id="delAll">删除选中商品</a></div>
+                <div class="bottom-c" style="float:right">已选择 <e id="count">0</e> 件商品　总价：<a href="#" style="color:#ef543b; font-size:16px; font-weight:bold">￥<e id="count_price">0</e></a></div>
+            </div>
+            <div class="subaniu">
+            	<a href="#">去结算</a>
+            </div>
+            <div class="tianj">
+            	<a href="/">添加旧机</a>
+            </div>
+    </div>
+    </form>
+<include file="Public/2.0footer"/>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/index.js"></script>
+<script>
+var count = 0;
+var count_price = 0;
+$(".save_price").click(function(){
+    var id = $(this).attr("ids");
+    $.post(
+        '__URL__/save_price',
+        {
+            'id':id
+        },
+        function(data){
+            if (data.status == 3) {
+                $(".id-"+id+"-b").hide();
+                $(".id-"+id+"-a").hide();
+                $(".id-"+id+"-b").show();
+                $(".id-"+id+"-b").text("0");
+                $(".price_"+id).text(data.data);
+            }else if (data.status == 2) {
+                $(".id-"+id+"-b").hide();
+                $(".id-"+id+"-a").hide();
+                $(".id-"+id+"-a").show();
+                $(".id-"+id+"-a").text(data.info);
+                $(".price_"+id).text(data.data);
+            }else if (data.status == 1) {
+                $(".id-"+id+"-b").hide();
+                $(".id-"+id+"-a").hide();
+                $(".id-"+id+"-b").show();
+                $(".id-"+id+"-b").text(data.info); 
+                $(".price_"+id).text(data.data);
+            }else{
+                show_cw(data.info);
+            };
+        },
+        'JSON'
+    )
+})
+$(".ceninput").click(function(){
+    if(this.checked){
+        count ++;
+        var price = $(this).attr("price") *1;
+        count_price = count_price + price;
+        $("#count_price").text(count_price);
+        $("#count").text(count);
+    }else{    
+        count --;
+        var price = $(this).attr("price") *1;
+        count_price = count_price - price;
+        $("#count_price").text(count_price);
+        $("#count").text(count); 
+    }    
+})
+$("#delAll").click(function(){
+    var values = "";
+    $("input[name='ty']:checked").each(function(){
+        values += $(this).val()+",";
+    });
+    if (values == "") {
+        show_cw("请选择要删除的商品");
+        return false;
+    };
+    $.post(
+            '__URL__/delete',
+            {
+                'id' : values
+            },
+            function(data){
+                if (data.status == 1) {
+                    show_cg(data.info)
+                    setTimeout("location.reload()",2500);
+                }else{
+                    show_cw("服务器繁忙，请稍候");
+                }
+            },
+            'JSON'
+        )
+})
+$(".subinput").click(function(){    
+    if(this.checked){
+        $(".ceninput").attr("checked", true);
+		$(".subinput").attr("checked", true); 
+        $("input[name='ty']:checked").each(function(){
+            var price = $(this).attr("price") *1;
+            count_price = count_price + price;
+            count++;
+        });   
+        $("#count_price").text(count_price);
+        $("#count").text(count); 
+    }else{    
+        $(".ceninput").attr("checked", false);
+		$(".subinput").attr("checked", false);  
+        count_price = 0;
+        count = 0;
+        $("#count").text(0); 
+        $("#count_price").text(0);
+    }    
+});
+$(".subaniu").click(function(){
+    if (count == 0) {
+        show_cw("请选择要回收的商品");
+        return false;
+    };
+    var values = "";
+    $("input[name='ty']:checked").each(function(){
+        values += $(this).val()+",";
+    });
+    if (values =="") {
+        show_cw("请选择要回收的商品");
+        return false;   
+    };
+    window.location.href="__APP__/order/index/id/"+values;
+})
+</script>
+</body>
+</html>

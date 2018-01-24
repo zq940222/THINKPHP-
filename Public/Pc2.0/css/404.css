@@ -1,0 +1,35 @@
+@import url("base.css");
+#info{
+	width:622px;
+	height:280px;
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+}
+#info .img1{
+	float:left;
+	margin-left:2px;
+}
+#info span{
+	float:right;
+	width:364px;
+	padding-top:115px;
+	text-align: left;
+}
+#info em{
+	font-size:20px;
+	color:#444;
+}
+#info a{
+	display: block;
+	margin-top:20px;
+	font-size:14px;
+	color:#61bd52;
+}
+#info a img{
+	float:left;
+	margin-top:1px;
+}

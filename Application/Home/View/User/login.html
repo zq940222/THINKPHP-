@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/login.css"/>
+<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+
+<body>
+<include file="Public/2.0hint"/>
+<div class="logo">
+	<div class="logobox">
+    	<a href="/"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎登录
+    </div>
+</div>
+
+<div class="main">
+	<div class="menu">
+        	<!-- html代码begin -->
+            <div id="outer">
+                <ul id="tab">
+                    <li class="current">验证码登录</li>
+                    <li style="border-right:solid 1px #eaeaea">密码登录</li>
+                </ul>
+                <div id="content">
+                    <ul style="display:block;">
+                    	<form method = 'post' id="from1" action = '__APP__/user/checkLogin'>
+	                        <li class="lia"><input name="user_phone" type="text" class="liainput" placeholder="请输入手机号" id="user_phone"/>
+	                        <input type="button" class="show " id="check_phone" value="获取验证码" style="outline:0" ></li>
+	                        <li class="lib"><input name="code" type="text" class="libinput" id="code" placeholder="请输入验证码" /></li>
+	                        <li class="lic"><input type="checkbox" name="Cookie" value="1" id="radio" class="licinput" >&nbsp;&nbsp;<label for="radio">十天内免登录</label></li>
+                        </form>
+                        <li class="lid send" sid="1">登录</li>
+                        <a href="__URL__/register"><li class="lie">还不是会员？<i> 立即注册</i></li></a>
+                    </ul>
+                    <ul>
+                    	<form method = 'post' id="from2" action = '__APP__/user/checkLogin'>
+	                      	<li class="lib" style="margin-top:0px"><input name="user_phone" id="user_phones" type="text" class="libbinput" placeholder="请输入手机号" /></li>
+	                        <li class="lib"><input name="password" type="password" class="libinput" id="password" placeholder="请输入密码" /></li>
+	                        <li class="lic"><input type="checkbox" name="Cookie" value="2" id="radio1" class="licinput">&nbsp;&nbsp;<label for="radio1">十天内免登录</label></li>
+						          </form>
+	                        <li class="lid send" sid="2">登录</li>
+	                        <a href="__URL__/register"><li class="lie">还不是会员？<i> 立即注册</i></li></a>
+	                    </form>
+                  </ul>
+                </div>
+            </div>
+			<!-- html代码end -->
+    </div>
+</div>
+<!--main end-->
+
+<div id="bg">
+    <div class="info">
+	 		<h6>请您输入验证码：</h6>
+	 		<div class="inputBox">
+		 		<input type="text" id="verify">
+		 		<span class="img_"><img id="flushcode" src="__ROOT__/public/verify"></span>
+		 	</div>
+		 	<p>请填写图片中的字符，不区分大小写<i class="flushcode">看不清楚？换一张</i></p>
+		 	<input class="btn" id="L" type="submit" value="确认">
+		 	<input class="btn hide" id="R" type="button" value="取消">
+            <span><strong>小提示：</strong>如果多次尝试仍无法登录，建议您清理浏览器缓存或更换浏览器再试试。</span>
+            <em class="hide"><img src="__PUBLIC__/Pc2.0/img/x.jpg" /></em>
+ 	</div>
+</div>
+<!--bg end-->
+
+<div class="footer">
+	<ul>
+    	<li><a href="{:U('Help/index')}">关于易回购</a>&nbsp;&nbsp;<a href="#">加入我们</a>&nbsp;&nbsp;<a href="{:U('Help/index/id/31')}">联系我们</a>&nbsp;&nbsp;<a href="http://m.ehuigou.com">易回购手机版</a>&nbsp;&nbsp;<a href="#">友情链接</a></li>
+        <li>Copyright&nbsp;2016易回购网版权所有&nbsp;&nbsp;&nbsp;@ICP备案&nbsp;&nbsp;粤ICP备15099379号-1</li>
+    </ul>
+</div>
+<!--footer end-->
+
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script>
+	var phone = 0;
+	var code =0;
+	var password = 0;
+  var check = 0;
+  var Cookie = 0;
+  var phone_user = document.getElementById("check_phone");
+	$(function(){
+		window.onload = function()
+		{
+			var $li = $('#tab li');
+			var $ul = $('#content ul');
+			$li.click(function(){
+				var $this = $(this);
+				var $t = $this.index();
+				$li.removeClass();
+				$this.addClass('current');
+				$ul.css('display','none');
+				$ul.eq($t).css('display','block');
+			})
+		}
+	});
+	$(function(){
+		$(".show").click(function(){
+			phone = $.trim($("#user_phone").val());
+			if(phone == ""  || !preg.test(phone)||phone.length<11) {
+            show_cw("请填写合法手机号码");
+		       	return false;
+		    }
+			$("#bg").show();
+		})
+		$(".hide").click(function(){
+			$("#bg").hide();
+		})	
+	})
+   	$(".send").click(function(){
+   		var sid = $(this).attr("sid")*1;
+   		switch(sid)
+   		{
+            case 1:
+            	phone = $.trim($("#user_phone").val());
+      				var preg = /^((\+86)|(86))?((\(\d{3}\))|(\d{3}\-))?13[0-9]\d{8}|15[0-9]|18[0-9]\d{8}$/; 
+      				if(phone == ""  || !preg.test(phone)) {
+                    show_cw("请填写合法手机号码");
+      			       	return false;
+      			   }				
+    		    	if (p_ok == 1) {
+    	            	code = $("#code").val();
+    	            	if (code.length <6) {
+                      $(".cw").show(300);
+                      show_cw("验证码错误");
+                      return false;
+    	            	};
+      				}else{
+                show_cw("请先获取手机验证码");
+      					return false;
+      				};
+           	break;
+            case 2:
+            	phone = $.trim($("#user_phones").val());
+      				      var preg = /^((\+86)|(86))?((\(\d{3}\))|(\d{3}\-))?13[0-9]\d{8}|15[0-9]|18[0-9]\d{8}$/; 
+            				if(phone == ""  || !preg.test(phone)) {
+                          show_cw("请填写合法手机号码");
+            			       	return false;
+            			    }		
+                  	password = $("#password").val();
+                  	if (password == "") {
+                      show_cw("请输入帐号密码");
+      					       return false;
+                  	};
+                  break;
+                  default:
+                      show_cw("非法提交");
+                      return false;
+                  break;
+      }
+        var val=$('#radio:checked').val();
+        if(val != null){
+          Cookie = 1;
+        }
+        var vals=$('#radio1:checked').val();
+        if(vals != null){
+          Cookie = 1;
+        }
+        $.post(
+            '__URL__/checkLogin',  
+            {
+                "user_phone":phone,
+                "password":password,
+                "code":code,
+                "Cookie":Cookie
+            },function(data){
+                if(data.status == 1) {
+                  show_cg("登录成功");
+                  window.location.href = "__APP__/user/index";
+                }else{
+                  show_cw(data.info);
+              }
+            },
+            'json'
+        ) 
+   	})
+	$("#L").click(function(){
+		var verify = $("#verify").val();
+		if (verify == "" || verify.length<4) {
+			$("#flushcode").click();
+        show_cw("验证码错误");
+        return false;
+		};
+		$.post(
+            '__URL__/ajax_check_verify',  
+            {
+                "verify":verify,
+                "user_phone":phone
+            },function(data){
+              	if(data.status == 1) {
+			      	time(phone_user);
+              p_ok =1;
+			      	$("#bg").hide();
+              	}else if (data.status == 2) {
+          			time(phone_user);
+                p_ok = 1;
+			      	  $("#bg").hide();
+              }else{
+                  show_cw(data.info);
+                	$("#flushcode").click();
+              }
+            },
+            'json'
+        ) 
+	})
+	$(".flushcode").click(function(){
+      $("#flushcode").click();
+    });
+    $("#flushcode").click(function(){
+        var timenow = new Date().getTime();
+        $(this).attr('src','__APP__/Public/verify/'+timenow);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}" />
+<meta name="description" content="{$seo['description']}" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/news.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css"/>
+<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+<body>
+<include file="Public/2.0header"/>
+<div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #eaeaea; position:relative; z-index:96;">
+        <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:60px; border-bottom:solid 1px #eaeaea">
+                <div class="top-one">
+                                <div class="logo">
+                                    <a href="/"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                                </div>
+                                <div class="nav">
+                                    <ul class="nav-lf">
+                                        <li class="one-a">
+                                            <a class="one-a-a" href="#" style="color:#61bd52">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                                <span class="one-b">
+                                                	<a href="/" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a>
+                                                </span>
+                                        </li>
+                                        <li><a href="http://shop.ehuigou.com">易购商城</a></li>
+                                        <li><a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                                    </ul>
+                                    <ul class="nav-rf">
+                                        <li>
+                                            <a href="__ROOT__/order/inquiry"><img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                            <em>{$_SESSION.cart_count|default="0"}</em>
+                                        </li>
+                                    </ul>
+                                </div>
+                </div>
+        </div>
+</div>
+<!-- top-one end-->
+
+<div class="status">
+	<div class="status-min">
+    	<span class="status-minlf"><a href="/" target="_blank"><img src="__PUBLIC__/Pc2.0/img/st-lf.jpg" /></a></span>
+        <span class="status-minrf"><img src="__PUBLIC__/Pc2.0/img/st-rf.jpg" /></span>
+    </div>
+</div>
+<!-- status end-->
+
+<div class="column"><a href="/" title='易回购_二手回收'>首页</a>{$tag1_url}<h1>{$tag2_url}</h1></div>
+<!-- column end-->
+
+<div class="menu">
+
+<div class="up-dow">    
+	<div class="menu-lf">
+    	<dl>
+        	<dt>回收分类</dt>
+            <ul>
+            <a href="__URL__/index/tid/1/key/{$keyword}">
+                <if condition="$tid eq 1">
+                    <li class="ul-li-a ul-li ul-libox" cid="1">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto11.jpg"/>
+                <else />
+                    <li class="ul-li-a ul-li" cid="1">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto1.jpg"/>            
+                </if>
+                        <em style="display:inline">&nbsp;手机</em>
+                        <em style="float:right;font-family:宋体">></em>
+                    </li>
+            </a>
+
+            <a href="__URL__/index/tid/2/key/{$keyword}">
+                <if condition="$tid eq 2">
+                    <li class="ul-li-a ul-li ul-libox" cid="2">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto22.jpg"/>
+                <else />
+                    <li class="ul-li-a ul-li" cid="2">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto2.jpg"/>            
+                </if>
+                    <em style="display:inline">&nbsp;平板电脑</em>
+                    <em style="float:right; font-family:宋体">></em>
+                </li>
+            </a>
+
+
+            <a href="__URL__/index/tid/3/key/{$keyword}">
+                <if condition="$tid eq 3">
+                    <li class="ul-li-a ul-li ul-libox" cid="3">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto33.jpg"/>
+                <else />
+                    <li class="ul-li-a ul-li" cid="3">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto3.jpg"/>            
+                </if>
+                    <em style="display:inline">&nbsp;笔记本电脑</em>
+                    <em style="float:right; font-family:宋体">></em>
+                </li>
+            </a>
+            
+            <a href="__URL__/index/tid/5/key/{$keyword}">
+                <if condition="$tid eq 5">
+                    <li class="ul-li-a ul-li ul-libox" cid="4">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto44.jpg"/>
+                <else />
+                    <li class="ul-li-a ul-li" cid="4">
+                        <img src="__PUBLIC__/Pc2.0/img/ptoto4.jpg"/>            
+                </if>
+                                
+                    <em style="display:inline">&nbsp;数码相机</em>
+                    <em style="float:right; font-family:宋体">></em>
+                </li>
+            </a>
+            </ul>
+        </dl>
+    
+    </div>
+
+    <div class="menu-lf-dow">
+        <a href="http://www.ehuigou.com/help/index/cid/2" target="_blank"><img src="__PUBLIC__/Pc2.0/img/news-099.png"/></a>
+    </div>
+</div>
+    <div class="menu-rf">
+    	<div class="pinp">
+        	<span>品牌<a style="font-size:12px; color:#999999">&nbsp;&nbsp;（当前品牌：{$brand_name.brand_name}）</a></span>
+            <div class="pinp-yc">
+            	<ul>
+                    <volist name="brand_list" id="vo" offset="0" length='15'>
+                	    <a href="<?php echo U('Search/index/bid/'.$vo["brand_id"].'/tid/'.$tid); ?>" title="{$vo.brand_name_full}">
+                            <if condition="$vo.brand_id eq $bid">
+                                <li class="ula ulas">{$vo.brand_name}</li>
+                            <else />
+                                <li class="ula">{$vo.brand_name}</li>
+                            </if>
+                        </a>
+                    </volist> 
+                    <if condition="($tid eq 1) OR ($tid eq 2)">
+                    <a href="javascript:liopen();"><li class="z-ka" style="color:#61bd52">展开&nbsp;&nbsp;<img src="__PUBLIC__/Pc2.0/img/z-ka.png" /></li></a>
+                    </if>
+                </ul>
+                <ul class="none more">
+                    <volist name="brand_list" id="vo" >
+                        <a href="<?php echo U('Search/index/bid/'.$vo["brand_id"].'/tid/'.$tid); ?>" title="{$vo.brand_name_full}">
+                            <if condition="$vo.brand_id eq $bid">
+                                <li class="ula ulas">{$vo.brand_name}</li>
+                            <else />
+                                <li class="ula">{$vo.brand_name}</li>
+                            </if>                        
+                        </a>
+                    </volist> 
+                    <a href="javascript:liopen();"><li class="z-ka" style="color:#61bd52">收起&nbsp;&nbsp;<img src="__PUBLIC__/Pc2.0/img/z-kb.png" /></li></a>
+                </ul>
+            </div>
+        </div>
+        <!--pinp end-->
+        <div class="jix">
+        	<span class="jix-span">
+            	机型
+            	<em class="jix-em" style="font-size:12px; color:#61bd52">
+                	&nbsp;共{$count}个商品
+                </em>
+            </span>
+            	
+            <div class="jix-ullf">
+            	<p >
+                    <form class="ul-p" method = 'get' id="froms" action = '__APP__/search/index'>
+                    	<input  type="text" name="key"id="search" autocomplete="off"class="ul-input" placeholder="在当前分类中搜索" value="{$keyword}" required/>
+                        <a href="javascript:" class="clear"></a>
+                        <input type="hidden" name="tid" value="{$tid}">
+                        <input type="hidden" name="bid" value="{$bid}">
+                        <input type="hidden" name="type_id"id="types" value="1">
+                        <em id="searchs">搜索</em>
+                        <ol class="ts">
+                        </ol>
+                    </form>
+                </p>
+                <notempty name = "display">
+                    <div class="wjg">
+                        <em>
+                        抱歉！没有找到符合条件的 "<a href="#" style="color:#61bd52">{$keyword}</a>" 相关信息
+                        </em>
+                        <em>
+                        您可以简化、缩短关键词或减少筛选范围再进行搜索
+                        </em>
+                    </div>
+                <else />
+                   <volist name="list" id="l">
+                        <span class="ullf-li bg_img" tid="{$l.type_id}">
+                            <u class="usb"><img src="__PUBLIC__/Uploads/{$l.type_photo}" sid="{$l.type_photo}"/></u>
+                            <p>{$l.type_name}</p>
+                            <i>回收均价：<e>￥{$l.highestprice}<e></i>
+                        </span>
+                    </volist>
+                </notempty>
+
+                <div class="fy">
+                 	<ul class="fy-ul" p ="{$p}">
+                    {$page}
+                    </ul>
+                </div>
+            </div>
+            	<div class="cvxx" style="width:390px; height:600px; float:right">
+            	<div id="fixedMenu_onu-box_com" style="background: #fff;">
+            <empty name = "display">
+            <ol class="jic-olrf">
+            	<li class="li-top" id="type_names"></li>
+           		<li class="li-bottom" >回收均价：<i id="type_price"></i></li>
+             	<li class="li-img"><img id="type_photo"src="" /></li>
+                <li class="li-an"><a id="type_url">去估价</a></li>
+            </ol>
+            </empty>
+            	</div>
+            	</div>
+            
+            </div>
+            
+        </div>
+        <!--jix end-->
+    </div>
+</div>
+<!-- menu end-->
+
+<div class="hot-one">
+	<div class="hot">
+    	<span>热门机型</span>
+        <div class="mr_frbox">
+        	<p class="mr_frBtnL prev p-lf"></p>
+            <div class="mr_frUl">
+            	<ul>
+                    <volist name="type_list" id="vo1">
+    					<li>
+                        	<div class="li-div"><a href="__ROOT__/huigou/id/{$vo1.type_id}"><img src="__PUBLIC__/Uploads/{$vo1.type_photo}" /></a></div>
+                            <p>{$vo1.type_name}</p>
+                            <p>最高回收价：￥{$vo1.highestprice}</p>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            <p class="mr_frBtnR next p-rf"></p>
+        </div>
+    </div>
+</div>
+<!-- hot-one end-->
+
+
+    <div class="cowt">
+        <div class="cowt-c">
+            常见问题
+        </div>
+        <div class="cowt-one">
+            <span>没有您想知道的答案，请咨询<a href="https://eco-api.meiqia.com/dist/standalone.html?eid=7872" target="_blank">在线客服</a></span>
+            <ul>
+                <li class="li_q">
+                    找不到型号怎么办？
+                </li>
+                <li class="li_a">
+                    老款的机器网站上找不到型号则进行环保回收；新款的机型若找不到型号，可以拨打400热线告知客服，客服会提交给工作人员添加。
+                </li>
+            </ul>
+            <ul>
+                <li class="li_q">
+                    机器寄出后如何保证我的利益？
+                </li>
+                <li class="li_a">
+                    易回购网站是和公安联网的，交易中有涉及欺诈交易的我们会在第一时间通过网络进行报案。易回购网站是提供平台给商户竞价回收的，易回购是作为第三方来担保，和用户确认好之后商户会把钱打到易回购的账户中，由易回购网来进行担保。
+                </li>
+            </ul>
+            <ul>
+                <li class="li_q">
+                    哪些机器易回购不进行回收？
+                </li>
+                <li class="li_a">
+                    山寨机、高仿机、扳机、烧卡机（写号机）、改卡机以及网站上没有的品牌都不回收,笔记本08年以前的比较老款的机器不回收，没有硬盘内存的不回收，报废机不回收。
+                </li>
+            </ul>
+            <ul>
+                <li class="li_q">
+                    快递费是谁承担，标准是多少？
+                </li>
+                <li class="li_a">
+                    手机和平板：京津冀承担12元，除京津冀以外承担22元；<br />
+                    笔记本：京津冀承担30元，除京津冀以外承担45元，（高仿机、山寨机、保价费用户自费）
+                </li>
+            </ul>
+            <p><a href="{:U('Help/index/id/17')}">查看更多帮助说明>></a></p>
+        </div>
+    </div>
+</div>
+
+<!--cowt end-->
+
+
+<div class="hb">
+	<div class="hb-mnu">
+    	<div class="mnu-lf">
+        	<div class="mnu-lf-a">
+            		<span>合作伙伴</span>
+                    <table style="border-left:solid 1px #dcdcdc; border-top:solid 1px #dcdcdc; border-collapse: collapse">
+                      <tr>
+                       <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-07.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-01.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-02.jpg" width="116" height="48" /></a></td>
+                        
+                      </tr>
+                      <tr>
+                      <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-03.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-04.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-05.jpg" width="116" height="48" /></a></td>
+                       
+                      </tr>
+                      <tr>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-06.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-08.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/hz-09.jpg" width="116" height="48" /></a></td>
+                      </tr>
+                    </table>
+            </div>
+            <div class="mnu-lf-b">
+            		<span>媒体报道&nbsp;&nbsp;&nbsp;<a style="font-size:12px; color:#999999;">看看各大媒体如何评价易回购</a></span>
+                    <table style="border-left:solid 1px #dcdcdc; border-top:solid 1px #dcdcdc; border-collapse: collapse">
+                      <tr>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-01.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-02.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-03.jpg" width="116" height="48" /></a></td>
+                      </tr>
+                      <tr>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-04.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-05.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-06.jpg" width="116" height="48" /></a></td>
+                      </tr>
+                      <tr>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-07.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-08.jpg" width="116" height="48" /></a></td>
+                        <td style="border-bottom:solid 1px #dcdcdc; border-right:solid 1px #dcdcdc"><a href="#"><img src="__PUBLIC__/Pc2.0/img/kd-09.jpg" width="116" height="48" /></a></td>
+                      </tr>
+                    </table>
+            </div>
+        </div>
+        <div class="mnu-rf">
+        	<span>专业质检流程</span>
+          <div class="ddd">
+                <div class="u" style="height:125px;">
+                    提供专业优质的回收质检服务，保证科学准确的评估您的手机状态，保障您的个人利益！
+                </div>
+                <div class="mnu-rf-yj">
+                    <ul>
+                        <li><img src="__PUBLIC__/Pc2.0/img/yj_2.jpg"/><i>第二步：手机屏幕检测</i></li>
+                        <li><img src="__PUBLIC__/Pc2.0/img/yj_3.jpg"/><i>第三步：手机拍照功能检测</i></li>
+                        <li><img src="__PUBLIC__/Pc2.0/img/yj_4.jpg"/><i>第四步：手机功能类检测</i></li>
+                        <li><img src="__PUBLIC__/Pc2.0/img/yj_5.jpg"/><i>第五步：硬件深度检测</i></li>
+                        <li class="cli"><img src="__PUBLIC__/Pc2.0/img/yj_1.jpg"/><i>第一步：手机外观成色检测</i></li>
+                    </ul>
+                   <div class="scrolllf">&lt;</div>
+                  <div class="scrollrf">&gt;</div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<include file="Public/2.0footer"/>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery.SuperSlide2.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/news.js"></script>
+<script type="text/javascript">
+    function getList(p) {
+        var bid = "{$bid}";
+        var key = "{$keyword}";
+        var tid = "{$tid}";
+        window.location.href="__APP__/Home/Search/index/bid/"+bid+"/p/"+p+"/tid/"+tid+"/key/"+key;
+    }
+
+    $(function(){
+        $(".one-a").hover(function(){
+                var span = $(".one-b");
+                if(span.css("display")=="none"){
+                    span.slideDown(10);
+                }else{
+                    span.slideUp(10);
+                }
+            $(this).addClass('one-bb')
+                $("a img",this).attr("src","__PUBLIC__/Pc2.0/img/nav-02b.png");
+                $('.one-a-a',this).addClass('one-a-a1')
+            },function(){
+                $('.one-a-a',this).removeClass('one-a-a1')
+                $(this).removeClass('one-bb')
+                $("a img",this).attr("src","__PUBLIC__/Pc2.0/img/nav-b-02.png");
+                $(".one-b").slideUp(10);
+            });
+        $(".bg_img:first").click();
+        $(".ts").hide();
+        var p = $(".fy-ul").attr("p");
+        if (p!=0) {
+        $('html,body').animate({
+              'scrollTop': 350
+          },300);
+            // $("html,body").animate({scrollTop:$(".container").offset().top},500)
+        };
+    });
+    $(".fy-ul").find("li").click(function(){
+        $(this).show();
+    })
+    var $searchInput = $('#search');
+    $searchInput.bind('input propertychange', function() {
+            var key = $("#search").val();
+            var cid = "{$tid}";
+            var bid = "{$bid}";
+            $.post(
+              "__APP__/search/ajax_list",
+              {
+                "key":key,
+                "cid":cid,
+                "bid":bid,
+              },
+            function(data) {
+                var length = data.length;
+                if (length > 10) {
+                    $(".ts").html(data);
+                }else{
+                    $(".ts").empty();
+                    $(".ts").hide();
+                    return false;
+                };
+            },
+              'html'
+         );    
+        $(".ts").show();
+    });
+    function change(e) {
+        var $e=$(e);
+        var text = $e.text();
+        var key = $("#search").val(text);
+        $(".ts").hide();
+        $("#types").val(2);
+        $("#froms").submit();
+    }
+    $searchInput.keyup(function(event) {
+        if (event.keyCode == 8) {
+            var len = $searchInput.val().length;
+            if (len == 0) {
+                $(".ts").hide()
+            } 
+        }
+    });
+    $("#searchs").click(function(){
+        $("#froms").submit();
+    })
+
+    $(".bg_img").click(function(){
+        var type_name = $(this).find("p").text();
+        var img_url = $(this).find("img").attr("sid");
+        var price = $(this).find("e").text();
+        var tid = $(this).attr("tid");
+        $("#type_photo").attr("src","__PUBLIC__/Upload/"+img_url);
+        $("#type_photo").attr("style","width:380px;");
+        $("#type_names").text(type_name);
+        $("#type_price").text(price);
+        $("#type_url").attr("href","__ROOT__/huigou/id/"+tid);
+    })
+
+
+
+    $(".clear").click(function (){ 
+        $(".ul-input").val('');
+        $(".ts").css('display','none')
+    }) 
+</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易回购</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/style/menu.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+<style type="text/css">
+    
+
+.top-one{
+    width:1200px;
+    height:60px;
+    line-height:60px;
+    margin:0 auto;
+    background:#FFF
+}
+
+.logo{
+    width:255px;
+    height:60px;
+    float:left;
+}
+
+.nav{
+    width:555px;
+    height:60px;
+    float:right;
+    cursor:pointer
+}
+
+.nav-lf{
+    width:333px;
+    height:50px;
+    text-align:center;
+    float:left;
+    display:inlin;
+    margin-top:10px;
+}
+
+.nav-lf li{
+    width:111px;
+    line-height:42px;
+    text-align:center;
+    float:left
+}
+
+.nav-lf li a{
+    font-size:16px;
+    color:#666666;
+}
+
+.nav-lf li a:hover{
+    color:#61bd52
+}
+
+.one-a{
+    position:relative;
+}
+
+.nav-lf.one-a a{
+    color:#61bd52;
+}
+
+.nav-lf li.one-a .one-a-a1{
+    color:#61bd52;
+    }
+    
+.nav-lf li.one-a a{
+    width:81px;
+    display:block;
+    line-height:42px;
+    text-align:center;
+    margin:0 auto;
+}
+
+.nav-lf li.one-bb{
+    width:111px;
+    line-height:42px;
+    background:#FFF;
+    color:#61bd52;
+    position:relative;
+}
+
+.nav-lf li.one-bb a{
+    width:81px;
+    display:block;
+    line-height:42px;
+    text-align:center;
+    margin:0 auto;
+}
+
+.one-a a img{
+    float:right;
+    margin-top:20px;
+}
+    
+.one-b{
+    width:111px;
+    height:166px;
+    display:none;
+    background:#FFF;
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:5;
+    box-shadow:#999 0px 0px 3px 0px;
+    display:none
+}
+
+.nav-lf li.one-a .one-b a{
+    width:93px;
+    line-height:30px;
+    display:block;
+    float:left;
+    text-align:left;
+    color:#666666;
+    font-size:14px;
+    padding-left:18px
+}
+.nav-lf li.one-a .one-b a:hover{
+    color:#61bd52
+    }
+
+
+.one-a img{
+    float:right;
+    margin-top:27px;
+}
+
+.nav-lf li.one-a>img:hover{
+    transform:rotate(179deg)
+}
+
+.nav-rf{
+    width:222px;
+    height:60px;
+    float:right
+}
+
+.nav-rf li{
+    width:103px;
+    height:32px;
+    float:right;
+    margin-top:14px;
+    position:relative;
+}
+
+.nav-rf li:hover{
+    box-shadow:#ccc 3px 3px 2px; 
+}
+
+.nav-rf li img{
+    float:left
+}
+
+.nav-rf li em{
+    width:16px;
+    height:15px;
+    background:url(../img/nav-gw02.png) no-repeat center center;
+    position:absolute;
+    top:-5px;
+    right:14px;
+    line-height:15px;
+    text-align:center;
+    color:#FFF;
+    font-size:10px
+}
+/*nav end*/
+
+</style>
+<body>
+    <include file="Public/2.0header"/>
+                <div class="top-one">
+                                <div class="logo">
+                                    <a href="__ROOT__/index/index"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                                </div>
+                                <div class="nav">
+                                    <ul class="nav-lf">
+                                        <li class="one-a">
+                                            <a class="one-a-a" href="#" style="color:#61bd52">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                                <span class="one-b">
+                                                    <a href="/" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a>
+                                                </span>
+                                        </li>
+                                        <li><a href="http://shop.ehuigou.com">易购商城</a></li>
+                                        <li><a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                                    </ul>
+                                    <ul class="nav-rf">
+                                        <li>
+                                            <a href="{:U('user/cart')}"><img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                            <em>0</em>
+                                        </li>
+                                    </ul>
+                                </div>
+</div>
+<!-- top-one end-->
+
+    <div class="top">
+    	<p class="top-p"><a href="#" id="top-p-a">填写订单信息</a></p>
+    </div>
+    <div class="main">
+    	<div class="banner"><img src="__PUBLIC__/home/images/banner_03.jpg" /></div>
+        <div class="main-menu" id="main-menu">
+        		<h1>企业预约回收</h1>
+                <h2>客户经理将一对一为贵司报价回收</h2>
+          		<div class="menu-box">
+                	<input name="enterprise_name" type="text" placeholder="公司名称" class="menu-box-input enterprise_name" />
+            		<input name="user_name" type="text" placeholder="联系人" class="menu-box-input user_name" />
+                    <input name="user_phone" type="text" placeholder="联系电话" class="menu-box-input user_phone" />
+              		<em><input name="" type="text" placeholder="输入验证码" class="menu-box-yz" /><a class="em-a"><img src="__PUBLIC__/verify" id="flushcode"/></a><a  class="em-a-shuax flushcode"></a></em>
+                    <textarea name="enterprise_list" cols="" rows="" placeholder="回收机器说明" class="menu-box-text enterprise_list"></textarea>
+                    <div class="menu-box-div"><p class="menu-box-p" id="send">提交订单</p></div>
+                    <span><a style="color:#F00">*</a>&nbsp;提交信息后，请保持电话畅通，我们将竭诚为您服务</span>
+            	</div>
+        </div>
+    </div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/2.0.2/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/index.js"></script>
+<script language="javascript">
+    $(document).ready(function(e) {
+    	$("#top-p-a").click(function(e) {
+            $("html,body").animate({scrollTop:$("#main-menu").offset().top},1000)
+    		/*animate为JQuery的自定义动画方法，$(“#box”).offset().top表示id为box的JQuery对象距离页面顶部的偏移值，1000表示平滑动画执行的时间为1000毫秒，也就是1秒。*/
+        })
+    	
+    });
+    
+    $(".flushcode").click(function(){
+      $("#flushcode").click();
+    });
+    $("#flushcode").click(function(){
+        var timenow = new Date().getTime();
+        $(this).attr('src','__APP__/Public/verify/'+timenow);
+    });
+    $("#send").click(function(){
+        var verify = $.trim($(".menu-box-yz").val());
+        var enterprise_name = $.trim($(".enterprise_name").val());
+        var user_name = $.trim($(".user_name").val());
+        var user_phone = $.trim($(".user_phone").val());
+        var enterprise_list = $.trim($(".enterprise_list").val());
+        $.post(
+          '__URL__/send_enterprise',
+          {
+            "verify" : verify,
+            "enterprise_name" : enterprise_name,
+            "user_name" : user_name,
+            "user_phone" : user_phone,
+            "enterprise_list" : enterprise_list
+          },
+          function(data){
+            if(data.status == 1) {
+                alert(data.info);
+                window.location.href = "__APP__/index/index";
+            }else if(data.status == 2){
+                alert(data.info);
+            } else {
+              alert(data.info);
+            }
+          },
+          'json'
+        );
+    })
+</script>
+</html>

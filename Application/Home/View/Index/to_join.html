@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/account.css" />
+	</head>
+	<body>
+		
+		<div class="menu">
+			<div class="menu-byOn">数万门店的不二选择</div>
+			<div class="menu-byIn">马上加入&nbsp;&nbsp;赚更多收入</div>
+			<div class="menu-click">
+				<a href="#">我要加入</a>
+			</div>
+		</div>
+		<div class="Part">
+			<ul>
+				<li>
+					<span><img src="img/coond-02.jpg" /></span>
+					<em>提交开店申请，点击马上开店，填写企业基本信息，提交您的入驻申请</em>
+				</li>
+				<li>
+					<span><img src="img/coond-03.jpg" /></span>
+					<em>易回购估值人员对您的申请进行资质审核，3个工作日内，易回购工作人员会拜访您的企业或门店，进行业务对接沟通，并为您开通账户</em>
+				</li>
+				<li>
+					<span><img src="img/coond-05.jpg" /></span>
+					<em>审核通过后，您的企业就正式加入易回购业务平台，正式营业，接收更多的订单和收入</em>
+				</li>
+			</ul>
+		</div>
+		
+		<!--account-->
+		<div class="account">
+			<div class="account-theme">
+				<div class="qux">
+					<i class="qux-click"></i>
+				</div>
+				<!--outer-->
+		        <div id="outer">
+		            <ul id="tab">
+		                <li class="current">企业账号</li>
+		                <li>商户账号</li>
+		            </ul>
+		            <div id="content">
+		                <ul style="display:block;">		                   
+		                   <li>
+		                   		<p>企业名称</p>
+		                   		<input type="text" class="account-inputOn">
+		                   </li>
+		                   <li>
+		                   		<p>所在地区</p>
+		                   		<select name="" class="account-selectOn">
+								  <option value="">Volvo</option>
+								  <option value="">Saab</option>
+								</select>
+								<select name="" class="account-selectOn">
+								  <option value="">Volvo</option>
+								  <option value="">Saab</option>
+								</select>
+		                   </li>
+		                   <li>
+		                   		<p>负责人员</p>
+		                   		<input type="text" class="account-inputOn">
+		                   </li>
+		                   <li>
+		                   		<p>联系电话</p>
+		                   		<input type="text" class="account-inputOn">
+		                   </li>
+		                   <li>
+		                   		<p>营业执照</p>		                   		
+		                   		<div id="preview">
+								    <img id="imghead" src="img/coon-06.png" style="margin-top: 0px;">
+								</div>
+								<a href="javascript:;" class="file">
+									<input type="file"  accept="image/*" onchange="previewImage(this)" />
+								</a>
+		                   </li>
+		                   <li>
+		                   		<span class="account-spanOn"><a href="#">提交申请</a></span>
+		                   </li>
+		                   <li>
+		                   		<em>连锁经营的企业请申请“企业账号”</em>
+		                   		<em>独立经营的门店请申请“商户账号”</em>
+		                   		<em>账号申请审核将在2个工作日内完成，并以短信形式通知。</em>
+		                   </li>
+		                </ul>
+		                <ul>
+		                    <li>
+		                   		<p>商铺名称</p>
+		                   		<input type="text" class="account-inputOn">
+		                   </li>
+		                   <li>
+		                   		<p>商铺性质</p>
+		                   		<select name="" class="account-selectOn" style="width: 360px; margin-left: 0;">
+								  <option value="">Volvo</option>
+								  <option value="">Saab</option>
+								</select>
+							</li>
+							<li>
+		                   		<p>商家姓名</p>
+		                   		<input type="text" class="account-inputOn">
+		                   </li>
+		                   <li>
+		                   		<p>联系电话</p>
+		                   		<input type="text" class="account-inputOn">
+		                   </li>
+		                   <li>
+		                   		<p>所在地区</p>
+		                   		<select name="" class="account-selectOn">
+								  <option value="">Volvo</option>
+								  <option value="">Saab</option>
+								</select>
+								<select name="" class="account-selectOn">
+								  <option value="">Volvo</option>
+								  <option value="">Saab</option>
+								</select>
+		                   </li>
+		                   <li>
+		                   		<p>详细地址</p>
+		                   		<input type="text" class="account-inputOn">
+		                   </li>
+		                   <li>
+		                   		<span class="account-spanOn"><a href="#">提交申请</a></span>
+		                   </li>
+		                   <li>
+		                   		<em>连锁经营的企业请申请“企业账号”</em>
+		                   		<em>独立经营的门店请申请“商户账号”</em>
+		                   		<em>账号申请审核将在2个工作日内完成，并以短信形式通知。</em>
+		                   </li>
+		                </ul>
+		            </div>
+		        </div>
+				<!--outer end-->
+			</div>
+		</div>
+		<!--account End-->
+		
+		<script type="text/javascript" src="js/jquery-2.0.2.min.js" ></script>
+		<script type="text/javascript" src="js/Upload img.js" ></script>
+		<script>
+			//outer
+			$(function(){
+				window.onload = function()
+				{
+					var $li = $('#tab li');
+					var $ul = $('#content ul');
+								
+					$li.click(function(){
+						var $this = $(this);
+						var $t = $this.index();
+						$li.removeClass();
+						$this.addClass('current');
+						$ul.css('display','none');
+						$ul.eq($t).css('display','block');
+					})
+				}
+			});
+			//outer end
+			
+			$(function(){
+				$(".menu-click").click(function(){
+					$(".account").show()
+				});
+				$(".qux-click").click(function(){
+					$(".account").hide()
+				});
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      易回购
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <script src="__PUBLIC__/bootstrap/js/meiqia.js">
+    </script>
+    <script src="__PUBLIC__/phone/new/js/base.js">
+    </script>
+    <link rel="stylesheet" href="__PUBLIC__/phone/new/css/Gujia.css">
+    <link REL="Shortcut Icon" href="__PUBLIC__/logo.ico">
+    <link href="__PUBLIC__/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/phone/style/public.css">
+    <script src="__PUBLIC__/phone/new/js/header.js">
+    </script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js">
+    </script>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+  </head>
+
+  <body style="padding-top: 60px;">
+    <include file="Public/header" />
+    <div class="main-box">
+      <div class="main">
+        <div class="info">
+          <span>
+            <img src="__PUBLIC__/Uploads/{$type_info.type_photo}" alt="">
+          </span>
+          <p style="padding-left:20%">
+            {$type_info.type_name}
+            <br>
+            回收参考价：
+            <i>
+              ￥{$type_info.highestprice}
+            </i>
+            <br>
+            <b>
+              注：
+            </b>
+          </p>
+        </div>
+        <div class="clear">
+        </div>
+        <p class="xinxi">
+          <b>
+            请准确勾选以下信息，轻松三步即可获得最准确的报价信息
+          </b>
+          <strong>
+            <img src="__PUBLIC__/phone/new/images/Gujia/xinxi1.png" alt="">
+          </strong>
+          <strong>
+            <img src="__PUBLIC__/phone/new/images/Gujia/xinxi2.png" alt="">
+          </strong>
+          <strong>
+            <img src="__PUBLIC__/phone/new/images/Gujia/xinxi3.png" alt="">
+          </strong>
+        </p>
+        <div class="clear">
+        </div>
+      </div>
+
+      <div class="list">
+          <div class="list1" id="one">
+            <h3>
+              1.产品配置
+            </h3>
+            <volist name="conflist" id="conf">
+              <div class="ss">
+                <em>
+                  {$conf}
+                </em>
+                <select class="form-control config_sel emvna" name="{$key}" id="{$key}"
+                clicked="0">
+                </select>
+                <div class="clear">
+                </div>
+              </div>
+            </volist>
+          </div>
+          <div class="clear">
+          </div>
+      </div>
+
+      <div class="list2" id="two" style="padding-bottom: 25px;">
+        <h3>
+          2.功能状况
+        </h3>
+        <volist name="right_list" id="right" key="q">
+          <span class="titname_row_2_{$right.interface_id} titname_row" ok="{$right.is_multi}">
+            {$right.interface_name}
+          </span>
+          <div class="onlist2 leap1{$key}" key="{$key}">
+            <volist name="right.param_list" id="param">
+              <div class="list2-info step2option step2option{$right.interface_id}" qid="{$right.interface_id}"
+              itemid="{$param.right_id}" mc="{$right.is_multi}" style="overflow:hidden">
+                <a style="height:100%;line-height:400%">
+                  {$param.right_name}
+                </a>
+              </div>
+            </volist>
+          </div>
+        </volist>
+        <div id="three" name="gujia">
+          免费估价
+        </div>
+      </div>
+    <include file="Public/footer" />
+<script type="text/javascript">
+  <?php if($type_info["cate_id"] > 2 && $type_info["cate_id"] !=5) { ?>
+    $(function(){
+      getConfList();
+    });
+  <?php } ?>
+  function getConfList() {
+    var arr = [];
+    $(".config_sel").each(function() {
+      if ($(this).attr("clicked") == 1) {
+        var arrinfo = {};
+        arrinfo.tid = $(this).attr("name");
+        arrinfo.name = $(this).val();
+        arr.push(arrinfo);
+      }
+    });
+    $.post(
+      '__URL__/getConfList', 
+      {
+      "tid": "{$type_info.type_id}",
+      "data": JSON.stringify(arr)
+      },
+      function(data) {
+        if (data.status == 1) {
+          var list = data.data;
+          for (var key in list) {
+            $("#" + key).html("");
+            var html = "";
+            if (list[key].length == 1) {
+              html += '<option value="' + list[key][0] + '">' + list[key][0] + '</option>';
+              $("#" + key).attr("clicked", 1); 
+            } else {
+              html += '<option value=""></option>';
+              for (var i in list[key]) {
+                html += '<option value="' + list[key][i] + '">' + list[key][i] + '</option>';
+              }
+            }
+            $("#" + key).append(html);
+          }
+          var conf = [];
+          var is_all = true;
+          $(".config_sel").each(function() {
+            if ($.trim($(this).val()) == "") {
+              is_all = false;
+              return false;
+            } else {
+              var confinfo = {};
+              confinfo.id = $(this).attr("name");
+              confinfo.name = $(this).val();
+              conf.push(confinfo);
+            }
+          });
+        } else {
+          alert("该机型配置信息为空");
+        }
+      },
+      'json'
+    )
+  }
+
+  $(".configreset").click(function() {
+    $(".config_sel").attr("clicked", 0);
+    getConfList();
+  });
+
+  $(".config_sel").change(function() {
+    $(this).css("border-color", "rgb(169, 169, 169)");
+    $(this).attr("clicked", 1);
+    var value = $(this).val();
+    $(this).html('<option value="' + value + '">' + value + '</option>');
+    getConfList();
+  });
+
+
+  $(".step2option").click(function() {
+    var mc = $(this).attr("mc"); //1复选 0单选
+    var qid = $(this).attr("qid");
+    if (mc != 1) {
+      $(".step2option" + qid).removeClass("activ") $(".step1option" + qid).removeClass("item2_checkd");
+      $(this).addClass("activ") $(this).addClass("item2_checkd") var titname = $(this).html();
+      $(".titname_row_2_" + qid).attr("ok", 1);
+      $(".titname_2_" + qid).html(titname);
+    } else {
+      if ($(this).hasClass("item2_checkd")) {
+        $(this).removeClass("activ") $(this).removeClass("item2_checkd");
+      } else {
+        $(this).addClass("activ") $(this).addClass("item2_checkd");
+      }
+    }
+    var tp = $(window).scrollTop();
+    var key = $(this).parent("div").attr("key");
+    key = key * 1 + 1;
+    var t = $(this).offset().top;
+    var top = $(".leap1" + key).offset().top;
+    $('body,html').animate({
+      'scrollTop': tp + top - t + 5
+    },300)
+  })
+
+  var is_end = 0;
+  $("#three").click(function() {
+    is_end += 1;
+    var num = 0;
+    var conf = [];
+    $(".titname_row").each(function() {
+      if ($(this).attr("ok") != 1) {
+        num++;
+        $(this).css("color", "#FF0000");
+      }
+    });
+
+    if (num > 0) {
+      alert("您的订单信息还不完整哟");
+      is_end = 0;
+      return false;
+    }
+    $(".config_sel").each(function() {
+      var confinfo = {};
+      confinfo.id = $(this).attr("name");
+      confinfo.name = $(this).val();
+      conf.push(confinfo);
+    });
+    var leftstr = "";
+    var rightstr = "";
+    $(".item2_checkd").each(function() {
+      rightstr += $(this).attr("itemid") + ",";
+    });
+    if (is_end == 1) {
+      $.post('__URL__/addCart', {
+        "tid": "{$type_info.type_id}",
+        "conf": JSON.stringify(conf),
+        "leftstr": leftstr,
+        "rightstr": rightstr
+      },
+      function(data) {
+        if (data.status == 1) {
+          window.location.href = "__APP__/Order/inquiry";
+        } else {
+          alert(data.info);
+        }
+      },
+      "json");
+    };
+  })
+</script>
+</body>
+</html>

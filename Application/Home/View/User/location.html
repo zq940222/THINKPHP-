@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户中心--常用地址</title>
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/changyongdizhi.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/userpublic.css">
+	<script src="__PUBLIC__/pc2.0/js/jquery-1.7.2.min.js"></script>
+	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+<body>
+    <include file="Public/2.0header"/>
+	<include file="Public/2.0hint"/>
+    <include file="Public/2.0user_header"/>
+	<div class="h"></div>
+	<div id="content2">
+    	<include file="Public/nav"/>
+		<div class="f-info">
+			<span>常用地址</span>
+			<notempty name="location.province">
+					<div class="data">
+						<h6><i></i>&nbsp;<b>{$location.province}</b>&nbsp;<notempty name="location.address_detailed"><em>默认地址</em></notempty></h6>
+						<p>所选区域：<em>{$location.province}{$location.city}{$location.area}</em></p>
+						<p>详细地址：<em>{$location.address_detailed}</em></p>
+						<p class="data-padding" ><a href="javascript:void(0)" id="save">修改</a></p>
+					</div>
+			<else />
+				<a class="add" id="T" href="javascript:void(0)">新增交易地址</a>
+			</notempty>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="bg">
+	 	<div class="info1">
+	 	<h6>添加地址</h6>
+	 		<span><i>选择省市</i>&nbsp;&nbsp;&nbsp;
+	 			<select name="" class="select_ province_list">
+					<volist name="province_list" id="vo">
+			 			<option value="{$vo.provinceid}" <?php echo $location["provinceid"] == $vo["provinceid"] ? "selected = 'selected'" : ''; ?> >{$vo.province}</option>
+					</volist>
+	 			</select>
+				<select name="" class="select_ city_list1">
+					<notempty name="location.cityid">
+	 					<option value="{$location.cityid}">{$location.city}</option>
+	 				<else />
+	 					<option value="0">请选择</option>
+					</notempty>
+	 			</select>
+	 			<select name="" class="select_ area_list">
+					<notempty name="location.areaid">
+	 					<option value="{$location.areaid}">{$location.area}</option>
+	 				<else />
+	 					<option value="0">请选择</option>
+					</notempty>
+	 			</select>
+	 		</span>
+	 		<span><i>详细地址</i>&nbsp;&nbsp;&nbsp;
+				<input type="text" id="realName" placeholder="请输入详细地址" value="{$location.address_detailed}">
+	 		</span>
+	 		<input class="btn" id="L" type="submit" value="添加">
+		 	<input class="btn" id="R" type="button" value="取消">
+			<em id="X"><img src="__PUBLIC__/pc2.0/img/x.jpg" alt=""></em>
+	 	</div>
+	 </div>	
+</body>
+<include file="Public/2.0footer"/>
+<script src="__PUBLIC__/pc2.0/js/user_public.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript">
+	var provinceid = "{$location.provinceid}";
+	var cityid = "{$location.cityid}";
+	var areaid = "{$location.areaid}";
+	$(function(){
+		$(".province_list").change();
+	})
+	$("#save").click(function(){
+		$("#bg").show();
+		$("#L").val("修改");
+	})
+   	$('.province_list').change(function(){
+  		ajax_city($(this));
+    });
+    $(document).ajaxComplete(function(event, xhr, settings) {
+        if ( settings.url === "__APP__/order/ajax_city" ) {
+             $('.city_list1').change();
+        }
+    });
+    function ajax_city (e) {
+    	var $e = e;
+    	var id = $e.val();
+        $.post(
+            '__APP__/order/ajax_city',  
+            {
+                "id":id
+            },function(data){
+	            if(data.status == 1) {
+	                var list = data.data;
+	                $(".city_list1").empty();
+	                for (var i = 0; i < list.length ; i++) {
+	                	if (provinceid == id && list[i]['cityid'] == cityid) {
+	                    $(".city_list1").append("<option value='"+list[i]['cityid']+"' selected = 'selected'>"+list[i]['city']+"</option>");  
+		                }else{
+		                    $(".city_list1").append("<option value='"+list[i]['cityid']+"'>"+list[i]['city']+"</option>");  
+		                }
+	                };
+	            } else {
+	                alert(data.info);
+	            }
+            },
+            'json'
+        ) 
+    } 
+    $('.city_list1').change(function(){
+        var id = $(".city_list1").val();
+        if (id == 0) {
+            return false;
+        };
+        $.post(
+            '__APP__/order/ajax_area',  
+	        {
+	            "id":id
+	        },function(data){
+	           	if(data.status == 1) {
+	                var list = data.data;
+	                $(".area_list").empty();
+	                for (var i = 0; i < list.length ; i++) {
+	                	if (cityid == id && list[i]['areaid'] == areaid) {
+	                    	$(".area_list").append("<option value='"+list[i]['areaid']+"' selected = 'selected'>"+list[i]['area']+"</option>"); 
+	                    }else{
+	                    	$(".area_list").append("<option value='"+list[i]['areaid']+"'>"+list[i]['area']+"</option>"); 
+	                    } 
+	                };
+	            } else {
+	                alert(data.info);
+	        	}
+            },
+            'json'
+        )   
+    });
+    $("#L").click(function(){
+    	var provinceid = $(".province_list").val();
+    	if (provinceid == "" && provinceid == 0) {
+    		show_cw("请选择省");
+    		return false;
+    	};
+    	var cityid = $(".city_list1").val();
+    	if (cityid == "" && cityid ==0) {
+    		show_cw("请选择市");
+    		return false;
+    	};
+    	var areaid = $(".area_list").val();
+    	if (areaid == "" && areaid == 0) {
+    		show_cw("请选择县/区");
+    		return false;
+    	};
+    	var address_detailed = $("#realName").val();
+    	if (address_detailed == "") {
+    		show_cw("请填写详细地址");
+    		return false;
+    	};
+    	$.post(
+    		'__URL__/save_location',
+    		{
+    			'provinceid':provinceid,
+    			'cityid':cityid,
+    			'areaid':areaid,
+    			'address_detailed':address_detailed
+    		},
+    		function(data){
+    			if (data.status == 1) {
+					show_cg("操作成功");
+					$("#bg").hide();
+					refresh();
+				}else{
+					show_cw(data.info);
+				};
+    		},
+    		'json'
+    	)   	
+    })
+
+</script>
+</html> 

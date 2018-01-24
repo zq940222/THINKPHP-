@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/logins.css"/>
+<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+</head>
+<body>
+<include file="Public/2.0hint"/>
+<div class="logo">
+  <div class="logobox">
+      <a href="/"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎注册
+    </div>
+</div>
+<!--logo end-->
+
+<div class="main">
+  <div class="menu">
+    	<div class="menulf">
+       	  <span>注册新用户</span>
+          <ul>
+                 <li class="lia">
+                   <input name="" id="user_phone" type="text" class="liainput" placeholder="请输入手机号" />
+                   <input type="button" class="show " id="check_phone" value="获取验证码" style="outline:0" ></input>
+                 </li><p style="margin-top:10px">*</p>
+                 <li class="lib"><input name="" type="text" id="code"class="libinput" placeholder="请输入验证码" /></li><p style="margin-top:10px">*</p>
+                 <li class="lic"><input type="checkbox" name="radio" value="1" id="radio" class="licinput"><label for="radio">&nbsp;&nbsp;我已阅读并同意</label><a href="http://www.ehuigou.com/help/index/id/13.html" target="_blank"><i>《易回购服务条款》</i></a></li>
+                 <li class="lid" id="send">注册</li>
+            </ul>
+        </div>
+        <div class="menurf">
+        	<span>已有账号？<a href="__URL__/login"><i> 立即登录 »</i></a></span>
+            <p><a href="/"><img src="__PUBLIC__/Pc2.0/img/login-066.jpg" /></a></p>
+      </div>
+  </div>
+</div>
+<!--main end-->
+
+<div id="bg">
+    <div class="info">
+      <h6>请您输入验证码：</h6>
+      <div class="inputBox">
+        <input type="text" id="verify">
+        <span class="img_"><img id="flushcode" src="__ROOT__/public/verify"></span>
+      </div>
+      <p>请填写图片中的字符，不区分大小写<i class="flushcode">看不清楚？换一张</i></p>
+      <input class="btn" id="L" type="submit" value="确认">
+      <input class="btn hide" id="R" type="button" value="取消">
+            <span><strong>小提示：</strong>如果多次尝试仍无法登录，建议您清理浏览器缓存或更换浏览器再试试。</span>
+            <em class="hide"><img src="__PUBLIC__/Pc2.0/img/x.jpg" /></em>
+  </div>
+</div>
+<!--bg end-->
+
+<div class="footer">
+	<ul>
+    	<li><a href="{:U('Help/index')}">关于易回购</a>&nbsp;&nbsp;<a href="#">加入我们</a>&nbsp;&nbsp;<a href="{:U('Help/index/id/31')}">联系我们</a>&nbsp;&nbsp;<a href="http://m.ehuigou.com">易回购手机版</a>&nbsp;&nbsp;<a href="#">友情链接</a></li>
+        <li>Copyright&nbsp;2016易回购网版权所有&nbsp;&nbsp;&nbsp;@ICP备案&nbsp;&nbsp;粤ICP备15099379号-1</li>
+    </ul>
+</div>
+<!--footer end-->
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script>
+    var phone = 0;
+    var p_ok = 0;
+    var phone_user = document.getElementById("check_phone");
+    $("#send").click(function(){
+      phone = $.trim($("#user_phone").val());
+      if(phone == ""  || !preg.test(phone)) {
+        show_cw("请填写合法手机号码");
+        return false;
+      }        
+      if (p_ok == 1) {
+        var code = $("#code").val();
+        if (code.length <6) {
+          show_cw("验证码错误");
+          return false;
+          
+        };
+        var val=$('#radio:checked').val();
+        if(val==null){
+          show_cw("请同意易回购服务条款");
+          return false;
+        }
+        $.post(
+            '__URL__/check_register',  
+            {
+                "code":code,
+                "user_phone":phone
+            },function(data){
+                if(data.status == 1) {
+                  show_cg(data.info);
+                  window.location.href = "__URL__/base_info";
+                }else{
+                  show_cw(data.info);
+                } 
+            },
+            'json'
+        )
+      }else{
+        show_cw("请先获取手机验证码");
+        return false;
+      };
+      
+    })
+  /*bg*/
+	$(function(){
+		$(".show").click(function(){
+      phone = $.trim($("#user_phone").val());
+      if(phone == ""  || !preg.test(phone)||phone.length<11) {
+            show_cw("请填写合法手机号码");
+            return false;
+      }
+			$("#bg").show();
+		})
+		$(".hide").click(function(){
+			$("#bg").hide();
+		})	
+	})
+  $("#L").click(function(){
+    var verify = $("#verify").val();
+    if (verify == "" || verify.length<4) {
+      $("#flushcode").click();
+      show_cw("验证码错误");
+      return false;
+    };
+    $.post(
+            '__URL__/ajax_check_verify',  
+            {
+                "verify":verify,
+                "user_phone":phone
+            },function(data){
+                if(data.status == 1) {
+                  time(phone_user);
+                  p_ok = 1;
+                  $("#bg").hide();
+                }else if (data.status == 2) {
+                  p_ok = 1;
+                  time(phone_user);
+                  $("#bg").hide();
+                }else{
+                  show_cw(data.info);
+                  $("#flushcode").click();
+              }
+            },
+            'json'
+        ) 
+  })
+    $(".flushcode").click(function(){
+      $("#flushcode").click();
+    });
+    $("#flushcode").click(function(){
+        var timenow = new Date().getTime();
+        $(this).attr('src','__APP__/Public/verify/'+timenow);
+    });
+	/*bg end*/
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>易回购</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/phone2.0/css/pingcex.css">
+  <link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/phone/style/public.css">
+
+</head>
+<body>
+  	<include file="Public/header"/>
+  	<div class="constainer-fluid">
+	    <div class="row" style="margin:0">
+	      	<div class=" col-xs-4 title">
+		        <h5 class="pinpai">评测项目</h5>
+		        <div class="info">
+		          <ul style="height:1140px;">
+		            <volist name="left_list" id="left">
+		              <if condition="$key eq 0">
+		                <li class="property left first"  onclick="get_left({$left.parameter_id})" multi="0" ok="0" tid="0">
+		              <else />
+		                <li class="property left" onclick="get_left({$left.parameter_id})" multi="0" ok="0" tid="0">
+		              </if>
+		                  <i>
+		                    <img src="__PUBLIC__/phone2.0/images/a.png" alt="">
+		                  </i>
+		                  <a href="javascript:;" >{$left.parameter_name}</a>
+		                </li>
+		            </volist>
+		            <volist name="right_list" id="right">
+		                <li class="property right" onclick="get_right({$right.interface_id})" multi = "{$right.is_multi}" tid="0" ok="0">
+		                  <i> 
+		                    <img src="__PUBLIC__/phone2.0/images/a.png" alt="">
+		                  </i>
+		                  <a href="javascript:;" >{$right.interface_name}</a>
+		                </li>
+		            </volist>
+		          </ul>
+		        </div>
+	      	</div>
+
+	      	<div class="col-xs-8 box">
+		        <h5 class="xinghao">评测情况</h5>
+		        <div class="info" style="overflow: scroll; height: 270px;">
+		          <ul class="list">
+		          </ul>
+		        </div>
+	      	</div>
+	    </div>
+	    <div class="row margin-top">
+	      	<h4 class="col-xs-12 btn">马上估价</h4>
+	    </div>
+    </div>
+    <include file="Public/footer" />
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-2.0.2.min.js" ></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/phone2.0/js/public.js" ></script>
+    <script>
+	$(function() {
+	    var winH = $(window).height();
+	    $('.title .info').height(winH - 83);
+	    $('.box .info').height(winH - 83);
+	    $(".property").first().click();
+	});
+	function checkd(e) {
+	    var tid = $(e).attr("tid");
+	    var multi = $(".first").attr("multi");
+	    if (multi == 0) {
+	        $(".first").attr("tid", tid);
+	        $(".first").attr("ok", 1);
+	        $(".first").css("border-color", "#eeeef0");
+	        $(".options").removeClass("first_");
+	        $(e).addClass("first_");
+	    } else {
+	        if ($(e).hasClass("first_")) {
+	            $(e).removeClass("first_");
+	        } else {
+	            $(e).addClass("first_");
+	            $(".first").css("border-color", "#eeeef0");
+	            $(".first").attr("ok", 1)
+	        };
+	        var this_tid = "";
+	        $(".first_").each(function() {
+	            this_tid += $(this).attr("tid") + ","
+	        });
+	        tid = this_tid;
+	    };
+	    $(".first").addClass("check");
+	    $(".first").attr("tid", tid);
+	    if (multi == 0) {
+	        next1();
+	    };
+	};
+	function next1() {
+	    setTimeout(function() {
+	        $(".first").next("li").click()
+	    },500);
+	    var t = $("ul").offset().top;
+	    var top = $(".first").offset().top;
+	    if (top > 470) {
+	        $('.info').animate({
+	            'scrollTop': 250
+	        },300);
+	    }
+	};
+	function get_left(rid) {
+	    $.post(
+	    	"__URL__/get_list", 
+	    	{
+	        "rid": rid,
+	        "tid": 1
+	    	},
+		    function(data) {
+		        $(".list").html(data);
+		    },
+	    	'html'
+	    )
+	};
+	function get_right(rid) {
+	    $.post(
+	    	"__URL__/get_list",
+	    	{
+	        "rid": rid,
+	        "tid": 2
+	    	},
+		    function(data) {
+		        $(".list").html(data);
+		    },
+	    	'html'
+	    )
+	};
+	$(".left").click(function() {
+	    $(".property").removeClass("first");
+	    $(this).addClass("first")
+	});
+	$(".right").click(function() {
+	    $(".property").removeClass("first");
+	    $(this).addClass("first")
+	});
+	$(document).ajaxComplete(function(event, xhr, settings) {
+	    if (settings.url === "__URL__/get_list") {
+	        var tid = $(".first").attr("tid");
+	        var tids = tid.split(",");
+	        for (var i in tids) {
+	            $(".options").each(function() {
+	                var tid1 = $(this).attr("tid");
+	                if (tids[i] == tid1) {
+	                    $(this).addClass("first_")
+	                }
+	            })
+	        }
+	    }
+	});
+	var is_end = 0;
+	$(".btn").click(function() {
+	    is_end += 1;
+	    var num = 0;
+	    $(".property").each(function() {
+	        if ($(this).attr("ok") != 1) {
+	            num++;
+	            $(this).css("border-color", "#1ba97b");
+	        }
+	    });
+	    if (num > 0) {
+	        alert("您的订单信息还不完整哟");
+	        is_end = 0;
+	        return false;
+	    }
+	    var leftstr = "";
+	    $(".left").each(function() {
+	        leftstr += $(this).attr("tid") + ",";
+	    });
+	    var rightstr = "";
+	    $(".right").each(function() {
+	        rightstr += $(this).attr("tid") + ",";
+	    });
+	    if (is_end == 1) {
+		    $.post('__URL__/addCart',
+		        {
+		            "tid": "{$type_info.type_id}",
+		            "leftstr": leftstr,
+		            "rightstr": rightstr
+		        },
+		        function(data) {
+		            if (data.status == 1) {
+		                window.location.href = "__APP__/Order/inquiry";
+		            } else {
+		                alert(data.info);
+		            }
+		        },
+		        "json"
+		    )
+	    }
+	});
+  </script>
+</body>
+</html>

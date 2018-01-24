@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>易回购 -- 帮助中心</title>
+        <script src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css" />
+        <link REL="Shortcut Icon" href="__PUBLIC__/logo.ico">
+        <script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+        <script>
+        $(function() {
+                var fuWuBtn = $('#main .tab');
+                var tabC = $('#main .tabChild'); 
+                fuWuBtn.click(function() {
+                    var i = fuWuBtn.index(this);
+                    fuWuBtn.removeClass('tabHot') ;
+                    $(fuWuBtn[i]).addClass('tabHot');
+                    if (i == 0) {
+                        $('img', fuWuBtn[0]).attr('src', '__PUBLIC__/Pc2.0/img/help3.png');
+                        $('img', fuWuBtn[1]).attr('src', '__PUBLIC__/Pc2.0/img/help04.png');
+                        $('img', fuWuBtn[2]).attr('src', '__PUBLIC__/Pc2.0/img/help05.png');
+                    } else if (i == 1) {
+                        $('img', fuWuBtn[1]).attr('src', '__PUBLIC__/Pc2.0/img/help4.png') ;
+                        $('img', fuWuBtn[0]).attr('src', '__PUBLIC__/Pc2.0/img/help03.png');
+                        $('img', fuWuBtn[2]).attr('src', '__PUBLIC__/Pc2.0/img/help05.png');
+                    } else if (i == 2) {
+                        $('img', fuWuBtn[2]).attr('src', '__PUBLIC__/Pc2.0/img/help5.png') ;
+                        $('img', fuWuBtn[1]).attr('src', '__PUBLIC__/Pc2.0/img/help04.png') ;
+                        $('img', fuWuBtn[0]).attr('src', '__PUBLIC__/Pc2.0/img/help03.png');
+                    }
+                    tabC.hide();
+                    $(tabC[i]).show()
+                })
+                 // 点击“专业质检说明”弹出效果。
+                var menuBtn=$('#main .fuwu .li_')
+                $('#main .fuwu .li_.li2_').hover(function(){
+                	$('#main #info').show()
+                },function(){
+                		$('#main #info').hide()
+                })
+                $('#main #info em').click(function() {
+                    var e = $(this).attr('tid');
+                    $('.tab1_').hide();
+                    $('#main #info em').removeClass("infoHot");
+                    $(this).addClass("infoHot");
+                     console.log(e) ;
+                    $('.tabBox.screen').hide();
+                    $('.tabBox.screen.b' + e).show();
+                    menuBtn.removeClass('li-hot');
+                    $(menuBtn[4]).addClass('li-hot');
+                    return false;
+                })
+            })
+            // top------JS
+            $(function() {
+                $(".one-a").hover(function() {
+                    var span = $(".one-b");
+                    if (span.css("display") == "none") {
+                        span.slideDown(10);
+                    } else {
+                        span.slideUp(10);
+                    }
+                    $(this).addClass('one-bb') ;
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-02b.png");
+                    $('.one-a-a', this).addClass('one-a-a1')
+                },
+                function() {
+                    $('.one-a-a', this).removeClass('one-a-a1');
+                    $(this).removeClass('one-bb');
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-b-02_.png");
+                    $(".one-b").slideUp(10);
+                });
+                $(".i-wz-a").hover(function() {
+                    $('.icon-caret-up').css('transform', 'rotate(0deg)');
+                    $('.icon-caret-up').css('margin-top', '7.3px');
+                },
+                function() {
+                    $('.icon-caret-up').css('transform', '');
+                    $('.icon-caret-up').css('margin-top', '');
+                });
+            })</script>
+        <link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/help.css"></head>
+    
+    <body>
+        <include file="Public/2.0hint"/>
+        <include file="Public/2.0header" />
+        <div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #eaeaea; position:relative; z-index:96;" cid="{$cid}" id="cids">
+            <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:60px; border-bottom:solid 1px #eaeaea">
+                <div class="top-one">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                    </div>
+                    <div class="nav">
+                        <ul class="nav-lf">
+                            <li class="one-a">
+                                <a class="one-a-a" href="#">旧机回收
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-b-02_.png" /></a>
+                                <span class="one-b">
+                                    <a href="#" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收
+                                        <img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a></span>
+                            </li>
+                            <li>
+                                <a href="http://shop.ehuigou.com/category.php?id=685">易购商城</a></li>
+                            <li>
+                                <a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                        </ul>
+                        <ul class="nav-rf">
+                            <li>
+                                <a href="__ROOT__/order/inquiry">
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                <em>0</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-box">
+            <div class="titleBox">
+                <span class="title">
+                    <img src="__PUBLIC__/Pc2.0/img/help1.jpg" alt=""></span>
+            </div>
+            <div id="main">
+                <ul class="fuwu">
+                <if condition="($cid eq 1) or ($cid lt 1)">
+                    <li class="li_ li-hot" vid=1 id="types_1">
+                <else />
+                    <li class="li_ li" vid=1 id="types_1">
+                </if>
+                        <a href="http://www.ehuigou.com/help/index/cid/1" >
+                            <i>
+                            </i>
+                            <span>交易方式</span>
+                        </a>
+                    </li>
+                <if condition="$cid eq 2">
+                    <li class="li_ li-hot" vid=2 id="types_2">
+                <else />
+                    <li class="li_" vid=2 id="types_2">
+                </if>
+                        <a href="http://www.ehuigou.com/help/index/cid/2">
+                            <i>
+                            </i>
+                            <span>服务网点</span></a>
+                    </li>
+                <if condition="$cid eq 3">
+                    <li class="li_ li-hot" vid=3 id="types_3">
+                <else />
+                    <li class="li_" vid=3 id="types_3">
+                </if>
+                        <a href="http://www.ehuigou.com/help/index/cid/3">
+                            <i>
+                            </i>
+                            <span>常见问题</span></a>
+                    </li>
+                <if condition="$cid eq 4">
+                    <li class="li_ li-hot" vid=4 id="types_4">
+                <else />
+                    <li class="li_" vid=4 id="types_4">
+                </if>
+                        <a href="http://www.ehuigou.com/help/index/cid/4">
+                            <i>
+                            </i>
+                            <span>服务条款</span></a>
+                    </li>
+                <if condition="$cid eq 5">
+                    <li class="li_ li2_ li-hot" id="types_5" style="position:relation">
+                <else />
+                    <li class="li_ li2_" id="types_5" style="position:relation">
+                </if>                    
+                        <a style="display:block" href="http://www.ehuigou.com/help/index/cid/5">
+                            <i>
+                            </i>
+                            <span class="xxBox">专业质检说明
+                                <img class="xx" src="__PUBLIC__/Pc2.0/img/help15.jpg" alt=""></span>
+	                            <div id="info">
+	                                <em class="infoHot" tid=1>
+	                                    屏幕</em>
+	                                <em tid=2>
+	                                   拍照</em>
+	                                <em tid=3>
+	                                    功能</em>
+	                                <em tid=4>
+	                                    硬件</em>
+	                                <em tid=5>
+	                                    外观</em>
+	                            </div>
+                        </a>
+                    </li>
+                <if condition="$cid eq 6">
+                    <li class="li_ li-hot" vid=6 id="types_6">
+                <else />
+                    <li class="li_" vid=6 id="types_6">
+                </if>
+                        <a href="http://www.ehuigou.com/help/index/cid/6">
+                            <i>
+                            </i>
+                            <span>质检名词解释</span></a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <if condition="($cid eq 1) or ($cid lt 1)">
+                    <div class="tabBox c1 tab1_" id="typesds" bid="{$bid}">
+                        <div class="content">
+                            <h6>
+                                <img class="left" src="__PUBLIC__/Pc2.0/img/sss.png" alt="">易回购为您提供3种交易方式，更加方便快捷
+                                <img class="right" src="__PUBLIC__/Pc2.0/img/help02.jpg" alt=""></h6>
+                        <if condition="$bid eq 1">
+                            <span class="tab tabHot boxx-1">
+                            <img src="__PUBLIC__/Pc2.0/img/help3.png" alt="">
+                        <else />
+                            <span class="tab boxx-1">
+                                <img src="__PUBLIC__/Pc2.0/img/help03.png" alt="">
+
+                        </if>
+                                <em>上门服务</em>
+                                <i>北京地区可免费上门</i>
+                            </span>
+                        <if condition="$bid eq 2">
+                            <span class="tab tabHot boxx-2">
+                            <img src="__PUBLIC__/Pc2.0/img/help4.png" alt="">
+                        <else />
+                            <span class="tab boxx-2">
+                            <img src="__PUBLIC__/Pc2.0/img/help04.png" alt="">
+                        </if>
+                                <em>门店服务</em>
+                                <i>全国1200家门店</i>
+                            </span>
+                        <if condition="$bid eq 3">
+                            <span class="tab tabHot boxx-3">
+                            <img src="__PUBLIC__/Pc2.0/img/help5.png" alt="">
+                        <else />
+                            <span class="tab boxx-3">
+                            <img src="__PUBLIC__/Pc2.0/img/help05.png" alt="">
+                        </if>
+                                <em>邮寄服务</em>
+                                <i>顺丰包邮，上门取件</i>
+                            </span>
+                            <div class="clear"></div>
+                        </div>
+                        <div id="box">
+                        <if condition="$bid eq 1">
+                            <div class="tabChild tabChildHot">
+                        <else />
+                            <div class="tabChild ">
+                        </if>
+                                <i>
+                                    <img src="__PUBLIC__/Pc2.0/img/help6.jpg" alt=""></i>
+                                <div class="clear"></div>
+                                <p>（目前只开通北京市）
+                                    <br/>北京现支持易回购网质检工程师上门回收交易（上门交易包括:工程师上门交易和地铁站点交易）。如果您选择上门交易的方式，易回购会在您提交订单后24小时之内及时与您取得联系，确认上门交易时间。上门回收人员会在指定时间到达指定地点跟您进行交易。</p></div>
+                        <if condition="$bid eq 2">
+                            <div class="tabChild b tabChildHot">
+                        <else />
+                            <div class="tabChild b">
+                        </if>
+                                <i>
+                                    <img src="__PUBLIC__/Pc2.0/img/help6.jpg" alt=""></i>
+                                <div class="clear"></div>
+                                <p>易回购全国现已开通1200多家门店回收服务，更多城市正在迅速扩展。<br/><a href="http://www.ehuigou.com/help/index/cid/2">马上查看</a>&nbsp;您所在地区易回购的门店吧！</p>
+                            </div>
+                        <if condition="$bid eq 3">
+                            <div class="tabChild c tabChildHot">
+                        <else />
+                            <div class="tabChild c">
+                        </if>
+                                <i>
+                                    <img src="__PUBLIC__/Pc2.0/img/help6.jpg" alt=""></i>
+                                <div class="clear"></div>
+                                <p>北京以外的用户可以选择顺丰到付方式进行交易，易回购暂时不支持其他的快递方式。
+                                    <br/>提交订单后尽快将物品邮寄至易回购指定地址
+                                    <br/>（北京市丰台区南三环东路23号天创盛方中心B座403室，易回购收,电话400-8292-189）
+                                    <br/>物品寄出后，应妥善保留快递单等所有证明对物品所有权的证据，您应该清楚的知道，易回购收到物品前的风险应由您自行承担，易回购不承担任何因您或其它任何第三方过失导致物品丢失或损坏产生的直接或间接赔偿。</p></div>
+                        </div>
+                        <div class="content2" style="padding-bottom:20px">
+                            <h6>
+                                <img class="left" src="__PUBLIC__/Pc2.0/img/help7L.jpg" alt="">易回购质检评估
+                                <img class="right" src="__PUBLIC__/Pc2.0/img/help7R.jpg" alt=""></h6>
+                            <ul>
+                                <li>
+                                    <img class="img_" src="__PUBLIC__/Pc2.0/img/help8A.jpg" alt="">
+                                    <p>估价是易回购根据您提供的参数做出的预估价格，并非最终成交价格。易回购在收到物品后会根据您之前选择的物品参数进行核对以及检测。根据物品的实际情况，与您协商确认最终成交价格。</p>
+                                </li>
+                                <li>
+                                    <img class="img_" src="__PUBLIC__/Pc2.0/img/help8B.jpg" alt="">
+                                    <p>易回购承诺在收到机器的48小时内为您检测完毕。</p>
+                                </li>
+                                <li>
+                                    <img class="img_" src="__PUBLIC__/Pc2.0/img/help8C.jpg" alt="">
+                                    <p>易回购网承诺对于每个机器都采用标准的质检流程。</p>
+                                </li>
+                                <li>
+                                    <img class="img_" src="__PUBLIC__/Pc2.0/img/help8D.jpg" alt="">
+                                    <p>易回购严重申明不拆机！！！您寄过来的任何一部手机，易回购绝对保证不会进行拆机检测（打开后盖、iPhone等拧底部螺丝打开后壳都不在拆机范围之内）！！！</p>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                        <div id="content3Box">
+                            <div class="content3">
+                                <h6>
+                                    <img class="left" src="__PUBLIC__/Pc2.0/img/help9L.jpg" alt="">确认成交价
+                                    <img class="right" src="__PUBLIC__/Pc2.0/img/help9R.jpg" alt=""></h6>
+                                <ul>
+                                    <li class="li-left">
+                                        <span>邮寄方式</span>
+                                        <p>您选择进行交易，易回购客服会将质检结果告知您，根据机器的实际情况，检测下来的最终成交价格与您进行确认。如果您同意最后确认结果，易回购则会进行放款（确认成交价的过程易回购将全程录音监控）
+                                            <br/>
+                                            <br/>如果您与易回购就物品的最终成交价格无法协商一致的，您可以取消本次交易，申请退货，退货邮费将由易回购承担（山寨机高仿机除外）。
+                                            <br/>
+                                            <br/>易回购承诺检测完成后，24小时内与您进行确认
+                                            <br/>易回购承诺确认退货后，24小时内退还并寄出您的机器。</p></li>
+                                    <li class="li-right">
+                                        <span>上门方式</span>
+                                        <p>您选择上门方式进行交易，易回购上门质检工程师会当面给您一个质检结果，若您同意交易，则可以立即完成交易；若您对价格不满意，或者有其他任何问题想取消交易，易回购上门质检工程师会立刻取消订单，您无需承担任何费用。
+                                        <br/>
+                                        <br/>
+                                        若在质检过程中，由于上门质检工程师导致的机器损坏或者缺损，易回购将按照估价全额赔偿。
+                                        </p>
+                                        <br/></li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="content4" style="padding-bottom:20px">
+                            <h6>
+                                <img class="left" src="__PUBLIC__/Pc2.0/img/help10L.jpg" alt="">完成交易
+                                <img class="right" src="__PUBLIC__/Pc2.0/img/help10R.jpg" alt=""></h6>
+                            <ul>
+                                <li class="li-left">
+                                    <p class="p1">如果您采取邮寄交易的方式，易回购与您确认物品的最终成交价格后，会将订单中的估价修改成最终成交价格。易回购会支付相应款项到您的银行账号中，并即时向您发送通知短信。易回购承诺24小时内保证您的账号中收到相应金额转账（其他不可抗拒因素除外）</p>
+                                    <div id="hr"></div>
+                                    <img src="__PUBLIC__/Pc2.0/img/help11L.jpg" alt=""></li>
+                                <li class="li-right">
+                                    <img src="__PUBLIC__/Pc2.0/img/help11R.jpg" alt="">
+                                    <div id="hr"></div>
+                                    <p>您选择上门交易的，您和易回购之间将当面确认成交价，并在确认成交价后当即支付现金。易回购付款后将会在系统中确认最终成交价格，交易完成。事后若发生任何款项争议或其它纠纷的，易回购不承担任何责任。</p>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <elseif condition="$cid eq 2" />
+                        <!--服务网点-->
+                        <div class="tabBox tab1_ c2">
+                            <div class="branch">
+                                <div class="branch-up">
+                                    <select name=""  class="select-one province_list">
+                                        <volist name="province" id="vo">
+                                            <option value="{$vo.province.provinceid}">{$vo.province.province}</option>
+                                        </volist>
+                                    </select>
+                                    <select name="" class="select-one city_list1">
+                                        <option value="0">请选择</option>
+                                    </select>
+                                    <select name="" class="select-one area_list">
+                                        <option value="0">请选择</option>
+                                    </select>
+                                    <input name="" type="text" id="local" class="input-site" placeholder="请输入您的位置查看附近门店" />
+                                    <span class="span-search" id="open">搜索</span></div>
+                                <div class="branch-down">
+                                    <ul class="branch-downleft">
+
+                                    </ul>
+                                    <div class="branch-downimg" id="allmap">
+                                        <img src="__PUBLIC__/Pc2.0/img/branch-downimg.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <elseif condition="$cid eq 3"/>
+                            <div class="problem tabBox tab1_ c3" style="display:">
+                                <div class="content5">
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>易回购回收来的手机是怎么处理的？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>易回购遵循“物尽其用”的环保理念，对于不再具有二手流通价值的废旧手机，与具有资质的环保企业合作，进行拆解和贵金属提炼。每吨手机可以提炼黄金300g，白银1500g以及120Kg黄铜。对于有二次流通价值的机型，通过易回购的严格检测认证后进行正规二手销售。部分通过有资质的回收商，以正规二手形式销售到二三线城市以及农村市场，或者出口到非洲、印度等一些海外经济欠发达国家。易回购承诺坚决不做翻新机，确保对每一部回收的手机进行正规的二手销售或者环保处理。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>小众国产机（定制机）怎么回收？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>对于一些小众国产品牌的手机及运营商定制机（如：小辣椒、长虹 金立 奥克斯、大显、天时达、京崎、大唐、夏新、宏基、SK、 泛泰、 纽曼、海信、 七喜、NEC、波导、普莱达等），请直接搜索“通用机”，按照特定标准进行估价操作。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>提交订单后多长时间，客服会联系用户？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>客服工作时间是：周一到周六上午9点到晚上18点,用户在客服工作时间内提交订单后，承诺在10分钟之内电话联系用户，确认订单。用户在非客服工作时间内提交订单，会在次日上午电话联系用户确认订单。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>北京地区多长时间内会安排上门服务？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>北京地区用户提交订单后，易回购网客服会与用户电话协商，确定上门服务时间和地点。原则上，安排工作人员3天之内上门，如果用户有特殊要求另行安排。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>寄出手机后，多长时间可以收到款项？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>易回购承诺在收到物品的48小时内检测完毕，并和用户电话确认放款信息，在确认完信息后一般24小时内放款到用户账号;特殊情况遇到业务高峰可能会耽误质检时间，一般为2-3个工作日，请用户耐心等候。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>什么情况下，易回购网会申请二次报价？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>对于非北京地区用户，邮寄手机到易回购网后，易回购网立即进行专业检测。如果检测结果与用户提交订单时的描述基本符合，则立即放款。如果结果与用户的描述相差比较大，客服工作人员会致电用户，说明情况，为用户申请二次报价。如果用户不同意二次报价，易回购网则包运费将手机退还给用户。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>什么情况下，易回购网会申请退货？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>对于非北京地区用户，邮寄手机到易回购网后，易回购网立即进行专业检测。如果结果与用户的描述相差比较大，客服工作人员会致电用户，说明情况，为用户申请二次报价。如果用户不同意二次报价，易回购网则将手机退还给用户（包运费）。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>退货物流费用谁来支付？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>以下是易回购对于快递标准的详细描述：
+                                                <br/>
+                                                <br/>
+                                                <table id="table_" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr class="tr1">
+                                                        <td>快递邮费方式</td>
+                                                        <td>用户发货的运费</td>
+                                                        <td>取消退回的运费</td></tr>
+                                                    <tr>
+                                                        <td>顺风物流货到付款</td>
+                                                        <td>由易回购网承担</td>
+                                                        <td style="border-right:1px solid #dedddd;">由易回购网承担</td></tr>
+                                                    <tr>
+                                                        <td>其他快递/EMS垫付</td>
+                                                        <td>由用户承担，交易成功记入订单总额</td>
+                                                        <td style="border-right:1px solid #dedddd;">由易回购承担，退回时赠送精美礼品</td></tr>
+                                                    <tr class="tr3">
+                                                        <td colspan=3>*暂不支持EMS平邮，建议使用顺风到付保证机器安全，山寨机高仿机费用用户自理</td></tr>
+                                                </table>
+                                            </i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                </div>
+                                <!-- 更多 -->
+                                <div class="content5 more_tab">
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>为什么要如实描述回收物品？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>如实描述，才能对物品准确估价；如果不如实描述，有可能被回收商扣款或是退回物品。易回购不回收任何山寨手机，一经发现将严肃处理，上报公安机关。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>机器寄出后如何保证我的利益？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>易回购网站是和公安联网的，交易中有涉及欺诈交易的我们会在第一时间通过网络进行报案。易回购网站是提供平台给商户竞价回收的，易回购是作为第三方来担保，和用户确认好之后商户会把钱打到易回购的账户中，由易回购网来进行担保。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>哪些机器易回购不进行回收？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>山寨机、高仿机、扳机、烧卡机（写号机）、改卡机以及网站上没有的品牌都不回收（例如：长虹 金立 奥克斯大显 天时达 京崎 大唐 夏新 宏基 SK 泛泰 纽曼 海信 七喜 NEC 波导 普莱达以及其他小众国产手机）笔记本08年以前的比较老款的机器不回收，没有硬盘内存的不回收，报废机不回收。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>什么情况会发生退货？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>如果您的机器寄来以后，我们发现是山寨机，或者跟您提交的机器型号不符合，我们将及时跟您联系并退回检验放款</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>退货时间大概多久？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>一般的退货时间为同意退货后的一个工作日内，退货后会将退货物流单号以短信形式告知</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>物品在物流途中发生损坏怎么办？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>顺丰物流提供保值服务。假设您的手机的回收商报价是1000元，您只需支付3元（千分之三）就可以获得保值服务，如果手机在运输途中发生了意外损坏，您将获得最高1000元的赔偿。这是一项运输途中的保险服务，保值服务的费用由您支付，易回购只负责快递费用。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>如何清理手机上的数据？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>为了保证您的隐私安全，建议您清空手机内所有个人信息（通讯录，短信，图片，账号信息等），当然如果您忘记删除，作为回收后的第一个固定处理环节，易回购会有专人严格负责删除/清理您的个人信息，确保隐私不外泄。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>如果用户后悔了，可以取消订单吗？</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>用户在最终成交前，可以随时取消订单。一旦用户取消订单，易回购会在24小时内为您退回机器，并承担所有的快递费用。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                    <b>
+                                        <em>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12Q.jpg" alt="">
+                                            <i>为什么要提供ID？（iCloud、Flyme等）</i>
+                                        </em>
+                                        <span>
+                                            <img src="__PUBLIC__/Pc2.0/img/help12A.jpg" alt="">
+                                            <i>提供ID只是帮您的手机解除绑定，稍后您可以自行修改密码；Ios7.0以上版本的手机如果没有解绑的话我们这边无法回收。 为防止用户隐私泄露，若ID无法解绑，无法对您的隐私删除，易回购只能将机器退回，不进行回收。</i>
+                                        </span>
+                                        <div class="clear"></div>
+                                    </b>
+                                </div>
+                            </div>
+                            <elseif condition="$cid eq 4" />
+                                <!-- 服务条款 -->
+                                <div class="tabBox Tos tab1_ c4" style="display:">
+                                    <div class="content6">
+                                        <span>
+                                            <h6>一、概要</h6>
+                                            <p>易回购服务内容
+                                                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;易回购是国内最大的竞价回收平台。回收类别包括手机、笔记本、平板、游戏机等，有超过300家回收商对用户的二手产品进行竞价。作为一个有态度的平台，易回购还提供优质的上门回收服务和顺畅的多种支付流程，并对进驻的回收商进行诚信管理。
+                                                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;易回购的回收范围:手机、电脑类电子产品</p></span>
+                                        <span>
+                                            <h6>二、交易流程</h6>
+                                            <p>交易流程
+                                                <br/>选择机型 → 填写物品参数 → 估价 → 选择交易方式 → 易回购质检评估 → 确认成交价 → 完成交易
+                                                <br/>选择机型
+                                                <br/>
+                                                <br/>您应该在易回购上选择物品的相应的参数，包括但不限于：
+                                                <br/>1. 成色 2. 来源 3. 拆修情况 4. 屏幕情况 5. 功能性问题等
+                                                <br/>您应保证自己填写的物品参数信息准确、真实、有效。因您填写的物品参数信息错误导致物品估价或最终成交价格低于评估价格的，您应自行承担该后果。</p></span>
+                                        <span>
+                                            <h6>三、交易规则</h6>
+                                            <p>交易过程中碰到任何问题，都可以致电易回购客服热线400-8292-189进行咨询
+                                                <br/>如何交易？
+                                                <br/>邮寄订单 —— （1）选择品牌和型号（2）得到报价，提交订单（3）邮寄手机（4）易回购检测付款
+                                                <br/>上门订单 —— （1）选择品牌和型号（2）得到报价，提交订单（3）客服确认上门时间和地点（4）上门检测付款</p></span>
+                                        <span style="padding-bottom:46px">
+                                            <h6>四、服务承诺</h6>
+                                            <p>提交订单后多长时间，客服会联系用户？
+                                                <br/>客服工作时间是：周一到周五，上午9点到晚上9点；周六周日，上午9点到下午6点。用户在客服工作时间内提交订单后，承诺在10分钟之内电话联系用户，确认订单。用户在非客服工作时间内提交订单，会在次日上午电话联系用户确认订单。
+                                                <br/>
+                                                <br/>北京地区多长时间内会安排上门服务？
+                                                <br/>北京地区用户提交订单后，易回购网客服会与用户电话协商，确定上门服务时间和地点。原则上，安排工作人员3天之内上门，如果用户有特殊要求另行安排。
+                                                <br/>
+                                                <br/>寄出手机后，多长时间可以收到款项？
+                                                <br/>易回购承诺在收到物品的48小时内检测完毕，并和用户电话确认放款信息，在确认完信息后8小时内，放款到用户账号。
+                                                <br/>
+                                                <br/>收到机器多久才能放款？
+                                                <br/>收到机器会在48小时内安排质检并放款，业务高峰可能会耽误质检时间，一般为2-3个工作日，请用户耐心等候。
+                                                <br/>
+                                                <br/>用户机器寄出之后有什么保障？
+                                                <br/>易回购网是和公安联网，并且合法备案，如果有任何问题我们会在第一时间通过网络进行报案。</p></span>
+                                        <span>
+                                            <h6>五、二次报价，退货及纠纷处理</h6>
+                                            <p>什么情况下，易回购网会申请二次报价？
+                                                <br/>对于非北京地区用户，邮寄手机到易回购网后，易回购网立即进行专业检测。如果检测结果与用户提交订单时的描述基本符合，则立即放款。如果结果与用户的描述相差比较大，客服工作人员会致电用户，说明情况，为用户申请二次报价。如果用户不同意二次报价，易回购网则包运费将手机退还给用户。
+                                                <br/>
+                                                <br/>什么情况下，易回购网会申请退货？
+                                                <br/>对于非北京地区用户，邮寄手机到易回购网后，易回购网立即进行专业检测。如果结果与用户的描述相差比较大，客服工作人员会致电用户，说明情况，为用户申请二次报价。如果用户不同意二次报价，易回购网则将手机退还给用户（包运费）。
+                                                <br/>
+                                                <br/>退货物流费用谁来支付？
+                                                <br/>以下是易回购对于快递标准的详细描述：
+                                                <br/>
+                                                <br/>
+                                                <table id="table_" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr class="tr1">
+                                                        <td>快递邮费方式</td>
+                                                        <td>用户发货的运费</td>
+                                                        <td>取消退回的运费</td></tr>
+                                                    <tr>
+                                                        <td>顺风物流货到付款</td>
+                                                        <td>由易回购网承担</td>
+                                                        <td style="border-right:1px solid #dedddd;">由易回购网承担</td></tr>
+                                                    <tr>
+                                                        <td>其他快递/EMS垫付</td>
+                                                        <td>由用户承担，交易成功记入订单总额</td>
+                                                        <td style="border-right:1px solid #dedddd;">由易回购承担，退回时赠送精美礼品</td></tr>
+                                                    <tr class="tr3">
+                                                        <td colspan=3>*暂不支持EMS平邮，建议使用顺风到付保证机器安全，山寨机高仿机费用用户自理</td></tr>
+                                                </table>
+                                            </p>
+                                        </span>
+                                        <span>
+                                            <h6>六、免责申明</h6>
+                                            <p>1. 交易应秉承合法、公平、透明、合理的原则进行。
+                                                <br/>2. 交易物品应为正规渠道物品，拒绝交易山寨机、高仿机、非法渠道物品（如失、窃物品等，以下同）。
+                                                <br/>3. 您应保证对交易物品拥有合法、完整的处分权利。如易回购发现您提交的物品为非法渠道物品，有权依法向公安司法机关报案，将物品转交公安司法机关。
+                                                <br/>4. 交易完成后，易回购将对物品数据格式化，并有权对物品进行处理，对物品不作保留和预留。
+                                                <br/></p></span>
+                                    </div>
+                                </div>
+                                <elseif condition="$cid eq 6"/>
+                                    <!-- 质检名词解释 -->
+                                    <div class="tabBox explain tab1_ c5" style="display:">
+                                        <div class="content7">
+                                            <span>
+                                                <h6>1.扳机：</h6>
+                                                <p>大拆修，组装主板。此类手机，多出现螺丝拧动变形，CPU标签纸祛皱不平，防修标签纸破损(常见于iPhone ）</p>
+                                            </span>
+                                            <span>
+                                                <h6>2.烧卡机：</h6>
+                                                <p>没有卡槽，不能插入SIM卡，直接就能拨打电话，手机号被写入手机中，也叫写号机（常见于iPhone）</p>
+                                            </span>
+                                            <span>
+                                                <h6>3.改卡机：</h6>
+                                                <p>有锁改无锁，卡贴直接被镶入主板中，主板有焊接痕迹（常见于iPhone,验货时会写清楚）</p>
+                                            </span>
+                                            <span>
+                                                <h6>4.漏光：</h6>
+                                                <p>手机调到纯色界面时，屏幕四周颜色发亮（相对于整块屏幕）</p>
+                                            </span>
+                                            <span>
+                                                <h6>5.亮点、斑点：</h6>
+                                                <p>斑点：手机调到纯色界面，屏幕出现黑斑、白斑，亮点（常见于HTC）</p>
+                                            </span>
+                                            <span>
+                                                <h6>6.色差：</h6>
+                                                <p>手机在纯色界面时，顶部屏幕颜色与下方屏幕颜色有明显差异，也叫屏幕老化，老化越严重，色差越明显，范围越大（常见于三星）</p>
+                                            </span>
+                                            <span>
+                                                <h6>7.进水、受潮：</h6>
+                                                <p>防水标签纸变色或螺丝生锈，主板有水渍（验货时会写清楚）</p>
+                                            </span>
+                                            <span>
+                                                <h6>8.触摸功能坏：</h6>
+                                                <p>触摸延迟，触摸反应慢；触摸无反应</p>
+                                            </span>
+                                            <span>
+                                                <h6>9.无线蓝牙坏：</h6>
+                                                <p>无线不能打开，无线能打开不能搜索，蓝牙类似（验货时会写清楚）</p>
+                                            </span>
+                                            <span>
+                                                <h6>10.通话感应：</h6>
+                                                <p>拨打电话，若正常，遮住听筒处屏幕会变黑，松开屏幕会变亮；若遮住听筒处屏幕一直变亮或松开屏幕一直变黑，都为通话感应坏</p>
+                                            </span>
+                                            <span>
+                                                <h6>11.手机被账号绑定：</h6>
+                                                <p>手机激活时需要ID和密码，查找我的iPhone未关闭删除（常见于iPhone ,魅族Flyme）</p>
+                                            </span>
+                                            <span>
+                                                <h6>12.苹果案列：</h6>
+                                                <p>用户咨询苹果客服被记录的档案</p>
+                                            </span>
+                                            <span>
+                                                <h6>13.苹果换机：</h6>
+                                                <p>手机在有效保修期内去苹果店换出的机器</p>
+                                            </span>
+                                            <span>
+                                                <h6>14. 黑机：</h6>
+                                                <p>序列号在苹果官网查不到信息</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                    				</if>
+                                        <!-- 屏幕 -->
+                                        <div class="tabBox screen b1" style="display:none;">
+                                            <div class="content8">
+                                                <h6 style="margin-top:-7px">屏幕碎</h6>
+                                                <p style="line-height:82px">经常看到很多提到自己的手机屏幕坏了，有些是进水了，有些是压碎了，还有些是摔碎了，下面简单说说屏幕碎了的。</p>
+                                                <img style="margin-bottom:45px" class="img_" src="__PUBLIC__/Pc2.0/img/help31.jpg" alt="">
+                                                <h6 style="margin-top:-13px">屏幕缺脚</h6>
+                                                <p style="height:82px;padding:32px 0 30px 0;line-height:170%">屏幕的边角部分有损坏</p>
+                                                <img class="img_" style="margin-bottom: 42px" src="__PUBLIC__/Pc2.0/img/help33.jpg" alt="">
+                                                <h6 style="margin-top:-13px">是否漏光</h6>
+                                                <p style="line-height:69px;height:69px">将手机关机，然后重新开机，在开机过程中，仔细观察手机屏幕，如果屏幕出现明暗不同斑点，或者线条，亮点，则断定为漏光。</p>
+                                                <img class="img_" style="margin-bottom:44px" src="__PUBLIC__/Pc2.0/img/help35.jpg" alt="">
+                                                <h6>屏幕色差</h6>
+                                                <p style="line-height:74px;height:74px">*#0*#查看色差，只针对三星手机品牌。（下图中屏幕有条颜色比较淡的，说明有色差。）</p>
+                                                <img class="img_" style="margin-bottom:37px" src="__PUBLIC__/Pc2.0/img/help37.jpg" alt="">
+                                                <h6>屏幕划痕</h6>
+                                                <p style="line-height:54px;height:54px">撕下贴膜，看是否有划痕，没有贴膜的擦干净屏幕看是否有划痕。</p>
+                                                <img class="img_" src="__PUBLIC__/Pc2.0/img/help39.jpg" alt=""></div>
+                                        </div>
+                                        <!-- 拍照 -->
+                                        <div class="tabBox screen b2" style="display:none;">
+                                            <div class="content8">
+                                                <h6 style="margin-top:-7px">主拍照</h6>
+                                                <p style="line-height:69px;height:69px">打开相机拍摄一张照片，检测拍摄功能是否完好。</p>
+                                                <img style="margin-bottom:43px" class="img_" src="__PUBLIC__/Pc2.0/img/help40.jpg" alt="">
+                                                <h6>次拍照</h6>
+                                                <p style="height:71px;padding:25px 0 30px 0;line-height:170%">打开相机拍摄一张照片，检测拍摄功能是否完好</p>
+                                                <img class="img_" style="margin-bottom: 42px" src="__PUBLIC__/Pc2.0/img/help41.jpg" alt="">
+                                                <h6>闪光灯</h6>
+                                                <p style="line-height:63px;height:63px">打开相机，打开闪光灯，对着一张白纸拍摄照片。LED闪光灯亮起来说明是好的。</p>
+                                                <img class="img_" style="margin-bottom:49px" src="__PUBLIC__/Pc2.0/img/help42.jpg" alt="">
+                                                <h6>屏幕色差</h6>
+                                                <p style="line-height:74px;height:74px">*#0*#查看色差，只针对三星手机品牌。（下图中屏幕有条颜色比较淡的，说明有色差。）</p>
+                                                <img class="img_" style="margin-bottom:36px" src="__PUBLIC__/Pc2.0/img/help43.jpg" alt="">
+                                                <h6>屏幕划痕</h6>
+                                                <p style="line-height:68px;height:68px">撕下贴膜，看是否有划痕，没有贴膜的擦干净屏幕看是否有划痕。</p>
+                                                <img class="img_" src="__PUBLIC__/Pc2.0/img/help44.jpg" alt=""></div>
+                                        </div>
+                                        <!-- 硬件 -->
+                                        <div class="tabBox screen b4" style="display:none;">
+                                            <div class="content8">
+                                                <h6 style="margin-top:-7px">拆修</h6>
+                                                <p style="line-height:82px">打开后盖，所有标签是否有被撕开过的痕迹，如果有，则为拆修；查看每个螺丝是否有没有明显的划痕，如果有，则为拆修。</p>
+                                                <img style="margin-bottom:40px" class="img_" src="__PUBLIC__/Pc2.0/img/help45.jpg" alt="">
+                                                <h6 style="margin-top:-10px">行货</h6>
+                                                <p style="height:80px;padding:7px 0 30px 0;line-height:170%">A） 行货内一般不贴店标，如果有店标，需要判断店标的位置：在螺丝口上，则说明维修过；在背板上，则说明刷机。
+                                                    <br/>B） 如果“进网许可”标签被压在了手机背面边框里面，则说明拆修（至少拆开换过壳），因为“进网许可”都是在入关后最后才贴上的，只有可能贴在边框外， 除非是拆机后，重新装上边框，才有可能将“进网许可”压在边框下方。</p>
+                                                <img class="img_" style="margin-bottom: 32px" src="__PUBLIC__/Pc2.0/img/help46.jpg" alt="">
+                                                <h6 style="position:relative">水货
+                                                    <i>水货出售时一定会贴店标，要仔细判断</i>
+                                                </h6>
+                                                <p style="line-height:170%;height:70px;padding-top:11px">通常来说，作为水货一级渠道，会在手机背板（通常贴在螺丝口），电池，以及后盖内侧三个部位同时贴上自己的店标，以表明从自己处销售。一级渠道的店标， 往往都是带镭射水印的“防撕标签”。</p>
+                                                <img class="img_" style="margin-bottom:44px" src="__PUBLIC__/Pc2.0/img/help47.jpg" alt="">
+                                                <h6>是否受潮</h6>
+                                                <p style="line-height:82px">现在的手机通常在电池揭开后，手机背板上有一张白色圆形或细长形的防潮检测纸，如果手机受潮或者进水，该纸会变色，粉红或者粉蓝。</p>
+                                                <img class="img_" style="margin-bottom:26px" src="__PUBLIC__/Pc2.0/img/help48.jpg" alt=""></div>
+                                        </div>
+                                        <!-- 外观 -->
+                                        <div class="tabBox screen b5" style="display:none;">
+                                            <div class="content8">
+                                                <h6 style="margin-top:-7px">9.5成新</h6>
+                                                <p style="line-height:69px;height:69px">9.5成新以上（打开过原包装，但从未使用，配件包装都是未拆封的）</p>
+                                                <img style="margin-bottom:44px" class="img_" src="__PUBLIC__/Pc2.0/img/help49.jpg" alt="">
+                                                <h6>9成新</h6>
+                                                <p style="height:68px;padding:23px 0 30px 0;line-height:170%">9成新以上（有使用过的痕迹，但基本没有磨损或划痕）</p>
+                                                <img class="img_" style="margin-bottom: 43px" src="__PUBLIC__/Pc2.0/img/help50.jpg" alt="">
+                                                <h6>8成新</h6>
+                                                <p style="line-height:69px;height:69px;">8成新以上（有少量且明显的磨损或划痕，无掉漆现象和外表硬损伤）</p>
+                                                <img class="img_" style="margin-bottom:44px" src="__PUBLIC__/Pc2.0/img/help51.jpg" alt="">
+                                                <h6>7成新</h6>
+                                                <p style="line-height:71px;height:71px">7成新以上（有多处明显的磨损，略有掉漆现象，但无外表硬损伤）</p>
+                                                <img class="img_" style="margin-bottom:41px" src="__PUBLIC__/Pc2.0/img/help52.jpg" alt="">
+                                                <h6>7成新以下</h6>
+                                                <p style="line-height:52px;height:52px">7成新以下（有多处明显的磨损，略有掉漆现象，但无外表硬损伤）</p>
+                                                <img class="img_" style="margin-bottom:26px" src="__PUBLIC__/Pc2.0/img/help53.jpg" alt=""></div>
+                                        </div>
+                                                                              <!-- 功能 -->
+                                        <div class="tabBox screen b3" style="display:none;">
+                                            <div class="content8">
+                                                <h6 style="margin-top:-7px">WIFI</h6>
+                                                <p style="line-height:70px;height:70px">检查是否有WI-FI功能。周围环境必须要有“热点”，即无线路由器能覆盖到的距离内才能测。必须注意的是，有的水货机虽带WI-FI模块，但还需装对应的补丁后才能上网。</p>
+                                                <img style="margin-bottom:43px" class="img_" src="__PUBLIC__/Pc2.0/img/help21.jpg" alt="">
+                                                <h6>通话功能</h6>
+                                                <p style="height:70px;padding:14px 0 30px 0;line-height:170%">拨打10086或者10000，转接人工通话，看是否能正常通话，并开启扩音功能看是否能正常通话，在通话过程中如出现通话断话，通话断续，无回音，听筒杂音等现象， 视为通话功能不正常。在通话过程中调节音量键，看音量键是否正常，如果按键不能加减音量，则视为按键功能不正常。</p>
+                                                <img class="img_" style="margin-bottom:41px" src="__PUBLIC__/Pc2.0/img/help23.jpg" alt="">
+                                                <h6>蓝牙功能</h6>
+                                                <p style="line-height:68px;height:68px">打开蓝牙，看是否能搜索到其他设备，不能搜索到其他设备视为蓝牙功能不正常。</p>
+                                                <img class="img_" style="margin-bottom:44px" src="__PUBLIC__/Pc2.0/img/help25.jpg" alt="">
+                                                <h6>手机存储</h6>
+                                                <p style="line-height:74px;height:74px">找到手机存储卡选项，查看内存大小是否能都显示，不能显示，把内存拿下在装上，多试几次（换上个好的内存卡试试），如果还是不能显示大小，则为内存卡槽功能不正常。</p>
+                                                <img class="img_" style="margin-bottom:38px" src="__PUBLIC__/Pc2.0/img/help27.jpg" alt="">
+                                                <h6>手机触屏</h6>
+                                                <p style="line-height:59px;height:59px">随便按住一个程序在屏幕每个地方拖行，只要不脱落就说明屏幕触摸是正常的。如果脱落就说明那块脱落的屏，触摸不正常。</p>
+                                                <img class="img_" src="__PUBLIC__/Pc2.0/img/help29.jpg" alt=""></div>
+                                        </div>
+            </div>
+        </div>
+        <include file="Public/2.0footer" />
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1iUeP2YGsW58pV10KmUAXLKWhaWSiP6m"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+        <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+        <script type="text/javascript" src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var cid = $("#cids").attr("cid");
+                if (cid == 5) {
+                	$(".screen").show();
+                }else{
+                	$(".screen").hide();
+                };
+                $(".province_list").change();
+            });
+            $('.province_list').change(function(){
+                var id = $(this).val();
+                if (id == 0) {
+                    return false;
+                };
+                $.post(
+                    '__URL__/ajax_city',  
+                    {
+                        "id":id
+                    },function(data){
+                        if(data.status == 1) {
+                            var list = data.data;
+                            $(".city_list1").empty();
+                            for (var i = 0; i < list.length ; i++) {
+                                $(".city_list1").append("<option value='"+list[i]['cityid']+"'>"+list[i]['city']+"</option>");  //添加一项option
+                            };
+                        } else {
+                            alert(data.info);
+                        }
+                    },
+                    'json'
+                ) 
+            });
+            $(document).ajaxComplete(function(event, xhr, settings) {
+                if ( settings.url === "__URL__/ajax_city" ) {
+                     $('.city_list1').change();
+                }
+            });
+            $('.city_list1').change(function(){
+                var id = $(".city_list1").val();
+                if (id == 0) {
+                    return false;
+                };
+                $.post(
+                    '__URL__/ajax_area',  
+                    {
+                        "id":id
+                    },function(data){
+                        if(data.status == 1) {
+                            var list = data.data;
+                            $(".area_list").empty();
+                            for (var i = 0; i < list.length ; i++) {
+                                $(".area_list").append("<option value='"+list[i]['areaid']+"'>"+list[i]['area']+"</option>");  //添加一项option
+                            };
+                        } else {
+                            alert(data.info);
+                        }
+                    },
+                    'json'
+                )   
+            });
+
+            $(document).ajaxComplete(function(event, xhr, settings) {
+                if ( settings.url === "__URL__/ajax_area" ) {
+                    var rid = $(".area_list").val();
+                    getStore(rid);
+                }
+            });
+            $(".area_list").change(function(){
+               var rid = $(this).val();
+                getStore(rid);
+            })
+            function getStore(rid) {
+              $.post(
+                "__URL__/getStoreList",
+                {
+                  "rid":rid
+                },
+                function(data) {
+                    $(".branch-downleft").html(data);
+                    var store_lbs = $(".active");
+                    var sid = $(".active").attr("sid");
+                    if (typeof(sid) != "undefined") {
+                        changeStore(store_lbs);
+                    } else {
+                        show_cw("没有匹配到门店");
+                    }
+                },
+                'html'
+              );    
+            }
+            function changeStore(e) {
+                var $e=$(e);
+                var store_lbs =$e.attr("store_lbs");
+                var marker = show_lbs(store_lbs);
+                var iw = new BMap.InfoWindow(
+                            "<b class='titles' title='" + $e.text() + "'>" +  $e.text() + "</b>" +
+                            "<dl class='dll'>" +
+                                "<dt>地址：" + $e.attr('addr') + "</dt>" +
+                                "<dt>电话：" + $e.attr('phone') + "</dt>" +
+                            "</dl>"
+                        );
+                marker.addEventListener("click", function () {
+                    this.openInfoWindow(iw);
+                })
+            }
+            map = new BMap.Map('allmap');
+            map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); 
+            var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+            var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+            map.addControl(top_left_control);    
+            map.addControl(top_left_navigation);     
+            map.enableScrollWheelZoom(); 
+            map.setCurrentCity("北京");
+            var local = new BMap.LocalSearch(map, {
+                renderOptions:{map: map}
+            });
+            $("#open").click(function(){
+                var store_name = $.trim($("#local").val());
+                if (store_name == "") {
+                    show_cw("请输入您的详细地址");
+                    return false;
+                  };
+              $.post(
+                "__URL__/getStoreList",
+                {
+                  "store_name":store_name
+                },
+                function(data) {
+                  $(".branch-downleft").html(data);
+                    var store_lbs = $(".active");
+                    var sid = $(".active").attr("sid");
+                    if (typeof(sid) != "undefined") {
+                        changeStore(store_lbs);
+                    } else {
+                        show_cw("没有匹配到门店");
+                    }
+                },
+                'html'
+              );    
+            })
+        
+            function show_lbs(lbs){
+                var lbs = lbs.split(",");
+                var poi = new BMap.Point(lbs[0],lbs[1]);
+                map.centerAndZoom(poi, 12);
+                var marker = new BMap.Marker(poi); //创建  
+                map.addOverlay(marker); //在地图中添加marker
+                return marker;
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户中心--个人资料</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/yonghuzhongxin.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/userpublic.css">
+	<script src="__PUBLIC__/pc2.0/js/jquery-1.7.2.min.js"></script>
+	<script src="__PUBLIC__/pc2.0/js/user_public.js"></script>
+	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+<body>
+    <include file="Public/2.0header"/>
+	<include file="Public/2.0hint"/>
+    <include file="Public/2.0user_header"/>
+	<div class="h"></div>
+	<div id="content2">
+    	<include file="Public/nav"/>
+		<div class="f-info">
+			<span>个人资料</span>
+			<span class="paddingL">账号<strong>{$_SESSION.mobile}<a class="xg" href="__APP__/user/safety">修改</a></strong></span>
+				<span class="paddingL">姓名
+					<strong>
+					<input type="text" id="input_" value="{$user_data.user_name}">
+					<em>真实姓名，方便回收旧机时核对身份</em>
+					</strong>
+				</span>
+				<span class="paddingL">性别
+					<strong>
+						<if condition="$user_data.user_sex eq '男'">
+							<input type="radio" name="xingbie" id="nan" checked value="男">
+						<else />
+							<input type="radio" name="xingbie" id="nan" value="男">
+						</if>
+						<label for="nan">男</label>
+						<if condition="$user_data.user_sex eq '女'">
+							<input type="radio" id="nv" name="xingbie" checked value="女">
+						<else />
+							<input type="radio" id="nv" name="xingbie" value="女">
+						</if>
+						<label for="nv"><i>女</i></label>
+					</strong>
+					<div class="clear"></div>
+				</span>
+			<input class="baoC" type="submit" value="保存">
+		</div>
+		<div class="clear"></div>
+	</div>
+    <include file="Public/2.0footer"/>
+	<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+	<script type="text/javascript">
+		$(".baoC").click(function(){
+			var name = $("#input_").val();
+			if (name =="") {
+				show_cw("姓名不能为空");
+				return false;
+			};
+			var sex = $('input[name=xingbie]:checked').val();
+			if (sex == "") {
+				show_cw("性别不能为空");
+				return false;
+			};
+			$.post(
+				'__URL__/save_user',
+				{
+					"name":name,
+					"sex":sex
+				},function(data){
+					if (data.status == 1) {
+						show_cg("修改成功");
+					}else{
+						show_cw(data.info);
+					};
+				},
+				'json'
+			)
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易回购 -- 下单成功</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/shops.css"/>
+<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+<body>
+    <include file="Public/2.0header"/>
+    <div class="nav">
+      <div class="navlf">
+          <a href="/"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+        </div>
+        <div class="navrf">
+          <img src="__PUBLIC__/Pc2.0/img/shops-02.jpg" />
+        </div>
+    </div>
+    <div class="menus">
+      <span class="spanone">订单提交成功！</span>
+      <ul class="ulone">
+          <li>交易方式：
+            <em style="font-weight:bold">
+              <switch name="deal.deal_type">
+                  <case value="1">门店交易</case>
+                  <case value="2">上门交易</case>
+                  <default />邮寄交易
+              </switch>
+            </em> 
+            <notempty name="deal.store">
+              交易门店 : {$deal.store.store_name}
+            </notempty>
+          </li>
+            <li>交易金额：<em style="font-weight:bold; color:#ef543b">￥{$deal.order_price}</em></li>
+        </ul>
+        <p class="pone">接下来您可以：</p>
+        <ol class="olone">
+          <li class="li-a"><a href="/">继续回收</a></li>
+            <li class="li-b"><a href="http://www.ehuigou.com/user/orders">查看我的订单</a></li>
+        </ol>
+    </div>
+    <include file="Public/2.0footer"/> 
+</body>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易回购</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/new/style/public.css"/>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/new/style/yysm.css"/>
+  <link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+</head>
+<body>
+  <include file="Public/2.0header"/>
+    <div class="yysm">
+    		<dl class="yhg_sm">
+          <dt>
+            <ul>
+              <li class="cli">旧机回购</li>
+              <li>以旧换新</li>
+            </ul>
+          </dt>
+          <dd>
+            <div style="display:block">
+              <form method="post" id ="form1" action="__URL__/add_visit/id/1">
+                <span class="cspan">
+                  <h2>回购信息</h2>
+                  <textarea name="recycle_list" id="message" cols="" rows="3" class="cput" placeholder="例如:苹果手机6Plus,金色,64G,屏幕完好、在保,充电器,耳机齐全。"></textarea>
+                </span>
+                <span class="cspan">
+                  <h2>个人信息</h2>
+                  <input name="user_name" id="cput" type="text" class="cput_b user_name1" placeholder="您的姓名" />
+                  <input name="user_phone" id="cput_a" type="text" class="cput_b user_phone1" placeholder="您的电话" />
+                </span>
+                <span class="cspan">
+                  <input name="user_location" id="user_addr" type="text" class="cput_c" placeholder="您的详细地址" />
+                </span>
+                <span class="cspan">
+                  <input name="" type="button" class="cput_d" id="visit" value="马上预约" />
+                </span>
+              </form>
+            </div>
+            <div>
+              <form name="reg" method="post" id="form2" action="__URL__/add_visit/id/2">
+                <span class="cspan">
+                  <h2>回购信息</h2>
+                    <textarea name="recycle_list" id="message1" cols="" rows="3" class="cput" placeholder="例如:苹果手机6Plus,金色,64G,屏幕完好、在保,充电器,耳机齐全。"></textarea>
+                </span>
+                <span class="cspan">
+                  <h2>换新机型</h2>
+                  <input name="new_phone" type="text" id="new_phone" class="cput_b" placeholder="请输入您想要的型号" />
+                </span>
+                <span class="cspan">
+                  <h2>个人信息</h2>
+                  <input name="user_name" id="cput" type="text" class="cput_b" placeholder="您的姓名" />
+                  <input name="user_phone" type="text" id="cput_a" class="cput_b user_phone2" placeholder="您的电话" />
+                </span>
+                <span class="cspan">
+                  <input name="user_location" type="text" id="user_location" class="cput_c" placeholder="您的详细地址" />
+                </span>
+                <span class="cspan">
+                    <input name="" type="button" id="visit1" class="cput_d" value="马上预约" />
+                </span>
+              </form>
+            </div>
+          </dd>
+        </dl>
+    </div>
+  <include file="Public/footer" />
+<script type="text/javascript" src="__PUBLIC__/new/js/jquery-2.1.4.min.js"></script>
+<script src="__PUBLIC__/bootstrap/js/meiqia.js"></script>
+<script type="text/javascript" src="__PUBLIC__/new/js/yysm.js"></script>
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?748fd8b980391dd89a630ff8b18693f7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+	$("#visit").click(function(){
+		var message = $.trim($("#message").val());
+		if(message == "") {
+		  alert("请填写回购信息");
+		  return false;
+		}
+		var user_phone = $.trim($(".user_phone1").val());
+		var preg = /^((\+86)|(86))?((\(\d{3}\))|(\d{3}\-))?13[0-9]\d{8}|15[0-9]|18[0-9]\d{8}$/; //匹配手机号
+		if(user_phone == ""  || !preg.test(user_phone)) {
+		alert("请填写合法手机号码");
+		return false;
+		}		
+		var user_addr = $.trim($("#user_addr").val());
+		if(user_addr == "") {
+		  alert("请填写详细地址");
+		  return false;
+		}
+		$("#form1").submit();
+	}) 
+
+	$("#visit1").click(function(){
+		var message1 = $.trim($("#message1").val());
+		if(message1 == "") {
+		  alert("请填写回购信息");
+		  return false;
+		}	
+		var new_phone = $.trim($("#new_phone").val());
+		if(new_phone == "") {
+		  alert("请填写手机型号");
+		  return false;
+		}
+		
+		var user_phone1 = $.trim($(".user_phone2").val());
+		var preg = /^((\+86)|(86))?((\(\d{3}\))|(\d{3}\-))?13[0-9]\d{8}|15[0-9]|18[0-9]\d{8}$/; //匹配手机号
+		if(user_phone1 == ""  || !preg.test(user_phone1)) {
+		alert("请填写合法手机号码");
+		return false;
+		}		
+		
+		var user_location = $.trim($("#user_location").val());
+		if(user_location == "") {
+		  alert("请填写详细地址");
+		  return false;
+		}
+		$("#form2").submit();
+	})
+</script>
+</body>
+</html>

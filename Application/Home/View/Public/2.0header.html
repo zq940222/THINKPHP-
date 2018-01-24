@@ -1,0 +1,71 @@
+<div class="header">
+    <div class="header-one">
+        <div class="one-lf">
+            <i class="dzdz">&nbsp;当前地区 : {$_SESSION.city}</i>           
+        </div>
+        <div class="one-rf">
+            <notempty name="_SESSION.user_name">
+                <em>
+                    <a href="#" class="aaaaaaaa">你好，{$_SESSION.user_name}</a>&nbsp;<span class="myGou"><a class="bbbbbb" href="__ROOT__/user/index">我的易回购</a>
+                        <img src="__PUBLIC__/Pc2.0/img/h01_.png" alt="">
+                        <strong class="strong">
+                            <a href="__ROOT__/user/index">基本信息</a>
+                            <a href="__ROOT__/user/order">待处理订单<b style="color:#ef543b">&nbsp;&nbsp;{$_SESSION.cart_count|default="0"}</b></a>
+                            <!-- <a href="">账户余额</a> -->
+                            <a href="{:U('User/Quit_login')}">退出登录</a>
+                        </strong>
+                    </span>
+                </em>
+                <b id="s">|</b>
+            <else />
+                <em>
+                    <a class="vbbb" href="{:U('user/login/id/1')}">登录</a>&nbsp;<a class="vbbb" href="{:U('home/user/register')}">注册</a>
+                </em> 
+                <b id="s">|</b>           
+            </notempty>
+            <i class="i-wz-a">
+                <a href="#">网站导航
+                    <if condition="(ACTION_NAME eq 'index') AND (CONTROLLER_NAME eq 'Search') OR (ACTION_NAME eq 'index') OR (ACTION_NAME eq 'order_list')">
+                        <e class="icon-caret-up" style="display:block;"></e>
+                    <else />
+                        <img src="__PUBLIC__/Pc2.0/img/header-07.png" />
+                    </if>
+                </a>
+                <span class="i-dh">
+                    <u>
+                        <p>主要栏目</p>
+                        <p><a href="http://www.ehuigou.com/">旧机回收</a></p>
+                        <p><a href="http://shop.ehuigou.com">易购商城</a></p>
+                        <p><a href="http://www.ehuigou.com/public/enterprise.html">批量回收</a></p>
+                    </u>
+                    <u>
+                        <p>易回购</p>
+                        <p><a href="http://www.ehuigou.com/help/aboutus.html">关于我们</a></p>
+                        <p><a href="http://www.ehuigou.com/help/joinus.html">加入我们</a></p>
+                        <p><a href="http://www.ehuigou.com/help/us.html">联系我们</a></p>
+                    </u>
+                    <u>
+                        <p>其他服务</p>
+                        <p><a href="http://www.ehuigou.com/help/index/cid/2">服务网点</a></p>
+                        <p><a href="http://www.ehuigou.com/help/index/cid/3">常见问题</a></p>
+                        <p><a href="http://www.ehuigou.com/help/index/cid/4">服务条款</a></p>
+                        <p><a href="__APP__/public/feedback">投诉建议</a></p>
+                    </u>
+                    
+                </span>
+            </i>
+        </div>
+    </div>
+</div>
+
+<div class="kef">
+    <a href="https://eco-api.meiqia.com/dist/standalone.html?eid=7872" target="_blank" title="在线客服"><span class="kef-span"></span></a>
+    <ul class="kef-ul">
+        <a href="__APP__/public/feedback" title="投诉建议"><li class="kef-ul-litop"></li></a>
+        <a href="#"  title="返回顶部"><li class="kef-ul-libottom"></li></a>
+    </ul>
+</div>
+<!-- kf end-->
+<!-- tisi end -->
+
+    

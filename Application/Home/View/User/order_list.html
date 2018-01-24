@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>易回购--订单详细</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/dingdanxiangqing.css">
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/userpublic.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css"/>
+	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+	<script src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+	
+	<script>
+	$(function(){
+		$('header li.tab').hover(function(){
+			$('em',this).css({'background':'#fff','color':'#61bd52'})
+			$('img',this).attr('src','/Public/Pc2.0/img/h2_.png');
+			$('span',this).show();
+			$('.tab-box',this).css({'height':'172px','box-shadow':'#999 0px 0px 3px 0px'});
+		},function(){
+			$('em',this).css({'background':'','color':''})
+			$('img',this).attr('src','/Public/Pc2.0/img/h2.jpg');
+			$('span',this).hide();
+			$('.tab-box',this).css('display','');
+			$('.tab-box',this).css({'height':'','box-shadow':''});
+		})
+		$("#searches").click(function(){
+			$("#froms_header").submit();
+		})
+	})
+	</script>
+</head>
+<body>
+    <include file="Public/2.0header"/>
+	<include file="Public/2.0hint"/>
+	<include file="Public/2.0user_header"/>
+	<div class="h"></div>
+	<div class="contentBox">
+		<div id="content2">
+			<h5><a href="">回收</a>&nbsp;&nbsp;订单号：<i>{$deal_list.deal_sn}</i></h5>
+			<!-- 步骤 -->
+			<div class="step">
+				<h6>
+					<strong>
+						<if condition="($deal_list['order']['0']['order_state'] eq 1) OR ($deal_list['order']['0']['order_state'] eq 2)">
+							<img src="__PUBLIC__/Pc2.0/img/type_1_3.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/type_1_2.jpg" alt="">
+						</if>
+					</strong>
+					<i>
+						<if condition="$deal_list['order']['0']['order_state'] lt 3 ">
+							<img src="__PUBLIC__/Pc2.0/img/jian.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/jian2.jpg" alt="">
+						</if>
+					</i>
+					<strong>
+						<if condition="($deal_list['order']['0']['order_state'] eq 5) AND ($deal_list['order']['0']['order_type'] neq 1 ) ">
+							<img src="__PUBLIC__/Pc2.0/img/type_2_3.jpg" alt="">
+						<elseif condition="$deal_list['order']['0']['order_state'] gt 3" />
+							<img src="__PUBLIC__/Pc2.0/img/type_2_2.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/type_2_1.jpg" alt="">
+						</if>
+					</strong>
+					<i>
+						<if condition="($deal_list['order']['0']['order_state'] gt 7 ) AND ($deal_list['order']['0']['order_type'] neq 1 ) ">
+							<img src="__PUBLIC__/Pc2.0/img/jian2.jpg" alt="">
+						<elseif condition="($deal_list['order']['0']['order_state'] gt 4) AND ($deal_list['order']['0']['order_type'] eq 1 )" />
+							<img src="__PUBLIC__/Pc2.0/img/jian2.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/jian.jpg" alt="">
+						</if>
+					</i>
+					<strong>
+						<if condition="($deal_list['order']['0']['order_state'] eq 7) AND ($deal_list['order']['0']['order_type'] neq 1 )">
+							<img src="__PUBLIC__/Pc2.0/img/type_3_3.jpg" alt="">
+						<elseif condition="($deal_list['order']['0']['order_state'] gt 4) AND ($deal_list['order']['0']['order_type'] eq 1 )" />
+							<img src="__PUBLIC__/Pc2.0/img/type_3_2.jpg" alt="">
+						<elseif condition="($deal_list['order']['0']['order_state'] gt 7) AND ($deal_list['order']['0']['order_type'] neq 1 )" />
+							<img src="__PUBLIC__/Pc2.0/img/type_3_2.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/type_3_1.jpg" alt="">
+						</if>
+					</strong>
+					<i>
+						<if condition="($deal_list['order']['0']['order_state'] gt 4) AND ($deal_list['order']['0']['order_type'] eq 1 )">
+							<img src="__PUBLIC__/Pc2.0/img/jian2.jpg" alt="">
+						<elseif condition="($deal_list['order']['0']['order_state'] gt 7) AND ($deal_list['order']['0']['order_type'] neq 1 )" />
+							<img src="__PUBLIC__/Pc2.0/img/jian2.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/jian.jpg" alt="">
+						</if>
+					</i>
+					<strong>
+						<if condition="($deal_list['order']['0']['order_state'] eq 8) AND ($deal_list['order']['0']['pay_state'] eq 0 ) AND ($deal_list['order']['0']['order_type'] neq 1 )">
+							<img src="__PUBLIC__/Pc2.0/img/type_4_3.jpg" alt="">
+						<elseif condition="($deal_list['order']['0']['order_state'] gt 7) AND ($deal_list['order']['0']['pay_state'] eq 1 ) AND ($deal_list['order']['0']['order_type'] neq 1 )" />
+							<img src="__PUBLIC__/Pc2.0/img/type_4_2.jpg" alt="">
+						<elseif condition="($deal_list['order']['0']['order_state'] gt 4) AND ($deal_list['order']['0']['pay_state'] eq 1 ) AND ($deal_list['order']['0']['order_type'] eq 1 )" />
+							<img src="__PUBLIC__/Pc2.0/img/type_4_2.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/type_4_1.jpg" alt="">
+						</if>
+					</strong>
+					<i>
+						<if condition="($deal_list['order']['0']['order_state'] gt 4) AND ($deal_list['order']['0']['order_type'] eq 1 )">
+							<img src="__PUBLIC__/Pc2.0/img/jian2.jpg" alt="">
+						<elseif condition="($deal_list['order']['0']['order_state'] gt 7) AND ($deal_list['order']['0']['order_type'] neq 1 )"/>
+							<img src="__PUBLIC__/Pc2.0/img/jian2.jpg" alt="">
+						<else />
+							<img src="__PUBLIC__/Pc2.0/img/jian.jpg" alt="">
+						</if>
+					</i>
+					<strong>
+					<if condition="($deal_list['order']['0']['order_state'] GT 4) AND ($deal_list['order']['0']['pay_state'] eq 1 ) AND ($deal_list['order']['0']['order_type'] eq 1 )">
+						<img src="__PUBLIC__/Pc2.0/img/type_5_3.jpg" alt="">
+					<elseif condition="($deal_list['order']['0']['order_state'] GT 7) AND ($deal_list['order']['0']['pay_state'] eq 1 ) AND ($deal_list['order']['0']['order_type'] neq 1 )" />
+						<img src="__PUBLIC__/Pc2.0/img/type_5_3.jpg" alt="">
+					<else />
+						<img src="__PUBLIC__/Pc2.0/img/type_5_1.jpg" alt="">
+					</if>
+					</strong>
+					<!--  -->
+					<span class="title">
+						<b>提交订单</b>
+						{$deal_list["order"][0]["add_time"]|date="Y-m-d",###}<br/>
+						{$deal_list["order"][0]["add_time"]|date="h:i:s",###}
+					</span>
+					<span class="title">
+						<if condition="($deal_list['order']['0']['order_state'] gt  3) ">
+						<b>
+							回收完成
+						</b>
+							{$deal_list["order"][0]["handle_time"]|date="Y-m-d",###}<br/>
+							{$deal_list["order"][0]["handle_time"]|date="h:i:s",###}<br/>
+						<else />
+						<b>等候回收</b>
+						</if>
+						<!-- <a href="">查看余额</a> -->
+					</span>
+					<span class="title">
+						<if condition="($deal_list['order']['0']['order_state'] gt 7) and ($deal_list['order']['0']['order_type'] neq 1)">
+							<b>检验完成</b>
+							{$deal_list["order"][0]["recheck_time"]|date="Y-m-d",###}<br/>
+							{$deal_list["order"][0]["recheck_time"]|date="h:i:s",###}
+						<elseif condition="($deal_list['order']['0']['order_type'] eq 1) AND ($deal_list['order']['0']['order_state'] gt 4)"/>
+							<b>检验完成</b>
+							{$deal_list["order"][0]["handle_time"]|date="Y-m-d",###}<br/>
+							{$deal_list["order"][0]["handle_time"]|date="h:i:s",###}
+						<else />
+							<b>等待检测</b>
+						</if>
+					</span>
+					<span class="title">
+						<notempty name="deal_list['order']['0']['pay_time']">
+							<b>收款成功</b>
+							{$deal_list["order"][0]["pay_time"]|date="Y-m-d",###}<br/>
+							{$deal_list["order"][0]["pay_time"]|date="h:i:s",###}
+						<else />
+							<b>等待收款</b>
+						</notempty>
+					</span>
+					<span class="title">
+						<b>完成</b>
+						<notempty name="deal_list['pay_time']">
+							{$deal_list["order"][0]["pay_time"]|date="Y-m-d",###}<br/>
+							{$deal_list["order"][0]["pay_time"]|date="h:i:s",###}
+						</notempty>
+					</span>
+					<div class="clear"></div>
+				</h6>
+			</div>
+		</div>
+		<div id="content3">
+			<span style="margin-right:125px">
+				<strong>交易方式</strong>
+				<i>交易方式：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<switch name="deal_list.deal_type" >
+						<case value="1">门店交易</case>
+						<case value="2">上门交易</case>
+						<case value="3">邮寄交易</case>
+					</switch>
+				</i>
+				<br/>
+				<if condition="$deal_list.deal_type eq 1">
+					<i>选择门店：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					{$deal_list.store.store_name}</i><br/>
+					<i>门店地址：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					{$deal_list.store.store_addr}</i><br/>
+				</if>
+			</span>
+			<span style="margin-right:55px">
+				<strong>联系方式</strong>
+				<i>交易人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$deal_list.user_name}</i><br/>
+				<i>手机号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$deal_list.user_phone|substr=0,3}****{$deal_list.user_phone|substr=-4,4}</i><br/>
+			</span>
+			<span>
+				<strong>收款</strong>
+				<i>收款方式：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;					
+					<switch name="deal_list.order.0.pay_mode" >
+						<case value="1">现金交易</i><br/></case>
+						<case value="2">微信交易</i><br/></case>
+						<case value="3">支付宝交易</i><br/></case>
+						<case value="4">银联交易</i><br/></case>
+					</switch>
+				<if condition="($deal_list['order']['0']['pay_mode'] neq 1) AND ($deal_list['order']['0']['pay_mode'] neq 2)">
+					<i>收款账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$deal_list.order.0.pay_account|substr=0,3}****{$deal_list.order.0.pay_account|substr=-4,4}</i><br/>
+				</if>
+				<i>商品总额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥{$deal_list.order_price}</i><br/>
+				<i>总计金额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥{$deal_list.order_price}</i><br/>
+			</span>
+			<div class="clear"></div>
+		</div>
+		<div id="content4">
+			<h5>清单</h5>
+			<ul>
+				<volist name="deal_list['order']" id="vo">
+					<li>
+						<img src="__PUBLIC__/Uploads/{$vo.types.type_photo}" width="60px" alt="">
+						<b>{$vo.types.type_name}</b>
+						<i class="i_">x1</i>
+						<!--  -->
+						<div class="cvvc"><i class="eye">评估概况</i>
+                                        <ol class="eye-ol">
+                                    	  <h3>{$vo.types.type_name}</h3>
+                                        <volist name="vo.left" id="vos">
+                                            <li>
+                                                <u>{$vos.0}</u>
+                                                <b>{$vos.1}</b>
+                                            </li>
+                                        </volist>
+                                        <volist name="vo.right" id="vos" key="roots">
+                                            <li>
+                                                    <u>{$vos.0}</u>
+                                                    <b>{$vos.1}</b>
+                                                </li>
+                                        </volist>
+                                    </ol>
+                        </div>
+                        <!--  -->
+						<em>￥{$vo.order_price}</em>
+						<div class="clear"></div>
+					</li>
+				</volist>
+				<div class="span_">
+					<span>
+						<b><small>{$deal_list.order_count}件商品总金额：</small><strong style="color:#ef543b">￥{$deal_list.order_price}</strong></b><br/>
+						<!-- <del>补贴：门店交易补贴30元</del> -->
+					</span>
+				</div>
+			</ul>
+		</div>
+	</div>
+    <include file="Public/2.0footer"/>
+</body>
+</html>

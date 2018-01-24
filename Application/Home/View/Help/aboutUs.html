@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于我们</title>
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/timeline.css">
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/aboutUs.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css" />
+    <link REL="Shortcut Icon" href="__PUBLIC__/logo.ico">
+    <script src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+    <script>
+    	$(function() {
+                $(".one-a").hover(function() {
+                    var span = $(".one-b");
+                    if (span.css("display") == "none") {
+                        span.slideDown(10);
+                    } else {
+                        span.slideUp(10);
+                    }
+                    $(this).addClass('one-bb') ;
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-02b.png");
+                    $('.one-a-a', this).addClass('one-a-a1')
+                },
+                function() {
+                    $('.one-a-a', this).removeClass('one-a-a1');
+                    $(this).removeClass('one-bb');
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-b-02_.png");
+                    $(".one-b").slideUp(10);
+                });
+                $(".i-wz-a").hover(function() {
+                    $('.icon-caret-up').css('transform', 'rotate(0deg)');
+                    $('.icon-caret-up').css('margin-top', '7.3px');
+                },
+                function() {
+                    $('.icon-caret-up').css('transform', '');
+                    $('.icon-caret-up').css('margin-top', '');
+                });
+            })
+    </script>
+</head>
+<body>
+    <include file="Public/2.0header" />
+    <!-- 头部 -->
+    <div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #eaeaea; position:relative; z-index:96;" cid="{$cid}" id="cids">
+            <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:61px; border-bottom:solid 1px #eaeaea">
+                <div class="top-one">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                    </div>
+                    <div class="nav">
+                        <ul class="nav-lf">
+                            <li class="one-a">
+                                <a class="one-a-a" href="#">旧机回收
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-b-02_.png" /></a>
+                                <span class="one-b">
+                                    <a href="#" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收
+                                        <img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a></span>
+                            </li>
+                            <li>
+                                <a href="http://shop.ehuigou.com/category.php?id=685">易购商城</a></li>
+                            <li>
+                                <a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                        </ul>
+                        <ul class="nav-rf">
+                            <li>
+                                <a href="__ROOT__/order/inquiry">
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                <em>0</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 头部 -->
+	<div id="main-box">
+		<div class="f-main_">
+			<div class="info_">
+				<span class="Us-logo">
+					<img src="__PUBLIC__/pc2.0/img/Us0.jpg" alt="">
+				</span>
+				<p class="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;深圳市光格网络科技有限公司成立于2015年，注册资金1050万，是一家专业回购电子产品的互联网科技公司，注册商标为“易回购”（以下简称易回购）易回购业务的由来是从经营了多年电子产品批发及零售业务的逆向思维产品，旨在打造对消费者服务的延伸，高价格回购用户手中的闲置电子产品，同时避免电子元器件的污染，为环保事业做一份贡献。<br/>
+				         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;易回购（光格网络）已成功入驻北京各大购物中心，其中包括富力广场、凯德MALL购物中心、国瑞购物中心、悠唐购物中心，新城市广场，百盛等28家中高端综合购物中心。打造全北京连锁效应，提升形象，继而赢得众多消费者青睐。<br/>
+				         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;易回购致力打造健康绿色的互联网回收渠道。<br/>
+				         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;逐步可持续发展为中国互联网电子数字品类回收领军品牌。
+				</p>
+			<div class="clear"></div>
+			</div>
+			</div>
+			<div class="f-main">
+			<div id="content">
+				<section id="cd-timeline" class="cd-container">
+					<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-picture span_">
+							<img src="__PUBLIC__/pc2.0/img/cd-icon-location.png">
+						</div><!-- cd-timeline-img -->
+						<div class="cd-timeline-content">
+							<!-- <h2>17素材网 1</h2> -->
+							<p>
+								<em>20余家合作商</em>
+								<em>1200多家合作业务门店</em>
+								<em>4位城市合伙人</em>
+								<em>回收总量超过2万台</em>
+								<em>服务用户超过15000人</em>
+							</p>
+							<span class="cd-date">至今</span>
+						</div> <!-- cd-timeline-content -->
+					</div> <!-- cd-timeline-block -->
+					<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-movie">
+							<img src="__PUBLIC__/pc2.0/img/cd-icon-location.png" >
+						</div> <!-- cd-timeline-img -->
+						<div class="cd-timeline-content">
+							<!-- <h2>17素材网 2</h2> -->
+							<p class="b_">
+								<em>20余家合作商</em>
+								<em>1200多家合作业务门店</em>
+							</p>
+							<span class="cd-date">2016.1</span>
+						</div> <!-- cd-timeline-content -->
+					</div> <!-- cd-timeline-block -->
+					<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-picture">
+							<img src="__PUBLIC__/pc2.0/img/cd-icon-location.png" >
+						</div> <!-- cd-timeline-img -->
+						<div class="cd-timeline-content">
+							<!-- <h2>17素材网 3</h2> -->
+							<p>第一家合作迪信通</p>
+							<span class="cd-date">2015.12</span>
+						</div> <!-- cd-timeline-content -->
+					</div> <!-- cd-timeline-block -->
+					<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-location">
+							<img src="__PUBLIC__/pc2.0/img/cd-icon-location.png" >
+						</div> <!-- cd-timeline-img -->
+						<div class="cd-timeline-content">
+							<!-- <h2>17素材网 4</h2> -->
+							<p>易回购平台上线</p>
+							<span class="cd-date">2015.10</span>
+						</div> <!-- cd-timeline-content -->
+					</div> <!-- cd-timeline-block -->
+					<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-location">
+							<img src="__PUBLIC__/pc2.0/img/cd-icon-location.png" >
+						</div> <!-- cd-timeline-img -->
+						<div class="cd-timeline-content">
+							<!-- <h2>17素材网 5</h2> -->
+							<p>与大连东海建立二手手机出口贸易合作</p>
+							<span class="cd-date">2015.9</span>
+						</div> <!-- cd-timeline-content -->
+					</div> <!-- cd-timeline-block -->
+					<div class="cd-timeline-block">
+						<div class="cd-timeline-img cd-movie">
+							<img src="__PUBLIC__/pc2.0/img/cd-icon-location.png" >
+						</div> <!-- cd-timeline-img -->
+						<div class="cd-timeline-content">
+							<!-- <h2>17素材网 6</h2> -->
+							<p>产品研发组建团队</p>
+							<span class="cd-date">2015.4</span>
+						</div> <!-- cd-timeline-content -->
+					</div> <!-- cd-timeline-block -->
+				</section> <!-- cd-timeline -->
+			</div>
+		</div>
+		<div id="content2">
+			<div class="info">
+				<span>
+					<img src="__PUBLIC__/pc2.0/img/Us3.jpg" alt="">
+				</span>
+				<span>
+					<img src="__PUBLIC__/pc2.0/img/Us4.jpg" alt="">
+				</span>	
+				<span>
+					<img src="__PUBLIC__/pc2.0/img/Us5.jpg" alt="">
+				</span>
+				<span style="margin-right:0">
+					<img src="__PUBLIC__/pc2.0/img/Us6.jpg" alt="">
+				</span>
+			</div>
+		</div>
+		</div>
+	</div>
+    <include file="Public/2.0footer" />
+</body>
+</html>

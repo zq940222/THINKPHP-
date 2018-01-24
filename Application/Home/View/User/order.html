@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>易回购--订单记录</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/dingdanjilu.css">
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/userpublic.css">
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/pop.css">
+	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+	<script src="__PUBLIC__/pc2.0/js/jquery-1.7.2.min.js"></script>
+	<script src="__PUBLIC__/pc2.0/js/user_public.js"></script>
+	<script>
+	$(function(){
+			$('b','#content2 .f-info .lists .listInfo:last-child').css('padding-top','0');
+			$('#content2 .f-info .lists .listInfo b:last-of-type').css('border','none')
+	})
+	</script>
+</head>
+<body>
+    <include file="Public/2.0header"/>
+	<include file="Public/2.0hint"/>
+    <include file="Public/2.0user_header"/>
+	<div class="h"></div>
+	<div id="content2">
+    <include file="Public/nav"/>
+		<div class="f-info">
+			<span style="border:none">回收订单</span>
+				<h6><a class="a_ a_hot" href="javascript:;">全部回收订单</a><a class="a_" href="javascript:;">处理中</a><a class="a_" href="javascript:;">已完成</a></h6>
+			<div class="tab_">
+				<h5>
+					<span class="first">订单信息</span>
+					<span>联系人</span>
+					<span>交易方式</span>
+					<span class="money">金额</span>
+					<span>状态</span>
+					<span>操作</span>
+					<div class="clear"></div>
+				</h5>
+				<volist name="deal_list" id="vo">
+					<div class="lists">
+						<span class="title_">
+							<a href="javascript:void(0);">回收</a>{$vo["add_time"]|date="Y-m-d h:i:s",###}&nbsp;&nbsp;&nbsp;订单号：<i>{$vo.deal_sn}</i>
+							<if condition="$vo.deal_type eq 1">
+								<em><img id="n" src="__PUBLIC__/pc2.0/img/num.jpg" alt="">&nbsp;&nbsp;{$vo.store.store_phone}</em>
+							</if>
+						</span>
+						<volist name="vo.order" id="vos">
+							<div class="listInfo">
+								<div class="left">
+									<img class="j" src="__PUBLIC__/pc2.0/img/j.jpg" alt="">
+									<a href=""><img src="__PUBLIC__/Uploads/{$vos.types.type_photo}" width="60px" alt=""></a>
+									<div class="left_info">
+										<span>{$vos.types.type_name}</span>
+										<em>×1</em>
+									</div>
+								</div>
+								<if condition="$i eq 1">
+									<b class="name_ margin_top">
+										{$vos.user_name}
+									</b>
+									<b class="margin_top">
+										<switch name="vos.order_type" >
+											<case value="1">门店交易</case>
+											<case value="2">上门交易</case>
+											<case value="3">邮寄交易</case>
+										</switch>
+									</b>
+									<b class="money_ margin_top">
+										<em class="total">总额<del>￥{$vo.order_price}</del></em>
+										<em>    
+										    <switch name="vos.pay_mode" >
+										    <case value="1">现金收款</case>
+										    <case value="2">微信收款</case>
+										    <default />默认情况
+										    </switch>
+										</em>
+									</b>
+									<b class="condition margin_top">
+											<if condition="$vos.is_del eq 1">
+												<i class="jianyan" style="color:#aaa">
+												已取消
+											<else />
+												<i class="jianyan">
+												<if condition="$vos.order_type eq 1">
+													<switch name="vos.order_state">
+														<case value="1|2|3">提交订单</case>
+														<default /><e style="color:#aaa">已完成</e>
+													</switch>												
+												<else />
+													<switch name="vos.order_state">
+														<case value="1|2|3">提交订单</case>
+														<case value="5|6">等待回收</case>
+														<case value="7">等待检测</case>
+														<default /><e style="color:#aaa">已完成</e>
+													</switch>
+												</if>
+											</if>
+										</i><br/>
+										<i class="dd"><a href="__APP__/user/order_list/id/{$vo.id}"  target="_blank" style="display: block;border: none;margin-top: -10px;">订单详情</a></i>
+									</b>
+									<b class="margin_top">
+										<if condition="$vos.is_del eq 1">
+											已取消
+										<elseif condition="$vos.order_state lt 4"/>
+											<a href="javascript:void(0);" oid="{$vo.id}" class="end_order aa_">取消订单</a>
+										<elseif condition="($vos.order_state GT 4) AND($vos.order_type neq 1) AND ($vos.order_state LT 7)"/>
+											处理中
+										<else/>
+											已完成
+										</if>
+									</b>
+								<else />
+									<b class="name_  margin_top">
+										
+									</b>
+									<b class=" margin_top">
+										
+									</b>
+									<b class="money_  margin_top">
+										
+									</b>
+									<b class="condition margin_top ">
+										
+									</b>
+									<b class=" margin_top">
+										
+									</b>
+								</if>
+								<div class="clear"></div>
+							</div>
+						</volist>
+					</div>
+				</volist>
+			</div>
+			<div class="tab_" style="display:none;">
+				<h5>
+					<span class="first">订单信息</span>
+					<span>联系人</span>
+					<span>交易方式</span>
+					<span class="money">金额</span>
+					<span>状态</span>
+					<span>操作</span>
+					<div class="clear"></div>
+				</h5>
+				<volist name="deal_list1" id="vo">
+					<div class="lists">
+						<span class="title_">
+							<a href="javascript:void(0);">回收</a>{$vo["add_time"]|date="Y-m-d h:i:s",###}&nbsp;&nbsp;&nbsp;订单号：<i>{$vo.deal_sn}</i>
+							<if condition="$vo.deal_type eq 1">
+								<em><img id="n" src="__PUBLIC__/pc2.0/img/num.jpg" alt="">&nbsp;&nbsp;{$vo.store.store_phone}</em>
+							</if>
+						</span>
+						<volist name="vo.order" id="vos">
+							<div class="listInfo">
+								<div class="left">
+									<img class="j" src="__PUBLIC__/pc2.0/img/j.jpg" alt="">
+									<a href=""><img src="__PUBLIC__/Uploads/{$vos.types.type_photo}" width="60px" alt=""></a>
+									<span>{$vos.types.type_name}</span>
+									<em>×1</em>
+								</div>
+								<if condition="$i eq 1">
+									<b class="name_ margin_top">
+										{$vos.user_name}
+									</b>
+									<b class="margin_top">
+										<switch name="vos.order_type" >
+											<case value="1">门店交易</case>
+											<case value="2">上门交易</case>
+											<case value="3">邮寄交易</case>
+										</switch>
+									</b>
+									<b class="money_ margin_top">
+										<em class="total">总额<del>￥{$vo.order_price}</del></em>
+										<em>    
+										    <switch name="vos.pay_mode" >
+										    <case value="1">现金收款</case>
+										    <case value="2">微信收款</case>
+										    <default />默认情况
+										    </switch>
+										</em>
+									</b>
+									<b class="condition margin_top">
+											<if condition="$vos.is_del eq 1">
+												<i class="jianyan" style="color:#aaa">
+												已取消
+											<else />
+												<i class="jianyan">
+												<if condition="$vos.order_type eq 1">
+													<switch name="vos.order_state">
+														<case value="1|2|3">提交订单</case>
+														<default /><e style="color:#aaa">已完成</e>
+													</switch>												
+												<else />
+													<switch name="vos.order_state">
+														<case value="1|2|3">提交订单</case>
+														<case value="5|6">等待回收</case>
+														<case value="7">等待检测</case>
+														<default /><e style="color:#aaa">已完成</e>
+													</switch>
+												</if>
+											</if>
+										</i><br/>
+										<i class="dd"><a href="__APP__/user/order_list/id/{$vo.id}"  target="_blank" style="display: block;border: none;margin-top: -10px;">订单详情</a></i>
+									</b>
+									<b class="margin_top">
+										<if condition="$vos.is_del eq 1">
+											已取消
+										<elseif condition="$vos.order_state lt 4"/>
+											<a href="javascript:void(0);" oid="{$vo.id}" class="end_order aa_">取消订单</a>
+										<elseif condition="($vos.order_state GT 4) AND($vos.order_type neq 1) AND ($vos.order_state LT 7)"/>
+											处理中
+										<else/>
+											已完成
+										</if>
+									</b>
+								<else />
+									<b class="name_  margin_top">
+										
+									</b>
+									<b class=" margin_top">
+										
+									</b>
+									<b class="money_  margin_top">
+										
+									</b>
+									<b class="condition margin_top ">
+										
+									</b>
+									<b class=" margin_top">
+										
+									</b>
+								</if>
+								<div class="clear"></div>
+							</div>
+						</volist>
+					</div>
+				</volist>
+			</div>
+			<div class="tab_" style="display:none;">
+				<h5>
+					<span class="first">订单信息</span>
+					<span>联系人</span>
+					<span>交易方式</span>
+					<span class="money">金额</span>
+					<span>状态</span>
+					<span>操作</span>
+					<div class="clear"></div>
+				</h5>
+				<volist name="deal_list2" id="vo">
+					<div class="lists">
+						<span class="title_">
+							<a href="javascript:void(0);">回收</a>{$vo["add_time"]|date="Y-m-d h:i:s",###}&nbsp;&nbsp;&nbsp;订单号：<i>{$vo.deal_sn}</i>
+							<if condition="$vo.deal_type eq 1">
+								<em><img id="n" src="__PUBLIC__/pc2.0/img/num.jpg" alt="">&nbsp;&nbsp;{$vo.store.store_phone}</em>
+							</if>
+						</span>
+						<volist name="vo.order" id="vos">
+							<div class="listInfo">
+								<div class="left">
+									<img class="j" src="__PUBLIC__/pc2.0/img/j.jpg" alt="">
+									<a href=""><img src="__PUBLIC__/Uploads/{$vos.types.type_photo}" width="60px" alt=""></a>
+									<span>{$vos.types.type_name}</span>
+									<em>×1</em>
+								</div>
+								<if condition="$i eq 1">
+									<b class="name_ margin_top">
+										{$vos.user_name}
+									</b>
+									<b class="margin_top">
+										<switch name="vos.order_type" >
+											<case value="1">门店交易</case>
+											<case value="2">上门交易</case>
+											<case value="3">邮寄交易</case>
+										</switch>
+									</b>
+									<b class="money_ margin_top">
+										<em class="total">总额<del>￥{$vo.order_price}</del></em>
+										<em>    
+										    <switch name="vos.pay_mode" >
+										    <case value="1">现金收款</case>
+										    <case value="2">微信收款</case>
+										    <default />默认情况
+										    </switch>
+										</em>
+									</b>
+									<b class="condition margin_top">
+											<if condition="$vos.is_del eq 1">
+												<i class="jianyan" style="color:#aaa">
+												已取消
+											<else />
+												<i class="jianyan">
+												<if condition="$vos.order_type eq 1">
+													<switch name="vos.order_state">
+														<case value="1|2|3">提交订单</case>
+														<default /><e style="color:#aaa">已完成</e>
+													</switch>												
+												<else />
+													<switch name="vos.order_state">
+														<case value="1|2|3">提交订单</case>
+														<case value="5|6">等待回收</case>
+														<case value="7">等待检测</case>
+														<default /><e style="color:#aaa">已完成</e>
+													</switch>
+												</if>
+											</if>
+										</i><br/>
+										<i class="dd"><a href="__APP__/user/order_list/id/{$vo.id}"  target="_blank" style="display: block;border: none;margin-top: -10px;">订单详情</a></i>
+									</b>
+									<b class="margin_top">
+										<if condition="$vos.is_del eq 1">
+											已取消
+										<elseif condition="$vos.order_state lt 4"/>
+											<a href="javascript:void(0);" oid="{$vo.id}" class="end_order aa_">取消订单</a>
+										<elseif condition="($vos.order_state GT 4) AND($vos.order_type neq 1) AND ($vos.order_state LT 7)"/>
+											处理中
+										<else/>
+											已完成
+										</if>
+									</b>
+								<else />
+									<b class="name_  margin_top">
+										
+									</b>
+									<b class=" margin_top">
+										
+									</b>
+									<b class="money_  margin_top">
+										
+									</b>
+									<b class="condition margin_top ">
+										
+									</b>
+									<b class=" margin_top">
+										
+									</b>
+								</if>
+								<div class="clear"></div>
+							</div>
+						</volist>
+					</div>
+				</volist>
+			</div>
+		</div>
+		<div id="bg" oid = "0">
+			<div class="info">
+				<h6>您确定要取消该订单吗？</h6>
+				<span class="infoSpan">请选择取消订单的理由</span>
+				<select name="" id="select_">
+					<option value="1">我不想回收了</option>
+					<option value="2">信息填写错误，重新评估</option>
+					<option value="3">其他</option>
+				</select>
+				<i><img id="X" src="__PUBLIC__/Pc2.0/img/x.jpg" alt=""></i>
+				<div class="input_">
+					<input type="submit" class="L" value="确定">
+					<input type="button" id="R" value="取消">
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+    <include file="Public/2.0footer"/>
+
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+
+	<script type="text/javascript">
+	$(".end_order").click(function(){
+		var order_id = $(this).attr("oid");
+		$("#bg").attr("oid",order_id);
+		$("#bg").show();
+	})
+	$(".L").click(function(){
+		var order_id = $("#bg").attr("oid");
+		var reason = $("#select_").val();
+		$.post(
+			'__URL__/operation',
+			{
+				"type":2,
+				"id":order_id,
+				"reason":reason,
+			},
+			function(data){
+				if (data.status == 1) {
+					show_cg(data.info);
+					refresh();
+				}else{
+					show_cw(data.info);
+				};
+			},
+			'json'
+		)
+	})
+	$(".resurgence_order").click(function(){
+		var order_id = $(this).attr("oid");
+		$.post(
+			'__URL__/operation',
+			{
+				"type":1,
+				"id":order_id
+			},
+			function(data){
+				if (data.status == 1) {
+					show_cg(data.info);
+					refresh();
+				}else{
+					show_cw(data.info);
+				};
+			},
+			'json'
+		)
+	})
+	</script>
+	<script>
+	$(function(){
+		var a_Btn=$('#content2 .f-info h6 .a_')
+		var Tab=$('.tab_')
+		a_Btn.click(function(){
+			var i=a_Btn.index(this);
+			a_Btn.removeClass('a_hot')
+			$(this).addClass('a_hot')
+			Tab.hide();
+			$(Tab[i]).show();
+		})
+	})
+	</script>
+</body>
+</html> 

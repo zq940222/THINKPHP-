@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>易回购 -- 安全中心</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/anquanzhongxin.css">
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/anquan.css">
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/userpublic.css">
+	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css"/>
+
+	<script src="__PUBLIC__/pc2.0/js/jquery-1.7.2.min.js"></script>
+	<script src="__PUBLIC__/pc2.0/js/user_public.js"></script>
+</head>
+<body>
+    <include file="Public/2.0header"/>
+	<include file="Public/2.0hint"/>
+    <include file="Public/2.0user_header"/>
+	<div class="h"></div>
+	<div id="content2">
+    <include file="Public/nav"/>
+		<div class="f-info" id="save_phone">
+			<h5>账号安全&nbsp;-&nbsp;修改密码</h5>
+			<div class="step">
+				<span>
+					<b><img src="__PUBLIC__/pc2.0/img/x02.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/s02.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/y01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/w01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+				</span>
+				<strong>
+					<em class="hot_">
+						身份验证
+					</em>
+					<em class="two">
+						验证手机
+					</em>
+					<em>
+						完成
+					</em>
+					<div class="clear"></div>
+				</strong>
+			</div>
+			<h6>
+				<b>手机号</b>
+				<div class="input_">
+					<input type="text" id="tel" placeholder="" value="{$_SESSION.mobile}">
+					<input  type="button" id="check_phone" value="获取验证码"></input>
+				</div> 
+				<div class="clear"></div>
+			</h6>
+			<h6 class="margin_T">
+				<b>验证码</b>
+				<div class="input_">
+					<input type="text" id="yz" placeholder="请输入验证码">
+				</div>
+				<div class="clear"></div>
+			</h6>
+			<input type="submit"  id="Get" class="end_save_phone" value="下一步">
+			<input type="button"  class="Quxiao_" id="Quxiao_" class="" value="取消">
+		</div>
+		<div class="f-info" id="body">
+			<h5>账号安全</h5>
+			<div class="h_">
+				手机绑定
+				<em>{$user_data["user_phone"]}</em>
+				<a class="border_" id="save_p" href="#">修改</a>
+			</div>
+			<div class="h_">
+				登录密码
+				<empty name="user_data.user_password">
+				<em>还未设置登录密码</em>
+				<a class="border_"href="javascript:void(0)" id="save_pswds">设置</a>
+				<else />
+				<em>已经设置登录密码</em>
+				<a class="border_"href="javascript:void(0)" id="save_pswds">修改</a>				
+				</empty>
+			</div>
+		</div>
+		<div class="f-info" id="new_phone">
+			<h5>账号安全&nbsp;-&nbsp;修改密码</h5>
+			<div class="step">
+				<span>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/s02_.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x02.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/y01_.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/w01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+				</span>
+				<strong>
+					<em class="">
+						身份验证
+					</em>
+					<em class="two hot_">
+						验证手机
+					</em>
+					<em>
+						完成
+					</em>
+					<div class="clear"></div>
+				</strong>
+			</div>
+			<h6>
+				<b>新手机号</b>
+				<div class="input_" style="margin-left:174px">
+					<input type="text" id="tels">
+					<input  type="button" id="check_phones" value="获取验证码"></input>
+				</div>
+				<div class="clear"></div>
+			</h6>
+			<h6 class="margin_T">
+				<b>验证码</b>
+				<div class="input_">
+					<input type="text"  id="yzs" placeholder="请输入验证码">
+				</div>
+				<div class="clear"></div>
+			</h6>
+			<input type="submit"  id="Get" class="end_new_phone" value="提交">
+		</div>
+		<div class="f-info" id="save_phones">
+			<h5>账号安全&nbsp;-&nbsp;修改密码</h5>
+			<div class="step">
+				<span>
+					<b><img src="__PUBLIC__/pc2.0/img/x02.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/s02.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/y01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/w01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+				</span>
+				<strong>
+					<em class="hot_">
+						身份验证
+					</em>
+					<em class="two">
+						修改密码
+					</em>
+					<em>
+						完成
+					</em>
+					<div class="clear"></div>
+				</strong>
+			</div>
+			<h6>
+				<b>手机号</b>
+				<div class="input_">
+					<input type="text" id="telss" value="{$_SESSION.mobile}">
+					<input  type="button"  id="check_phoness" value="获取验证码"></input>
+				</div>
+				<div class="clear"></div>
+			</h6>
+			<h6 class="margin_T">
+				<b>验证码</b>
+				<div class="input_">
+					<input type="text" id="yzss" placeholder="请输入验证码">
+				</div>
+				<div class="clear"></div>
+			</h6>
+			<input type="submit"  id="Get" class="end_check_phone" value="下一步">
+			<input type="submit" class="Quxiao_" id="Quxiao_" class="" value="取消">
+		</div>
+		<div class="f-info" id="save_pswd">
+			<h5>账号安全&nbsp;-&nbsp;修改密码</h5>
+			<div class="step">
+				<span>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/s02_.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x02.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/y01_.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/w01.jpg" alt=""></b>
+					<b><img src="__PUBLIC__/pc2.0/img/x01.jpg" alt=""></b>
+				</span>
+				<strong>
+					<em class="">
+						身份验证
+					</em>
+					<em class="two hot_">
+						修改密码
+					</em>
+					<em>
+						完成
+					</em>
+					<div class="clear"></div>
+				</strong>
+			</div>
+			<h6>
+				<b>密码</b>
+				<div class="input_" style="margin-left:202px;width:307px">
+					<input type="password" id="password" style="width:100%;line-height:31px">
+				</div>
+				<div class="clear"></div>
+			</h6>
+			<h6 class="margin_T">
+				<b>确认密码</b>
+				<div class="input_"  style="margin-left:174px">
+					<input type="password" id="passwords">
+				</div>
+				<div class="clear"></div>
+			</h6>
+			<input type="submit"  id="Get" class="end_save_pswd" value="提交">
+		</div>
+		<div class="clear"></div>
+	</div>
+    <include file="Public/2.0footer"/>
+	
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript">
+    $(function(){
+		$("#save_phone").hide();
+    	$("#new_phone").hide();
+    	$("#save_phones").hide();
+    	$("#save_pswd").hide();
+    });
+    $("#save_p").click(function(){
+    	$("#body").hide();
+    	$("#save_phone").show();
+    })
+    $("#save_pswds").click(function(){
+    	$("#body").hide();
+    	$("#save_phones").show();
+    })
+
+    $(".end_save_phone").click(function(){
+    		if (qok == 0) {
+    			show_cw("请先获取验证码");
+    			return false;
+    		};
+    		var code = $("#yz").val();
+    		if (code == "") {
+    			show_cw("请输入合法的验证码");
+    			return false;
+    		};
+	    	$.post(
+	            '__URL__/check_codes',  
+	            {
+	                "check_codes":code,
+	                "check_types":2
+	            },function(data){
+	                if(data.status == 1) {
+    					$("#save_phone").hide();
+    					$("#new_phone").show();
+	                }else{
+	                  show_cw(data.info);
+	              	}
+	            },
+	            'json'
+	        )     		
+    })
+    $(".Quxiao_").click(function(){
+    	$("#save_phones").hide();
+    	$("#save_phone").hide();
+    	$("#body").show();
+    })
+    $(".end_new_phone").click(function(){
+    	if (iok == 0) {
+    		show_cw("请先获取验证码");
+    		return false; 
+    	};
+    	var code = $("#yzs").val();
+    	if (code == "") {
+    		show_cw("请输入合法的验证码");
+    		return false;
+    	}; 
+	   $.post(
+	        '__URL__/save_phone',  
+	        {
+	            "code":code,
+	            "user_phone":phone
+	        },function(data){
+	            if(data.status == 1) {
+	            	show_cw(data.info);
+					refresh();
+	            }else{
+	                show_cw(data.info);
+	            }
+	        },
+	        'json'
+	    )     	
+    })
+
+    $(".end_check_phone").click(function(){
+    	if (sok ==0) {
+    		show_cw("请先获取验证码");
+    		return false;
+    	};
+    	var code = $("#yzss").val();
+    	if (code == "") {
+    		show_cw("请输入合法的验证码");
+    		return false;
+    	}; 
+	    $.post(
+	        '__URL__/check_codes',  
+	        {
+	            "check_codes":code,
+	            "check_types":2
+	        },function(data){
+	           if(data.status == 1) {
+    				$("#save_phones").hide();
+    				$("#save_pswd").show();
+	            }else{
+	                show_cw(data.info);
+	            }
+	        },
+	        'json'
+	    )      	
+    })
+    $(".end_save_pswd").click(function(){
+    	var password = $("#password").val();
+    	var passwords = $("#passwords").val();
+    	if (password != passwords) {
+    		show_cw("两次输入的密码不一致，请重新填写");
+    		return false;
+    	};
+	   $.post(
+	        '__URL__/save_pswd',  
+	        {
+	            "password":password,
+	        },function(data){
+	            if(data.status == 1) {
+	            	show_cg(data.info);
+					refresh();
+	            }else{
+	                show_cw(data.info);
+	            }
+	        },
+	        'json'
+	    )     	
+    })
+
+
+
+    var phone_user = document.getElementById("check_phone");
+    var qok = 0;
+    var phone = 0;
+    $("#check_phone").click(function(){
+    	phone = $("#tel").val();
+    	if (phone == ""  || !preg.test(phone)) {
+    		show_cw("请填写合法手机号码");
+        	return false;
+    	};
+    	$.post(
+            '__URL__/ajax_check_verify',  
+            {
+                "user_phone":phone,
+                "type":2
+            },function(data){
+                if(data.status == 1) {
+                  time(phone_user);
+                  show_cg("验证码发送成功");
+                  qok = 1;
+                }else if (data.status == 2) {
+                  show_cg("验证通过,请继续操作");
+                  time(phone_user);
+                  qok = 1;
+                }else{
+                  show_cw(data.info);
+              }
+            },
+            'json'
+        ) 
+    })
+
+    var phone_users = document.getElementById("check_phones");
+    var iok = 0;
+    $("#check_phones").click(function(){
+    	phone = $("#tels").val();
+    	if (phone == ""  || !preg.test(phone)) {
+    		show_cw("请填写合法手机号码");
+        	return false;
+    	};
+    	$.post(
+            '__URL__/ajax_check_verify',  
+            {
+                "user_phone":phone,
+                "type":2
+            },function(data){
+                if(data.status == 1) {
+                  time(phone_users);
+                  show_cg("验证码发送成功");
+                  iok = 1;
+                }else if (data.status == 2) {
+                  show_cg("验证通过,请继续操作");
+                  time(phone_users);
+                  iok = 1;
+                }else{
+                  show_cw(data.info);
+              }
+            },
+            'json'
+        ) 
+    })
+    var sok=0;
+    var phone_userss = document.getElementById("check_phoness");
+    $("#check_phoness").click(function(){
+    	phone = $("#telss").val();
+    	if (phone == ""  || !preg.test(phone)) {
+    		show_cw("请填写合法手机号码");
+        	return false;
+    	};
+    	$.post(
+            '__URL__/ajax_check_verify',  
+            {
+                "user_phone":phone,
+                "type":2
+            },function(data){
+                if(data.status == 1) {
+                  time(phone_userss);
+                  show_cg("验证码发送成功");
+                  sok = 1;
+                }else if (data.status == 2) {
+                  show_cg("验证通过,请继续操作");
+                  time(phone_userss);
+                  sok = 1;
+                }else{
+                  show_cw(data.info);
+              }
+            },
+            'json'
+        ) 
+    })
+</script>
+</body>
+</html>

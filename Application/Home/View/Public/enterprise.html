@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易回购</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/jq22-demo.css">    
+    <link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/Place.css" />
+    <link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+    <!--[if IE]>
+        <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    
+
+
+.top-one{
+    box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    width:1200px;
+    height:60px;
+    line-height:60px;
+    margin:0 auto;
+    background:#FFF;
+    border-bottom:solid 1px #ccc;
+}
+
+.logo{
+    width:255px;
+    height:60px;
+    float:left;
+}
+
+.nav{
+    width:555px;
+    height:60px;
+    float:right;
+    cursor:pointer
+}
+
+.nav-lf{
+    width:333px;
+    height:50px;
+    text-align:center;
+    float:left;
+    display:inlin;
+    margin-top:10px;
+}
+
+.nav-lf li{
+    width:111px;
+    line-height:42px;
+    text-align:center;
+    float:left
+}
+
+.nav-lf li a{
+    font-size:16px;
+    color:#666666;
+}
+
+.nav-lf li a:hover{
+    color:#61bd52
+}
+
+.one-a{
+    position:relative;
+}
+
+.nav-lf.one-a a{
+    color:#61bd52;
+}
+
+.nav-lf li.one-a .one-a-a1{
+    color:#61bd52;
+    }
+    
+.nav-lf li.one-a a{
+    width:81px;
+    display:block;
+    line-height:42px;
+    text-align:center;
+    margin:0 auto;
+}
+
+.nav-lf li.one-bb{
+    width:111px;
+    line-height:42px;
+    background:#FFF;
+    color:#61bd52;
+    position:relative;
+}
+
+.nav-lf li.one-bb a{
+    width:81px;
+    display:block;
+    line-height:42px;
+    text-align:center;
+    margin:0 auto;
+}
+
+.one-a a img{
+    float:right;
+    margin-top:20px;
+}
+    
+.one-b{
+    width:111px;
+    height:166px;
+    background:#FFF;
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:5;
+    box-shadow:#999 0px 0px 3px 0px;
+    display:none;
+}
+
+.nav-lf li.one-a .one-b a{
+    width:108px;
+    line-height:30px;
+    display:block;
+    float:left;
+    text-align:left;
+    color:#666666;
+    font-size:14px;
+    padding-left:18px
+}
+.nav-lf li.one-a .one-b a:hover{
+    color:#61bd52
+    }
+
+
+.one-a img{
+    float:right;
+    margin-top:27px;
+}
+
+.nav-lf li.one-a>img:hover{
+    transform:rotate(179deg)
+}
+
+.nav-rf{
+    width:222px;
+    height:60px;
+    float:right
+}
+
+.nav-rf li{
+    width:103px;
+    height:32px;
+    float:right;
+    margin-top:14px;
+    position:relative;
+}
+
+.nav-rf li:hover{
+    box-shadow:#ccc 3px 3px 2px; 
+}
+
+.nav-rf li img{
+    float:left
+}
+
+.nav-rf li em{
+    width:16px;
+    height:15px;
+    background:url(__PUBLIC__/Pc2.0/img/nav-gw02.png) no-repeat center center;
+    position:absolute;
+    top:-5px;
+    right:14px;
+    line-height:15px;
+    text-align:center;
+    color:#FFF;
+    font-size:10px
+}
+/*nav end*/
+
+</style>
+
+<body>
+    <include file="Public/2.0header"/>
+    <div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #ccc position:relative; z-index:96;">
+        <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:60px; border-bottom:solid 1px #ccc">
+            <div class="top-one">
+                <div class="logo">
+                    <a href="/"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                </div>
+                <div class="nav">
+                    <ul class="nav-lf">
+                        <li class="one-a">
+                            <a class="one-a-a" href="#" style="color:#666">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-0222.png" /></a>
+                                <span class="one-b">
+                                    <a href="/" style="width: 96px; padding-left:15px; height:38px; display: block; color:#61bd52; text-align: center; font-size:16px; line-height: 42px;margin: 0 auto;">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a>
+                                </span>
+                        </li>
+                        <li><a href="http://shop.ehuigou.com">易购商城</a></li>
+                        <li><a href="http://www.ehuigou.com/public/enterprise.html" style="color:#61bd52;">库存机回收</a></li>
+                    </ul>
+                    <ul class="nav-rf">
+                        <li>
+                            <a href="__ROOT__/order/inquiry"><img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                            <em>{$_SESSION.cart_count|default="0"}</em>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="view">
+            <div id="frame">
+                <div class="op-section dyige"></div>
+                <div class="op-section second"></div>
+                <div class="op-section third"></div>
+                <div class="op-section fourth">
+                    <div class="butos" style="width: 100%; height: auto; overflow: hidden;">
+                        <div class="Place">
+                            <h1>企业预约回收</h1>
+                            <h5>客户经理将一对一为贵公司报价回收</h5>
+                            <ul class="Place-input">
+                                <li><input type="text" class="Place-inputUp enterprise_name" placeholder="公司名称"  /></li>
+                                <li><input type="text" class="Place-inputUp user_name" placeholder="联系人"  /></li>
+                                <li><input type="text" class="Place-inputUp user_phone" placeholder="联系电话"/></li>
+                                <li>
+                                    <input type="text" class="Place-inputDw menu-box-yz" placeholder="验证码" />
+                                    <span class="Place-span"><img src="__PUBLIC__/verify" id="flushcode"></span>
+                                    <p class="Place-p"><a href="#" class="flushcode"></a></p>
+                                </li>
+                                <li><textarea name="" cols="" rows="" class="Place-textarea enterprise_list"></textarea></li>
+                                <li><a href="#"><em class="Place-em" id="send">提交订单</em></a></li>
+                                <li><a style="color: #e70505;">*</a> 提交信息后，请保持电话畅通，我们将竭诚为您服务</li>
+                            </ul>
+                        </div>
+                        <!--Place end-->
+                        <include file="Public/2.0footer"/>
+                        <!--footer end-->
+                    </div>
+                    <!--butos end-->
+                </div>
+            </div>
+        </div>
+        <div id="radioWrap">
+            <ul id="radio">
+                <li>section0</li>
+                <li>section1</li>
+                <li>section2</li>
+                <li>section3</li>           
+            </ul>
+            <span id="radioOn"></span>
+        </div>
+    <script src="http://cdn.bootcss.com/jquery/2.0.2/jquery.min.js"></script>
+    <script src="__PUBLIC__/Pc2.0/js/onepage.js"></script>
+    <script src="__PUBLIC__/Pc2.0/js/public.js"></script>
+    <script>
+        $(document).ready(function(e) {
+        $("#top-p-a").click(function(e) {
+            $("html,body").animate({scrollTop:$("#main-menu").offset().top},1000)
+            /*animate为JQuery的自定义动画方法，$(“#box”).offset().top表示id为box的JQuery对象距离页面顶部的偏移值，1000表示平滑动画执行的时间为1000毫秒，也就是1秒。*/
+        })
+    });
+    $(function(){
+    $(".one-a").hover(function(){
+        var span = $(".one-b");
+        if(span.css("display")=="none"){
+            span.slideDown(10);
+        }else{
+            span.slideUp(10);
+        }
+            
+    $(this).addClass('one-bb')
+        $("a img",this).attr("src","__PUBLIC__/Pc2.0/img/nav-02b.png");
+        $('.one-a-a',this).addClass('one-a-a1')
+    },function(){
+        $('.one-a-a',this).removeClass('one-a-a1')
+        $(this).removeClass('one-bb')
+        $("a img",this).attr("src","__PUBLIC__/Pc2.0/img/nav-b-0222.png");
+        $(".one-b").slideUp(10);
+        });
+        
+});
+        $(document).ready(function(){
+            startOnePage({
+                frame: "#view",
+                container: "#frame",
+                sections: ".op-section",
+                radio: "#radio",
+                radioOn: "#radioOn",
+                speed: 500,
+                easing: "swing"
+            });
+            
+        });
+    $(".flushcode").click(function(){
+      $("#flushcode").click();
+    });
+    $("#flushcode").click(function(){
+        var timenow = new Date().getTime();
+        $(this).attr('src','__APP__/Public/verify/'+timenow);
+    });
+    $("#send").click(function(){
+        var verify = $.trim($(".menu-box-yz").val());
+        var enterprise_name = $.trim($(".enterprise_name").val());
+        var user_name = $.trim($(".user_name").val());
+        var user_phone = $.trim($(".user_phone").val());
+        var enterprise_list = $.trim($(".enterprise_list").val());
+        $.post(
+          '__URL__/send_enterprise',
+          {
+            "verify" : verify,
+            "enterprise_name" : enterprise_name,
+            "user_name" : user_name,
+            "user_phone" : user_phone,
+            "enterprise_list" : enterprise_list
+          },
+          function(data){
+            if(data.status == 1) {
+                alert(data.info);
+                window.location.href = "__APP__/index/index";
+            }else if(data.status == 2){
+                alert(data.info);
+            } else {
+              alert(data.info);
+            }
+          },
+          'json'
+        );
+    })
+    </script>
+</body>
+</html>

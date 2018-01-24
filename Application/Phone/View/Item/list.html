@@ -1,0 +1,9 @@
+            <empty name = "list_type" >
+                  <volist  name="list" id="vo">
+                        <li class="options" onclick="checkd(this)" tid = "{$vo.congtion_id}"><i></i>{$vo.congtion_name}</li>
+                  </volist>
+            <else />
+                  <volist  name="list" id="vo">
+                        <li class="options" onclick="checkd(this)"tid = "{$vo.right_id}" ><i></i>{$vo.right_name}</li>
+                  </volist>
+            </empty>

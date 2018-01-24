@@ -1,0 +1,13 @@
+		 				<volist name="store_list" id="vo">
+		 					<if condition="$key eq 0 "> 
+			 					<span class="L hot_ stores_list" store_lbs="{$vo.store_lbs}" phone="{$vo.store_phone}" addr="{$vo.store_addr}" sid="{$vo.store_id}" onclick="changeStore(this)" >
+			 				<elseif condition="$key eq 1" />
+		 						<span class="L stores_list border-T" store_lbs="{$vo.store_lbs}" phone="{$vo.store_phone}" addr="{$vo.store_addr}" sid="{$vo.store_id}" onclick="changeStore(this)">
+			 				<else />
+			 					<span class="L stores_list" store_lbs="{$vo.store_lbs}" phone="{$vo.store_phone}" addr="{$vo.store_addr}" sid="{$vo.store_id}" onclick="changeStore(this)">
+			 				</if>
+			 					<i>{$vo.store_name}</i>
+			 					<em>{$vo.store_addr}　电话：{$vo.store_phone}</em>
+			 					<img src="__PUBLIC__/Pc2.0/img/c.jpg" alt="">
+			 				</span>
+						</volist>

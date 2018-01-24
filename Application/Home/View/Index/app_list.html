@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>易回购 -- APP介绍</title>
+		<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/public.css" />
+		<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/present.css" />
+    	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+	</head>
+	<body>
+		<div class="download-header">
+			<ul class="download-ul">
+				<a href="http://store.ehuigou.com"><img src="__PUBLIC__/Pc2.0/img/xiazai-02.png"></a>
+				<p>企业版APP</p>
+				<li class="avci"><a href="javascript:void(0);">APP介绍</a></li>
+				<li><a href="__URL__/app_lists">软件下载</a></li>
+			</ul>
+		</div>
+		
+		<div class="present-main">
+			<div class="main">
+				<div class="main-img">
+					<div class="slider" id="slider">
+                      <div class="slider-inner">
+                        <div class="item">
+                        <a href=""><img src="__PUBLIC__/Pc2.0/img/jiesao_05.jpg" class="img"></a>
+                        </div>
+                        <div class="item">
+                        <a href=""><img src="__PUBLIC__/Pc2.0/img/jiesao_06.jpg" class="img"></a>
+                        </div>
+                        <div class="item">
+                        <a href=""><img src="__PUBLIC__/Pc2.0/img/jiesao_07.jpg" class="img"></a>
+                        </div>
+                      </div>
+                	</div>
+                	<!--slider end-->
+				</div>
+				
+				<div class="text">
+					<em>
+						易回购是国内专业从事3C类数码产品回收的在线平台，专注手机、平板电脑、笔记本电脑以及数码相机等多品类回收业务，通过多年积累的数码产品售后服务经验，实时采集国内外二手机市场的价格数据，以最便捷的评估体系、最合理的回收价格，为广大数码产品用户提供贴心的闲置处理服务，倡导绿色、经济、环保的数码消费理念。易回购以B2B2C的服务模式，与国内众多知名的大型数码产品线下销售连锁机构签订了长期的战略合作关系，实现了现场评估、当场支付的消费体验。目前，易回购合作渠道已经覆盖了北京、河北、四川、贵州、山东、黑龙江、陕西等多个省市。
+					</em>
+					<em>
+						易回购-企业版app是由易回购出品，专门授权给合作渠道门店使用的官方软件，7天*10小时的客服支撑体系，为合作企业开展旧机回购及以旧换新业务提供最优质的服务保障。
+					</em>
+					<em>
+						“让闲置创造价值”是我们的品牌理念，“帮企业创造利润”是我们的服务宗旨。
+					</em>
+				</div>
+			</div>
+		</div>
+    <include file="Public/2.0footer"/>
+	<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js" ></script>
+	<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/banner1.js" ></script>
+	<script type="text/javascript">
+		function mobile_device_detect(a) {
+			for (var c = navigator.platform, d = "iPhone;iPod;iPad;android;Nokia;SymbianOS;Symbian;Windows Phone;Phone;Linux armv71;MAUI;UNTRUSTED/1.0;Windows CE;BlackBerry;IEMobile".split(";"), b = 0; b < d.length; b++) c.match(d[b]) && (window.location = a); - 1 != navigator.platform.indexOf("iPad") && (window.location = a);
+			c = navigator.appVersion;
+			c.match(/linux/i) && (c.match(/mobile/i) || c.match(/X11/i)) && (window.location = a);
+			Array.prototype.in_array = function(a) {
+				for (b = 0; b < this.length; b++) if (this[b] == a) return !0;
+				return !1
+			}
+		}
+		mobile_device_detect("http://m.ehuigou.com/index/download");
+
+
+	</script>
+	</body>
+</html>

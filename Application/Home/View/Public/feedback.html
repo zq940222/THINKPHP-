@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>投诉建议</title>
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/help2.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+    <link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+
+</head>
+<body>
+<include file="Public/2.0hint"/>
+ 	
+    <include file="Public/2.0header"/>
+    	<div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #eaeaea; position:relative; z-index:96;" cid="{$cid}" id="cids">
+            <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:60px; border-bottom:solid 1px #eaeaea">
+                <div class="top-one">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                    </div>
+                    <div class="nav">
+                        <ul class="nav-lf">
+                            <li class="one-a">
+                                <a class="one-a-a" href="#">旧机回收
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-b-02_.png" /></a>
+                                <span class="one-b">
+                                    <a href="#" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收
+                                        <img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a></span>
+                            </li>
+                            <li>
+                                <a href="http://shop.ehuigou.com">易购商城</a></li>
+                            <li>
+                                <a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                        </ul>
+                        <ul class="nav-rf">
+                            <li>
+                                <a href="__ROOT__/order/inquiry">
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                <em>0</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    	</div>
+	<div id="main-box">
+		<div class="titleBox">
+			<div class="title">
+				<img src="__PUBLIC__/Pc2.0/img/help54.jpg" alt="">
+			</div>
+		</div>
+			<div id="main">
+				<h6>您对易回购产品或流程有任何意见或者建议，请留下您的联系方式，我们会尽快为您解答，非常感谢！！！</h6>
+				<span class="PIM">
+					<em style="display:inline;">联系方式</em>
+					<input type="text" id="relation" placeholder="您的手机号码或邮箱">
+				</span>
+				<span class="suggest">
+					<em>具体内容</em>
+					<textarea name="text" id="textBox" class="comment"></textarea>
+				</span>
+				<input type="submit" id="send" value="提交反馈">
+			</div>
+	</div>
+    <include file="Public/2.0footer"/>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript">
+	$("#send").click(function(){
+		var relation = $("#relation").val();
+		if (relation == "") {
+			show_cw("联系方式不能为空");
+			return false;
+		};
+		var comment = $(".comment").val();
+		if (comment == "") {
+			show_cw("投诉建议不能为空");
+			return false;			
+		};
+		$.post(
+			'add_feedback',
+			{
+				'relation':relation,
+				'comment':comment
+			},
+			function(data){
+          		if(data.status == 1) {
+          			show_cg("已经成功反馈，谢谢");
+				}else{
+					show_cw(data.info);
+				}
+			},
+			'json'
+		)
+	})
+</script>
+<script>
+	$(function() {
+                $(".one-a").hover(function() {
+                    var span = $(".one-b");
+                    if (span.css("display") == "none") {
+                        span.slideDown(10);
+                    } else {
+                        span.slideUp(10);
+                    }
+                    $(this).addClass('one-bb') ;
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-02b.png");
+                    $('.one-a-a', this).addClass('one-a-a1')
+                },
+                function() {
+                    $('.one-a-a', this).removeClass('one-a-a1');
+                    $(this).removeClass('one-bb');
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-b-02_.png");
+                    $(".one-b").slideUp(10);
+                });
+                $(".i-wz-a").hover(function() {
+                    $('.icon-caret-up').css('transform', 'rotate(0deg)');
+                    $('.icon-caret-up').css('margin-top', '7.3px');
+                },
+                function() {
+                    $('.icon-caret-up').css('transform', '');
+                    $('.icon-caret-up').css('margin-top', '');
+                });
+            })
+</script>
+</body>
+</html>

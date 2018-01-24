@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联系我们</title>
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/Us.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css" />
+    <link REL="Shortcut Icon" href="__PUBLIC__/logo.ico">
+    <script src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+        <script>
+    	$(function() {
+                $(".one-a").hover(function() {
+                    var span = $(".one-b");
+                    if (span.css("display") == "none") {
+                        span.slideDown(10);
+                    } else {
+                        span.slideUp(10);
+                    }
+                    $(this).addClass('one-bb') ;
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-02b.png");
+                    $('.one-a-a', this).addClass('one-a-a1')
+                },
+                function() {
+                    $('.one-a-a', this).removeClass('one-a-a1');
+                    $(this).removeClass('one-bb');
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-b-02_.png");
+                    $(".one-b").slideUp(10);
+                });
+                $(".i-wz-a").hover(function() {
+                    $('.icon-caret-up').css('transform', 'rotate(0deg)');
+                    $('.icon-caret-up').css('margin-top', '7.3px');
+                },
+                function() {
+                    $('.icon-caret-up').css('transform', '');
+                    $('.icon-caret-up').css('margin-top', '');
+                });
+            })
+    </script>
+</head>
+<body>
+    <include file="Public/2.0header" />
+    <div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #eaeaea; position:relative; z-index:96;" cid="{$cid}" id="cids">
+            <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:60px; border-bottom:solid 1px #eaeaea">
+                <div class="top-one">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                    </div>
+                    <div class="nav">
+                        <ul class="nav-lf">
+                            <li class="one-a">
+                                <a class="one-a-a" href="#">旧机回收
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-b-02_.png" /></a>
+                                <span class="one-b">
+                                    <a href="#" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收
+                                        <img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a></span>
+                            </li>
+                            <li>
+                                <a href="http://shop.ehuigou.com/category.php?id=685">易购商城</a></li>
+                            <li>
+                                <a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                        </ul>
+                        <ul class="nav-rf">
+                            <li>
+                                <a href="__ROOT__/order/inquiry">
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                <em>0</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 头部 -->
+	<div id="main-box">
+		<div class="title">
+            <div id="allmap"style="border-left: 1px solid #eaeaea;float: right;height: 364px;width: 1198px;">
+                
+            </div>
+			<div class="span_">
+				<h5>深圳市光格网络科技有限公司</h5>
+				<p>
+					服务热线：400-8292-189<br/>
+					深圳总部：华强北路赛格广场<br/>
+					北京分部：北京市丰台区南三环东路23号<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天创盛方中心B座403室<br/>
+				</p>
+			</div>
+		</div>
+		<div id="list">
+			<ul class="marginT">
+				<li><h6>商务洽谈及代理加盟</h6></li>
+				<li>联系人：张静</li>
+				<li>电　话：18600130909</li>
+				<li>邮　箱：zhangjing@ehuigou.com</li>
+			</ul>
+			<ul class="marginT">
+				<li><h6>战略合作及投融资</h6></li>
+				<li>联系人：曹宇</li>
+				<li>电　话：18600233863</li>
+				<li>邮　箱：caoyu@ehuigou.com</li>
+			</ul>
+			<ul class="marginR marginT">
+				<li><h6>资源置换及媒体推广</h6></li>
+				<li>联系人：周晓钟</li>
+				<li>电　话：13911183845</li>
+				<li>邮　箱： zhouxiaozhong@ehuigou.com</li>
+			</ul>
+			<ul>
+				<li><h6>客服帮助</h6></li>
+				<li>为及时解决您的问题，建议您通过在线提交意见反馈，我们会尽快受理您的问题。</li>
+				<li style="margin-top:10px">1. 服务热线：400-8292-189（服务时间9:00 - 18:00）</li>
+				<li>2. <a href="https://eco-api.meiqia.com/dist/standalone.html?eid=7872" target="_blank">在线客服</a></li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+    <include file="Public/2.0footer" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1iUeP2YGsW58pV10KmUAXLKWhaWSiP6m"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script>
+    <script type="text/javascript">
+            map = new BMap.Map('allmap');
+            map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); 
+            var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+            var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+            map.addControl(top_left_control);    
+            map.addControl(top_left_navigation);     
+            map.enableScrollWheelZoom(); 
+            map.setCurrentCity("北京");
+            var local = new BMap.LocalSearch(map, {
+                renderOptions:{map: map}
+            });
+            var marker = show_lbs(116.433858,39.864912);
+            var iw = new BMap.InfoWindow(
+                        "<b class='titles' title='深圳市光格网络科技有限公司北京一分公司'>深圳市光格网络科技有限公司北京一分公司</b>" +
+                        "<dl class='dll'>" +
+                            "<dt>地址：丰台区南三环中路天创盛芳中心B座403</dt>" +
+                            "<dt>电话400-8292-189</dt>" +
+                        "</dl>"
+            );
+            marker.addEventListener("click", function () {
+                this.openInfoWindow(iw);
+            })
+            function show_lbs(lbs,lbss){
+                var poi = new BMap.Point(lbs,lbss);
+                map.centerAndZoom(poi, 15);
+                var marker = new BMap.Marker(poi); //创建  
+                map.addOverlay(marker); //在地图中添加marker
+                return marker;
+            }
+    </script>
+</body>
+</html>

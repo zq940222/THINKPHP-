@@ -1,0 +1,84 @@
+	<header>
+		<div class="header_">
+		<a id="logo" href="http://www.ehuigou.com/">
+			<img src="__PUBLIC__/pc2.0/img/logo___.jpg" alt="">
+		</a>
+			<ul>
+				<li class="tab">
+					<div class="tab-box">
+						<em>旧机回收<img src="__PUBLIC__/pc2.0/img/h2.jpg" alt=""></em>
+						<span>
+							<a href="{:U('Search/index/tid/1')}">手机回收</a>
+							<a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+							<a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+							<a href="{:U('Search/index/tid/5')}">数码相机回收</a>
+						</span>
+					</div>
+				</li>
+				<li><a href="http://shop.ehuigou.com">易购商城</a></li>
+				<li><a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+			</ul>
+			<div class="h-right">
+				<div class="search-box">
+                    <form method = 'get' id="froms_header" action = '__APP__/search/index'>
+						<input type="text" id="search" name="key" placeholder="iPhone 6s">
+						<span id="searches">搜索</span>
+                    </form>
+				</div>
+				 <a href="__ROOT__/order/inquiry"><b><i>0</i></b></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</header>
+<div id="cBox">
+	<div id="content1">
+		<div class="c-left">
+			<h4><a href="http://www.ehuigou.com/user/index" style="color:#444">我的易回购&nbsp;&nbsp;<p>回收旧机，向环保达人更近一步！</p></a></h4>
+			<h6>易回购累计回收超500万台，&nbsp;<a id='FX' class="bshareDiv" href="http://www.bshare.cn/share"></a><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#uuid=&amp;style=10&amp;bgcolor=Orange&amp;ssc=false"></script>       
+<script type="text/javascript" charset="utf-8">
+bShare.addEntry({
+   
+    url: "http://www.ehuigou.com",
+   	pic:'http://www.ehuigou.com/PUBLIC/pc2.0/img/11.jpg'
+});
+</script>&nbsp;给好友一起回收换钱</h6>
+
+		</div>
+		<div class="c-right">
+			<ul>
+				<li>
+					<a href="__APP__/user/location">
+						<span>1</span><br/>
+						<b>常用地址</b>
+					</a>
+					
+				</li>
+				<li>
+					<a href="__APP__/user/pay_account">
+						<span>{$count_pay}</span><br/>
+						<b>收款帐户</b>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<span>0</span><br/>
+						<b>换购</b>
+					</a>
+				</li>
+				<li class="last">
+					<a href="http://www.ehuigou.com/user/order">
+						<span><i>{$coutn_order}</i>台旧机</span><br/>
+						<b>保护&nbsp;<em>{$count}</em>&nbsp;升水不被污染</b>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="clear"></div>	
+	</div>
+</div>
+	<script type="text/javascript">
+	$("#searches").click(function(){
+		$("#froms_header").submit();
+	})
+	</script>

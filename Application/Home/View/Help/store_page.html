@@ -1,0 +1,13 @@
+                                       <volist name="store_list" id="vo">
+                                                <if condition="$i eq 1"> 
+                                                        <li class="active"  store_lbs="{$vo.store_lbs}" phone="{$vo.store_phone}" addr="{$vo.store_addr}" sid="{$vo.store_id}" onclick="changeStore(this)">{$vo.store_name}</li>
+                                                <else />
+                                                        <li  store_lbs="{$vo.store_lbs}" phone="{$vo.store_phone}" addr="{$vo.store_addr}" sid="{$vo.store_id}" onclick="changeStore(this)">{$vo.store_name}</li>
+                                                </if>
+                                        </volist>
+<script type="text/javascript">
+
+        $(".branch-downleft li").click(function() {
+                $(this).addClass("active").siblings("li").removeClass("active")
+        })
+</script>

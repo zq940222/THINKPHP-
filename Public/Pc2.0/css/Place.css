@@ -1,0 +1,224 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/*为整个布局设置overflow-y: hidden属性来阻止滚动条的出现。*/
+body {
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+	color: #fff;
+}
+
+li {
+	list-style-type: none;
+}
+/*End*/
+
+/*为每一个分段section设置一个颜色。*/
+.dyige {
+	background: url(../img/plimg-02.jpg) no-repeat center center;
+}
+
+.second {
+	background: url(../img/plimg-04.png) no-repeat center center;
+}
+
+.third {
+	background: url(../img/plimg-03.png) no-repeat center center;
+}
+
+.fourth {
+	background: #FFFFFF;
+}
+
+.op-section{
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+	min-height: 500px;
+}
+
+
+/*垂直圆点导航按钮的基本样式如下*/
+#radioWrap {
+	width: 20px;
+	height: 100px;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	margin-top: -50px;
+}
+
+#radio {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#radio li {
+	width: 12px;
+	height: 12px;
+	background-color: rgba(0,0,0, 0.5);
+	text-indent: -10000px;
+	border-radius: 50%;
+	margin-top: 12px;
+	cursor: pointer;
+}
+
+#radio li: first-child {
+	margin-top: 0;
+}
+/*End*/
+
+/*radioOn元素是代表当前激活的section的圆点，需要将它设置为绝对定位，并通过margin来调整它们之间的距离。*/	
+#radioOn {
+	width: 12px;
+	height: 12px;
+	margin-top: 12px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #61BD52;
+	border-radius: 50%;
+}
+/*End*/
+
+.Place{
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.Place h1,.Place h5{
+	width: 100%;
+	text-align: center;
+}
+
+.Place h1{
+	font-size: 40px;
+	color: #61bd52;
+	padding: 10px 0 15px 0;
+}
+
+.Place h5{
+	font-size: 14px;
+	color: #999;
+	padding-bottom:19px;
+}
+
+.Place-input{
+	width: 520px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.Place-input li{
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.Place-input li:last-child{
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+	
+}
+
+.Place-input input{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box; 
+	border-radius: 5px;
+	border:solid 1px #cccccc;
+	padding-left: 18px;
+	height: 46px;
+	font-size: 14px;
+	color: #666;
+}
+
+.Place-inputUp{
+	width: 520px;	
+}
+
+.Place-inputDw{
+	width: 285px;
+	float: left;
+}
+
+.Place-span,.Place-p,.Place-p a{
+	display: block;
+	float: left;
+}
+
+.Place-span{
+	width: 115px;
+	height: 46px;
+	border: solid 1px #cccccc;
+	margin-left: 45px;
+}
+
+.Place-span img{
+	width: 113px;
+	height: 44px
+}
+
+.Place-p{
+	width: 29px;
+	height: 26px;
+	margin:10px 0 10px 35px;
+	cursor: pointer;
+}
+
+.Place-p a{
+	width: 29px;
+	height: 26px;
+	background: url(../img/plimg-06.png) no-repeat center center;
+}
+
+.Place-textarea{
+	width: 520px;
+	height: 210px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box; 
+	border-radius: 5px;
+	border:solid 1px #cccccc;
+	padding-left: 18px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #666;
+}
+
+.Place-em{
+	width: 200px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 20px;
+	color: #FFF;
+	background: #61BD52;
+	margin-left: 160px;
+}
+
+.Place-em:hover{
+	background:#0f903c;
+}
+
+.Place-em:active{
+	background:#056125;
+}
+
+
+.bottom .box{
+	height: 140px;
+	margin:10px auto 0;
+}
+
+.bottom p{
+	line-height: 25px;
+	text-align: center;
+}

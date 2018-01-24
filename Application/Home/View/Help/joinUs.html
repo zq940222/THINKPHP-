@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加入我们</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/joinUs.css">
+    <link REL="Shortcut Icon" href="__PUBLIC__/logo.ico">
+    <script src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+    <script>
+    	$(function() {
+                $(".one-a").hover(function() {
+                    var span = $(".one-b");
+                    if (span.css("display") == "none") {
+                        span.slideDown(10);
+                    } else {
+                        span.slideUp(10);
+                    }
+                    $(this).addClass('one-bb') ;
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-02b.png");
+                    $('.one-a-a', this).addClass('one-a-a1')
+                },
+                function() {
+                    $('.one-a-a', this).removeClass('one-a-a1');
+                    $(this).removeClass('one-bb');
+                    $("a img", this).attr("src", "__PUBLIC__/Pc2.0/img/nav-b-02_.png");
+                    $(".one-b").slideUp(10);
+                });
+                $(".i-wz-a").hover(function() {
+                    $('.icon-caret-up').css('transform', 'rotate(0deg)');
+                    $('.icon-caret-up').css('margin-top', '7.3px');
+                },
+                function() {
+                    $('.icon-caret-up').css('transform', '');
+                    $('.icon-caret-up').css('margin-top', '');
+                });
+            })
+    </script>
+</head>
+<body>
+    <include file="Public/2.0header" />
+    <div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #eaeaea; position:relative; z-index:96;" cid="{$cid}" id="cids">
+            <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:60px; border-bottom:solid 1px #eaeaea">
+                <div class="top-one">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                    </div>
+                    <div class="nav">
+                        <ul class="nav-lf">
+                            <li class="one-a">
+                                <a class="one-a-a" href="#">旧机回收
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-b-02_.png" /></a>
+                                <span class="one-b">
+                                    <a href="#" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收
+                                        <img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a></span>
+                            </li>
+                            <li>
+                                <a href="http://shop.ehuigou.com/category.php?id=685">易购商城</a></li>
+                            <li>
+                                <a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                        </ul>
+                        <ul class="nav-rf">
+                            <li>
+                                <a href="__ROOT__/order/inquiry">
+                                    <img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                <em>0</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 头部 -->
+	<div id="main-box">
+		<div id="title_">
+		<div class="main">
+			<div class="title_img"><img src="__PUBLIC__/pc2.0/img/Us7.jpg" alt=""></div>
+		</div>
+		</div>
+		<div id="conA">
+			<div id="content" class="aa">
+				<div class="title">
+					<img src="__PUBLIC__/pc2.0/img/Us8.jpg" alt="">
+				</div>
+				<div class="demand left">
+					<h6>工作描述</h6>
+					<p>
+						1、遵照开发规范，负责PHP网站项目相关功能模块的设计、编码、单元测试、维护，按时保质地完成所分配的工作任务；<br/> 
+						2、遵守团队的代码格式与结构规定，负责编写易读、易维护、高质量、高效率的代码；<br/>
+						3、参与项目需求分析、功能可行性分析、技术可行性分析和系统架构设计工作；<br/>
+						4、快速学习并掌握项目中使用的新技术，及时反馈开发中的问题，并根据实际情况提出改进建议或意见；<br/>
+						5、负责在开发过程中相关的技术文档的编写工作；<br/> 
+						6、完成与本职位相关的其它工作。
+					</p>
+				</div>
+				<div class="demand right">
+					<h6>工作要求</h6>
+					<p>
+						1、大专或以上学历；<br/>
+						2、2年或以上PHP相关开发经验，有大中型网站开发经验者为佳；<br/>
+						3、熟练掌握PHP语言，掌握MVC、单例等基本设计模式；<br/>
+						4、掌握SQL和MySQL，能够对MySQL进行优化；<br/>
+						5、熟悉Linux操作系统和LAMP开发环境；<br/>
+						6、熟悉phpcms、ucenter等开源产品者为佳；<br/>
+						7、熟悉ECshop、dedecms等开源程序的二次开发；<br/>
+						8、至少一年以上微信开发经验或一年以上ECSHOP二次开发经验，熟悉微信支付、支付宝支付等接口。 
+					</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="contentBox">
+			<div id="content" class="content2">
+				<div class="title">
+					<img src="__PUBLIC__/pc2.0/img/Us9.jpg" alt="">
+				</div>
+				<div class="demand left demand2">
+					<h6>工作描述</h6>
+					<p>
+						1、负责社交新媒体的日常运营工作，增加粉丝数，提高关注度；根据项目制定的内容方向发布各种符合公司要求的优质、有传播性的内容；<br/>
+						2、提高粉丝活跃度，与粉丝做好互动，并对粉丝的网络行为进行分析与总结；<br/>
+						3、紧跟新媒体发展趋势，深入了解新媒体的特点及资源，建立资源渠道关系；<br/> 
+						4、负责策划并制定线上活动方案及原创内容的策划及编辑工作。
+					</p>
+				</div>
+				<div class="demand right demand2">
+					<h6>工作要求</h6>
+					<p>
+						1、对新媒体有浓厚的兴趣，有2年以上新媒体运营经验； 有广告公司创意经验的优先；<br/>
+						2、熟悉企业公众号平台，熟悉新app，会玩懂用户心理,有渠道资源的优先；<br/>
+						3、具有极强的沟通协调能力，热爱本职工作，工作细心、责任心强，富有想象力和激情；<br/> 
+						4、思维活跃，具有良好的理解能力和团队精神，能适应较大的工作压力。
+					</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="conA">
+			<div id="content" class="aa">
+				<div class="title">
+					<img src="__PUBLIC__/pc2.0/img/Us08.jpg" alt="">
+				</div>
+				<div class="demand left">
+					<h6>工作描述</h6>
+					<p>
+						1、负责全国合作客户全方位培训，包括产品知识、营销技巧、文案编辑、团队管理、制度建设等内容； <br/>
+						2、培训内容策划：根据团队的发展和管理需求，编制团队管理和营销培训的课件内容，收集与课程相关的资料、信息、案例、活动，深刻理解并有效整合，确保培训内容的专业性与生动性，确保培训方式的有效性；<br/>
+						3、培训授课：专业并生动地进行现场及网络课程讲授，做好把控，根据客户反馈，不断完善培训课程。
+					</p>
+				</div>
+				<div class="demand right">
+					<h6>工作要求</h6>
+					<p>
+						1、热情、开朗、亲和、信任、付出、感召；<br/>
+						2、经验：零售培训工作1年以上；<br/>
+						3、知识/技能：熟悉相关业务，能熟练应用word,PPT制作培训教案，具备较强的课程研发能力、良好的演讲能力；<br/>
+						4、了解手机通讯零售市场者优先。
+
+					</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="contact">
+			<span>
+				<p>应聘职位，投递简历至：hr@ehuigou.com</p>
+				<i>简历投递格式请以“应聘职位+姓名”作为邮件标题。</i>
+			</span>
+		</div>
+	</div>
+    <include file="Public/2.0footer" />
+</body>
+</html>

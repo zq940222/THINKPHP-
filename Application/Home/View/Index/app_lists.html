@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>易回购 -- APP下载</title>
+		<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/public.css" />
+		<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/download.css" />
+    	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+	</head>
+	<body>
+		<div class="download-header">
+			<ul class="download-ul">
+				<a href="http://store.ehuigou.com/"><img src="__PUBLIC__/Pc2.0/img/xiazai-02.png"></a>
+				<p>企业版APP</p>
+				<li><a href="__URL__/app_list">APP介绍</a></li>
+				<li class="avci"><a href="javascript:void(0);">软件下载</a></li>
+			</ul>
+		</div>
+		<div class="download-main">
+			<div class="main">
+				<div class="code">
+					<h5>下载易回购企业版App，立刻帮您的企业创造利润</h5>
+					<ol>
+						<li>
+							iPhone客户端
+							<p></p>
+							<span>
+								<img src="__PUBLIC__/Pc2.0/img/xiazai-09.png">
+								<em>扫描二维码下载</em>
+							</span>
+						</li>						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li>
+							Android客户端
+							<p></p>
+							<span>
+								<img src="__PUBLIC__/Pc2.0/img/xiazai-09.png">
+								<em>扫描二维码下载</em>
+							</span>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+    <include file="Public/2.0footer"/>
+    <script type="text/javascript">
+		function mobile_device_detect(a) {
+			for (var c = navigator.platform, d = "iPhone;iPod;iPad;android;Nokia;SymbianOS;Symbian;Windows Phone;Phone;Linux armv71;MAUI;UNTRUSTED/1.0;Windows CE;BlackBerry;IEMobile".split(";"), b = 0; b < d.length; b++) c.match(d[b]) && (window.location = a); - 1 != navigator.platform.indexOf("iPad") && (window.location = a);
+			c = navigator.appVersion;
+			c.match(/linux/i) && (c.match(/mobile/i) || c.match(/X11/i)) && (window.location = a);
+			Array.prototype.in_array = function(a) {
+				for (b = 0; b < this.length; b++) if (this[b] == a) return !0;
+				return !1
+			}
+		}
+		mobile_device_detect("http://m.ehuigou.com/index/download");
+
+
+    </script>
+	</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>易回购 -- 结算订单</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/Pc2.0/css/xiadan.css">
+    <link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css"/>
+	<style>
+		#city_box .tabBox{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+    <include file="Public/2.0hint"/>
+    <include file="Public/2.0header"/>
+	<div id="main-box">
+	 	<div id="f-main">
+	 		<div id="logo-box">
+	 			<div class="logo">
+	 				<a href="/"><img src="__PUBLIC__/Pc2.0/img/logo_.jpg" alt=""></a>
+	 			</div>
+	 			<div class="logo_title">
+	 				<img src="__PUBLIC__/Pc2.0/img/logo_title.jpg" alt="">
+	 			</div>
+	 			<div class="clear"></div>
+	 		</div>
+	 		<div id="title_">
+	 			填写并核对订单信息
+	 		</div>
+	 		<div class="content_">
+	 		    <form name="name1" autocomplete="off"> 
+	 			<span class="city">交易城市：
+	 				<b>北京市</b>
+	 				<i>
+
+	 					<span>[切换城市]</span>
+	 					<div id="city_box">
+	 						<div id="bgF"></div>
+	 						<h6>
+	 							<div id='aBox'>
+	 								<a class="L_" href="javascript:;">选择省</a>
+	 								<a class="R_" href="javascript:;">选择市</a>
+	 								<div class="clear"></div>
+	 							</div>
+	 						</h6>
+	 						<div class="choiceCity_ bodys tab_a ">
+	 							<ul>
+	 								<volist name="province_list" id="vo">
+		 								<li><a class="provinceid " cid="{$vo.provinceid}" href="javascript:;">{$vo.province}</a></li>
+									</volist>
+	 								<div class="clear"></div>
+	 							</ul>
+	 						</div>
+	 						<volist name="city_list" id="vo">
+		 						<div class="choiceCity_ City tabBox {$key} ">
+		 							<ul>
+		 								<volist name="vo" id="vos">
+		 									<li ><a  class="city_names" ids="{$vos.cityid}" href="javascript:;">{$vos.city}</a></li>
+		 								</volist>
+		 								<div class="clear"></div>
+		 							</ul>
+		 						</div>
+	 						</volist>
+	 					</div>
+	 				</i>
+	 			</span>
+<!-- 改动 -->
+	 			<div id="way">
+	 				<h6>交易方式</h6>
+	 				<span class="order_type OtoO" type="2">
+	 					<strong>上门回收</strong>
+		 				<i>目前仅支持北京五环内</i>
+	 					<em><img src="__PUBLIC__/Pc2.0/img/c.jpg" alt=""></em>
+	 				</span>
+	 				<notempty name="stores">
+		 				<span class="order_type BtoC" type="1">
+		 					<strong>门店回收<!--<b>&nbsp;补贴30元</b>--></strong>
+		 					<!--<i>商品价值超过100元</i>-->
+		 					<em><img src="__PUBLIC__/Pc2.0/img/c.jpg" alt=""></em>
+		 				</span>
+		 			<else />
+		 				<span class="stores" >
+		 					<strong>门店回收&nbsp;<b>补贴30元</b></strong>
+		 					<i>目前仅支持北京</i>
+		 					<em><img src="__PUBLIC__/Pc2.0/img/c.jpg" alt=""></em>
+		 				</span>
+	 				</notempty>
+		 			<span class="order_type CtoB" type="3">
+		 				<strong>快递回收</strong>
+		 				<em><img src="__PUBLIC__/Pc2.0/img/c.jpg" alt=""></em>
+		 			</span>
+
+	 			</div>
+	 			<div id="xuanZe">
+	 				
+		 				<h6>
+		 					<span>选择门店&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		 					当前门店：<e id="store_name">易回购双井富力换购店（苹果）<e>
+		 				</h6>
+		 			<div class="left">
+		 				<volist name="store_list" id="vo">
+		 					<if condition="$key eq 0 "> 
+			 					<span class="L hot_" store_lbs="{$vo.store_lbs}" phone="{$vo.store_phone}" addr="{$vo.store_addr}"  onclick="changeStore(this)" sid="{$vo.store_id}" >
+			 				<else />
+			 					<span class="L" store_lbs="{$vo.store_lbs}" phone="{$vo.store_phone}" addr="{$vo.store_addr}"  onclick="changeStore(this)" sid="{$vo.store_id}">
+			 				</if>
+			 					<i>{$vo.store_name}</i>
+			 					<em>{$vo.store_addr}　电话：{$vo.store_phone}</em>
+			 					<img src="__PUBLIC__/Pc2.0/img/c.jpg" alt="">
+			 				</span>
+						</volist>
+		 			</div>
+		 			<div class="right">
+		 				<h5>
+			 				<select id="xq">
+			 					<option value="0">全部区域</option>
+								<option value="110101">东城区</option>
+								<option value="110102">西城区</option>
+								<option value="110105">朝阳区</option>
+								<option value="110106">丰台区</option>
+								<option value="110108">海淀区</option>
+			 				</select>
+			 				<div class="search">
+			 					<input type="text" id="local" placeholder="输入您的位置查看附近门店">
+			 					<em id="open">搜索</em>
+			 				</div>
+			 				
+			 			</h5>
+			 			<div class="map-box" id="allmap">
+
+			 			</div>
+		 			</div>
+	 			</div>
+	 			<div id="shouK">
+	 				<h6>收款信息</h6>
+	 				<h5 class="lianXi">联系方式&nbsp;&nbsp;
+	 					<input id="name" type="text"  placeholder="真实姓名">
+		 				<input id="tel" type="text"  placeholder="手机号码">
+		 				<span class="yanz">
+		 					<input id="yz" type="text" placeholder="验证码">
+		 					<input type="button" class="show " id="check_phone" value="获取验证码" style="outline:0" ></li>
+		 				</span>
+		 				<!-- <a href=""><img src="__PUBLIC__/Pc2.0/img/yan_1.jpg" alt=""></a>
+		 				<a href=""><img src="__PUBLIC__/Pc2.0/img/yan_2.jpg" alt=""></a> -->
+	 				</h5>
+					<h5 class="shoukuan">收款方式&nbsp;&nbsp;&nbsp;
+						<!-- <span>易回购余额<i>推荐</i></span> -->
+						<span id="money" class="pay_mode money" pay_type="1">现金收款</span>
+						<span id="WeChat" class="pay_mode " pay_type="2">微信收款</span>
+<!-- 		 				<span id="Alipay" class="pay_mode pay_account" pay_type="3">支付宝收款</span>
+		 				<span id="Unionpay" class="bank_active pay_mode pay_account" pay_type="4">网银收款</span> -->
+		 				<!-- <p>说明：选择“易回购余额”收款方式提交订单后，我们将立即把您旧机回收的金额发放到易回购余额中</p> -->
+					</h5>
+					<!--  -->
+					<h5 class="shoukuan_">
+						<span>
+							<select name="" id="bank">
+								<option value="">请选择银行</option>
+                                <volist name=":C('PAY_TYPE_LIST')" id="r">
+									<option value="{$key}">{$r}</option>
+								</volist>
+							</select>
+							<input type="text" id="bankName" placeholder="开户姓名">
+							<input type="text" id="card" placeholder="卡号">
+						</span>
+					</h5>
+					<!-- 上门回收 ------开始 -->
+					<h5 id="place">取件地点&nbsp;&nbsp;&nbsp;
+			 			<select name="" class="shangmen" id="chengS">
+			 				<option value="110000">北京市</option>
+			 			</select>
+			 			<select name="" class="youji province_list" id="chengS" >
+							<volist name="province_list" id="vo">
+			 					<option value="{$vo.provinceid}">{$vo.province}</option>
+							</volist>
+			 			</select>
+			 			<select name="" id="qu" class="city_list1">
+			 				<option value="110100">北京市</option>
+			 				<option value="110200">北京/县</option>
+			 			</select>
+			 			<select name="" class="area_list" id="jieDao">
+			 				<option value="">请选择</option>
+			 			</select>
+			 		</h5>
+			 		<h5 id="xiangXi">详细地址&nbsp;&nbsp;&nbsp;
+			 			<input type="text" id="address_detailed" placeholder="请输入详细地址">
+			 		</h5>
+			 		<h5 id="timeBox">
+			 			交易时间&nbsp;&nbsp;&nbsp;
+			 			<select name="" id="time">
+			 				<volist name="date" id="vo">
+			 					<option value="{$vo}">{$vo}</option>
+			 				</volist>
+			 			</select>
+			 		</h5>
+
+					<!-- 上门回收 ------结束 -->
+					
+	 			</div>
+	 			<div id="list">
+	 				<h6>回收清单</h6>
+	 				<ul>
+	 					<volist name="cart_list" id="vo">
+		 					<li class="cart_list" cart_id = "{$vo.cart_id}">
+		 						<span>
+		 							<img class="type_img"src="__PUBLIC__/Uploads/{$vo.types.type_photo}" alt="">
+		 						</span>
+		 						<i>{$vo.types.type_name}</i>
+
+								
+								 <div class="cvvc"><i class="eye">评估概况</i>
+                                        <ol class="eye-ol">
+                                    	  <h3>{$vo.types.type_name}</h3>
+                                        <volist name="vo.left" id="vos">
+                                            <li>
+                                                <u>{$vos.0}</u>
+                                                <b>{$vos.1}</b>
+                                            </li>
+                                        </volist>
+                                        <volist name="vo.right" id="vos" key="roots">
+                                            <li>
+                                                    <u>{$vos.0}</u>
+                                                    <b>{$vos.1}</b>
+                                                </li>
+                                        </volist>
+                                    </ol>
+                                 </div>
+
+
+		 						<em>￥{$vo.user_price|default="0"}</em>
+		 						<div class="clear"></div>
+		 					</li>
+	 					</volist>
+	 				</ul>
+	 			</div>
+	 			<div id="xiaDan">
+		 			<p>
+		 				<span>{$count}件商品总共可以获得：<i>￥{$count_price}</i></span>
+		 				<div class="clear"></div>
+		 			</p>
+		 			<p>
+		 				<em id="send">确认下单</em>
+		 				<div class="clear"></div>
+		 			</p>
+		 			<p><h4>“确认下单”即表示您同意<a href="http://www.ehuigou.com/help/index/cid/4" target="_blank">易回购服务条款</a></h4>
+		 			<div class="clear"></div></p>
+	 			</div>	 			
+	 		</div>
+	 	</div>
+	 </div>
+	<div id="bg">
+	    <div class="info">
+		 		<h6>请您输入验证码：</h6>
+		 		<div class="inputBox">
+			 		<input type="text" id="verify">
+			 		<span class="img_"><img id="flushcode" src="__ROOT__/public/verify"></span>
+			 	</div>
+			 	</form>
+			 	<p>请填写图片中的字符，不区分大小写<i class="flushcode">看不清楚？换一张</i></p>
+			 	<input class="btn" id="L" type="submit" value="确认">
+			 	<input class="btn hide" id="R" type="button" value="取消">
+	            <span><strong>小提示：</strong>如果多次尝试仍无法登录，建议您清理浏览器缓存或更换浏览器再试试。</span>
+	            <em class="hide"><img src="__PUBLIC__/Pc2.0/img/x.jpg" /></em>
+	 	</div>
+	</div>
+	<div id="bg2">
+	 	<div class="info2">
+	 		<h6>请微信扫码关注公众号收款</h6>
+	 		<img class="ewm" src="__PUBLIC__/Pc2.0/img/ewm1.jpg" alt="">
+	 		<span>收款流程：</span>
+	 		<em>交易成功后，请在微信公众号的<b>“服务”</b>中选择<b>“手机回购收款”</b></em>
+	 		<input type="submit" id="S" value="确定">
+	 		<i class="hide22"><img src="__PUBLIC__/Pc2.0/img/x.jpg" alt=""></i>
+	 	</div>
+	 </div>
+    <include file="Public/2.0footer"/>
+	<script src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1iUeP2YGsW58pV10KmUAXLKWhaWSiP6m"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script>
+	<script>
+	var phone = 0;
+	var code =0;
+	var p_ok = 0;
+    var Cookie = 0;
+   	var phone_user = document.getElementById("check_phone");
+   	var citys = $(".shangmen");
+   	$('.province_list').change(function(){
+  		ajax_city($(this));
+    });
+    $('.city_list1').change(function(){
+        var id = $(".city_list1").val();
+        if (id == 0) {
+            return false;
+        };
+        $.post(
+            '__URL__/ajax_area',  
+	        {
+	            "id":id
+	        },function(data){
+	           	if(data.status == 1) {
+	                var list = data.data;
+	                $(".area_list").empty();
+	                for (var i = 0; i < list.length ; i++) {
+	                    $(".area_list").append("<option value='"+list[i]['areaid']+"'>"+list[i]['area']+"</option>");  //添加一项option
+	                };
+	            } else {
+	                alert(data.info);
+	        	}
+            },
+            'json'
+        )   
+    });
+    $(document).ajaxComplete(function(event, xhr, settings) {
+        if ( settings.url === "__URL__/ajax_city" ) {
+             $('.city_list1').change();
+        }
+    });
+    $("#S,.hide22").click(function(){
+    	$("#bg2").hide();
+    })
+	$(function(){
+		$('#xuanZe .L').click(function(){
+			$('#xuanZe .L').removeClass('border-T')
+			$('#xuanZe .L').removeClass('hot_')
+			$(this).addClass('hot_')
+			$(this).next().addClass('border-T')
+			var clickthis=$('#xuanZe .L').index(this)
+			var i=$('#xuanZe .L').length;
+			if(clickthis==i-1){
+				$(this).css('border-color','#61bd52')
+			}else{
+				$('#xuanZe .L').css('border-color','')
+			}
+		})
+		$('#shouK .shoukuan span').click(function(){
+			$('#shouK .shoukuan span').removeClass("mode_type")
+			$(this).addClass("mode_type");
+		})
+		$(".show").click(function(){
+			phone = $.trim($("#tel").val());
+			if(phone == ""  || !preg.test(phone)||phone.length<11) {
+            show_cw("请填写合法手机号码");
+		       	return false;
+		    }
+			$("#bg").show();
+		})
+		$('#bg .btn').click(function(){
+			$('#bg').hide();
+		})
+		$('#bg em').click(function(){
+			$('#bg').hide();
+		})
+		$('#money').click();
+		$(".shoukuan_").hide();
+		$("#place").hide();
+		$("#xiangXi").hide();
+		$("#timeBox").hide();
+		$("#xuanZe").hide();
+		$(".OtoO").click();
+	})
+	$(".pay_account").click(function(){
+		$(".shoukuan_").show();
+	})
+	$(".bank_active").click(function(){
+		$('#card').css('width','406px');
+		$('#bankName').attr('placeholder','开户姓名');
+		$('#card').attr('placeholder','卡号')
+	})
+	$("#Alipay").click(function(){
+		$('#card').css('width','')
+		$('#bankName').attr('placeholder','真实姓名');
+		$('#card').attr('placeholder','帐号');
+	})
+	$(".money").click(function(){
+		$(".shoukuan_").hide();
+	})
+	$(".pay_mode").click(function(){
+		$('#bank').hide();
+	})
+	$("#Unionpay").click(function(){
+		$('#bank').show();
+	})  
+	$('.city i span').toggle(function(){
+    	$(this).css({'border':'1px solid rgb(206, 203, 206)','border-bottom':'none'})
+   		$('#city_box').show();
+   	},function(){
+   		   $(this).css({'border':'none'})
+   		$('#city_box').hide()
+   	})
+    $(".provinceid").click(function(){
+    	var cid = $(this).attr("cid");
+    	$(".province_list").find("option").each(function(){
+			if ($(this).val() == cid) {
+				$(this).attr("selected",true);
+			};
+		})
+		$(".province_list").change();
+    	var text = $(this).text();
+    	$(".L_").text(text);
+    	$(".L_").attr("cid",cid);
+    	$(".City").hide();
+    	$('.bodys').hide()
+    	$("."+cid).show();
+    	$(".L_").css("border","none");
+    	$(".R_").css("border-bottom","2px solid #61bd52");
+    })
+    $(".L_").click(function(){
+    	$(".R_").css("border","none");
+    	$(this).css("border-bottom","2px solid #61bd52");
+    	$('.bodys').show();
+    	$(".City").hide();
+    })
+    $(".R_").click(function(){
+    	var cid = $(".L_").attr("cid");
+    	if (cid  == undefined) {
+    		return false;
+    	};
+    	$(".L_").css("border","none");
+    	$(this).css("border-bottom","2px solid #61bd52");
+    	$(".City").hide();
+    	$('.bodys').hide();
+    	$("."+cid).show();
+    })
+	$(".city_names").click(function(){
+		var value = $(this).attr("ids");
+		$("#qu").find("option").each(function(){
+			if ($(this).val() == value) {
+				$(this).attr("selected",true);
+			};
+		})
+    	var cid = $(".L_").attr("cid");
+		var text = $(this).text();
+		$(".city").find("b").text(text);
+		$(".R_").text(text);
+    	$('.city i span').click();
+		if (value != 110100 && value !=110200 && value !=0) {
+			$(".CtoB").click();
+			$(".BtoC").attr("stores","1");
+			$(".OtoO").attr("stores","1");
+			$(".OtoO").hide();
+			$(".BtoC").hide();
+		}else{
+			$(".BtoC").attr("stores","0");
+			$(".OtoO").attr("stores","0");
+			$(".OtoO").show();
+			$(".BtoC").show();
+		};
+	})
+	$('.order_type').click(function(){
+		var stores = $(this).attr("stores");
+		if (stores == 1) {
+			return false;
+		};
+		var type = $(this).attr("type");
+		$('#send').attr("type",type);
+        type *=1;
+        switch(type)
+        {
+            case 1:
+                $("#place").hide();
+                $("#xiangXi").hide();
+                $("#timeBox").hide();
+                $(".money").show();
+                $(".money").click();
+				$("#xuanZe").show();
+				$(".shangmen").hide();
+				$(".youji").hide();
+                break;
+            case 2:
+              	$("#place").show();
+                $("#xiangXi").show();
+                $("#timeBox").show();
+                $(".money").show();
+                $(".money").click();
+				$("#xuanZe").hide();
+				$(".shangmen").show();
+				$(".youji").hide();
+				ajax_city(citys);
+                break;
+            case 3:
+              	$("#place").show();
+                $("#xiangXi").show();
+                $("#timeBox").hide();
+                $(".money").hide();
+                // $("#WeChat").click();
+				$("#xuanZe").hide();
+				$(".shangmen").hide();
+				$(".youji").show();
+                break;
+            default:
+            }
+			$('.order_type').removeClass('hot')
+			$(this).addClass('hot')
+		})
+	$("#WeChat").click(function(){
+		$("#bg2").show();
+	})
+	$("#L").click(function(){
+		var verify = $("#verify").val();
+		if (verify == "" || verify.length<4) {
+		$("#flushcode").click();
+	        show_cw("验证码错误");
+	        return false;
+		};
+		$.post(
+            '__APP__/User/ajax_check_verify',  
+            {
+                "verify":verify,
+                "user_phone":phone
+            },function(data){
+              	if(data.status == 1) {
+			      	time(phone_user);
+              		p_ok =1;
+			      	$("#bg").hide();
+                  show_cg(data.info);
+              	}else if (data.status == 2) {
+          			time(phone_user);
+                	p_ok = 2;
+			      	$("#bg").hide();
+                  	show_cg(data.info);
+              }else{
+                  show_cw(data.info);
+                	$("#flushcode").click();
+              }
+            },
+            'json'
+        ) 
+	})
+	$(".flushcode").click(function(){
+      $("#flushcode").click();
+    });
+    $("#flushcode").click(function(){
+        var timenow = new Date().getTime();
+        $(this).attr('src','__APP__/Public/verify/'+timenow);
+    });
+    function ajax_city (e) {
+    	var $e = e;
+    	var id = $e.val();
+        $.post(
+            '__URL__/ajax_city',  
+            {
+                "id":id
+            },function(data){
+	            if(data.status == 1) {
+	                var list = data.data;
+	                $(".city_list1").empty();
+	                for (var i = 0; i < list.length ; i++) {
+	                    $(".city_list1").append("<option value='"+list[i]['cityid']+"'>"+list[i]['city']+"</option>");  //添加一项option
+	                };
+	            } else {
+	                alert(data.info);
+	            }
+            },
+            'json'
+        ) 
+    }
+    $("#xq").change(function(){
+       var rid = $(this).val();
+       $(".hot_").click();
+        getStore(rid);
+    })
+    function getStore(rid) {
+      $.post(
+        "__URL__/getStoreList",
+        {
+          "rid":rid
+        },
+        function(data) {
+          $(".left").html(data);
+          var sid = $(".stores_list").attr("sid");
+          var store_lbs = $(".stores_list").attr("store_lbs");
+          if (typeof(sid) != "undefined") {
+            show_lbs(store_lbs);
+          } else {
+            $(".store_list").html("暂无门店数据");
+          }
+        },
+        'html'
+      );    
+    }
+    function changeStore(e) {
+	    var $e=$(e);
+	    $(".L").removeClass("hot_");
+	    $(".L").removeClass("border-T");
+	    $e.addClass("hot_");
+	    $e.next().addClass("border-T");
+	    var store_name = $e.find("i").text();
+	    $("#store_name").text(store_name);
+	    var store_lbs =$e.attr("store_lbs");
+	    var marker = show_lbs(store_lbs);
+	    var iw = new BMap.InfoWindow(
+                    "<b class='title' title='" + $e.find("i").text() + "'>" +  $e.find("i").text() + "</b>" +
+                    "<dl class='dll'>" +
+                        "<dt>地址：" + $e.attr('addr') + "</dt>" +
+                        "<dt>电话：" + $e.attr('phone') + "</dt>" +
+                    "</dl>"
+                );
+                marker.addEventListener("click", function () {
+                    this.openInfoWindow(iw);
+                })
+  	}
+    map = new BMap.Map('allmap');
+   	map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); 
+    var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+    var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+    map.addControl(top_left_control);    
+    map.addControl(top_left_navigation);     
+    map.enableScrollWheelZoom(); 
+    map.setCurrentCity("北京");
+
+	var local = new BMap.LocalSearch(map, {
+		renderOptions:{map: map}
+	});
+	$("#open").click(function(){
+        var store_name = $.trim($("#local").val());
+        if (store_name == "") {
+            show_cw("请输入您的详细地址");
+           	return false;
+        };
+        $.post(
+          	"__URL__/getStoreList",
+            {
+               	"store_name":store_name
+            },
+            function(data) {
+                $(".branch-downleft").html(data);
+                var store_lbs = $(".active");
+                changeStore(store_lbs);
+            },
+            'html'
+        );  
+	})
+   	function show_lbs(lbs){
+	    var lbs = lbs.split(",");
+	    var poi = new BMap.Point(lbs[0],lbs[1]);
+	    map.centerAndZoom(poi, 12);
+	    var marker = new BMap.Marker(poi); //创建  
+	    map.addOverlay(marker); //在地图中添加marker
+	    return marker;
+	}
+
+  	var olk = 0;
+	$("#send").click(function(){
+		// if (olk > 1) {
+		// 	return false;
+		// };
+    	olk ++;
+    	var type= $("#send").attr('type');
+    	var data_obj = {};
+    	var user_name = $.trim($("#name").val());
+	    if(user_name == "") {
+	      show_cw("请填写联系人");
+	      olk = 0;
+	      return false;
+	    }
+    	data_obj.user_name = user_name;
+    	if (phone == 0) {
+    		show_cw("请先验证手机");
+    		olk = 0;
+    		return false;
+    	};
+    	data_obj.user_phone  = phone;
+    	type *=1;
+    	data_obj.order_type = type;
+    	if (p_ok == 1) {
+	      	user_check = $.trim($("#yz").val());
+	        if(user_check == "") {
+	      	  	olk = 0;
+    		  	show_cw("请填写手机验证码");
+	          	return false;
+	        }
+	        data_obj.user_check = user_check;
+	    }else if(p_ok == 0){
+	        olk = 0;
+    		show_cw("请填写正确的验证码");
+	        return false;
+	    };
+	    switch(type){
+      		case 1:
+        		var sid = $(".hot_").attr("sid");
+		        if (typeof(sid) == "undefined"){
+		          	olk = 0;
+    				show_cw("请选择门店");
+		          	return false;
+		        }
+        		data_obj.store_id = sid;
+        		break;
+        	case 2:
+        		var user_province_id = $(".shangmen").val();
+        		if(user_province_id == "") {
+      				olk = 0;
+    				show_cw("请选择省份");
+          			return false;
+        		}
+        		data_obj.user_province_id = user_province_id;
+        		var cityID = $(".city_list1").val();
+        		if (cityID == "") {
+        			olk = 0;
+    				show_cw("请选择城市");
+          			return false;
+        		};
+        		data_obj.cityID = cityID;
+        		var areaID = $(".area_list").val();
+        		if (areaID =="") {
+        			olk = 0;
+    				show_cw("请选择地区");
+          			return false;
+        		};
+        		data_obj.areaID = areaID;
+        		var user_addr = $.trim($("#address_detailed").val());
+		        if(user_addr == "") {
+		      		olk = 0;
+    				show_cw("请填写详细地址");
+		          	return false;
+		        }
+        		data_obj.user_addr = user_addr;
+        		var user_remark = $.trim($("#time").val());
+    			data_obj.user_remark = user_remark;
+        		break;
+        	case 3:
+        		var user_province_id = $(".province_list").val();
+        		if(user_province_id == "") {
+      				olk = 0;
+    				show_cw("请选择省份");
+          			return false;
+        		}
+        		data_obj.user_province_id = user_province_id;
+        		var cityID = $(".city_list1").val();
+        		if (cityID == "") {
+        			olk = 0;
+    				show_cw("请选择城市");
+          			return false;
+        		};
+        		data_obj.cityID = cityID;
+        		var areaID = $(".area_list").val();
+        		if (areaID =="") {
+        			olk = 0;
+    				show_cw("请选择地区");
+          			return false;
+        		};
+        		data_obj.areaID = areaID;
+        		var user_addr = $.trim($("#address_detailed").val());
+		        if(user_addr == "") {
+		      		olk = 0;
+    				show_cw("请填写详细地址");
+		          	return false;
+		        }
+	    		var pay_mode=$(".mode_type").attr("pay_type");
+	    		if (pay_mode != 2) {
+    				show_cw("快递回收仅支持微信收款");
+	    			return false;
+	    		};
+        		break;
+	    }
+	    var pay_mode=$(".mode_type").attr("pay_type");
+        if(pay_mode == "") {
+      		olk = 0;
+    		show_cw("请选择收款方式");
+          	return false;
+        }
+        data_obj.pay_mode = pay_mode;
+       	pay_mode *= 1; 
+       	if (pay_mode != 1) {
+       		var pay_name = $("#bankName").val();
+       //  	if (pay_name =="") {
+		     //  	olk = 0;
+		    	// show_cw("请填写开户人");
+		     //    return false;
+       //  	};
+        	data_obj.pay_name = pay_name;
+        	var pay_account = $("#card").val();
+       //  	if (pay_account == "") {
+		     //  	olk = 0;
+		    	// show_cw("请填写卡号");
+		     //    return false;        			
+       //  	};
+        	data_obj.pay_account = pay_account;
+        	if (pay_mode ==4) {
+        		var pay_deposit = $("#bank").val();
+        		if (pay_deposit == "") {
+	        		olk = 0;
+			    	show_cw("请选择开户行");
+			        return false;   
+        		};
+        		data_obj.pay_deposit = pay_deposit;
+        	};
+       	};
+       	var cart_ids = "";
+       	$(".cart_list").each(function(){
+       		cart_ids +=$(this).attr("cart_id")+",";
+       	})
+       	if (cart_ids == "") {
+       		olk = 0;
+			show_cw("请选择回收机型");
+			return false;  
+       	};
+       	data_obj.cart_ids = cart_ids;
+      	$.post(
+        	'__URL__/send',
+        	data_obj,
+        	function(data){
+          		if(data.status == 1) {
+    				window.location.href="__URL__/success";
+            	}else {
+            	alert(data.info);
+          		}
+        	},
+        	'json'
+      	);
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{:C('HOME_SEO.title')}</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/index.css"/>
+    <link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+    <meta name="Keywords" content="{:C('HOME_SEO.keywords')}" />
+    <meta name="description" content="{:C('HOME_SEO.description')}" />
+    <meta name="laoniu-site-verification" content="c30f4b26438713b3ff6e3f221bbdfec" /> 
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css"/>
+</head>
+
+<body>
+    <include file="Public/2.0header"/>
+    <div class="main">
+        <div class="slider" id="slider">
+                      <div class="slider-inner">
+                        <div class="item">
+                            <img src="__PUBLIC__/Pc2.0/img/main-03.png" usemap="#Map2" class="img" />
+                            <map name="Map2" id="Map2">
+                                <area shape="rect" coords="689,166,1232,343" href="http://www.yhjpt.com/b2b/b2bactivity/2016/0503/Retrieve.jsp" target="_blank" />
+                            </map>
+                        </div>
+                        <div class="item">
+                            <img src="__PUBLIC__/Pc2.0/img/main-02.gif" usemap="#Map1"  />
+                            <map name="Map1" id="Map1">
+                              <area shape="rect" coords="883,136,1040,278" href="https://eco-api.meiqia.com/dist/standalone.html?eid=7872" target="_blank" />
+                            </map>
+                        </div>
+                      </div>
+                </div>
+        <!--slider end-->
+        <div class="top-d">
+            <div class="top"></div>
+            <div class="top-one">
+                    <div class="logo">
+                        <a href="/"><img src="__PUBLIC__/Pc2.0/img/logo.png" /></a>
+                    </div>
+                    <div class="nav">
+                        <ul class="nav-lf">
+                            <li class="one-a">
+                                <a class="one-a-a" href="#">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-02.png" /></a>
+                                    <span class="one-b">
+                                        <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                        <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                        <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                        <a href="{:U('Search/index/tid/5')}">数码相机回收</a>
+                                    </span>
+                            </li>
+                            <li class="underline"><a href="http://shop.ehuigou.com">易购商城</a></li>
+                            <li class="underline"><a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                        </ul>
+                        <ul class="nav-rf">
+                            <li>
+                                <a href="__ROOT__/order/inquiry"><img src="__PUBLIC__/Pc2.0/img/nav-gw.jpg" /></a>
+                                <em>{$_SESSION.cart_count|default="0"}</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+        <!-- top end-->
+        <div class="menu">
+            <div class="menu-box">               
+                <!-- box-one-->
+                <div class="box-one">
+                    <div class="search"> 
+                        <form method = 'get' id="froms" action = '__APP__/search/index'>
+                            <input type="text" autocomplete="off" class="search-input"  name="key"id="search" placeholder="请输入您要搜索的机型">
+                            <input type="hidden" name="tid"id="tids" value="1">
+                            <input type="hidden" name="type_id"id="types" value="1">
+                        </form>
+                            <ol class="ts">
+                            </ol>
+                            <div class="search-xl">
+                                <em class="text" cid="1">手机</em>
+                                <img src="__PUBLIC__/Pc2.0/img/box-003.png" />
+                                <ul class="listUl">
+                                    <li class="listUl-a" cid="1">&nbsp;手机</li>
+                                    <li class="listUl-b" cid="2">&nbsp;平板电脑</li>
+                                    <li class="listUl-c" cid="3">&nbsp;笔记本</li>
+                                    <li class="listUl-d" cid="5">&nbsp;数码相机</li>
+                                </ul>
+                            </div>
+                            <a id="searchs" href="#">￥&nbsp;估价</a>
+                    </div>
+                    <div class="xins">
+                            <a href="{:U('Help/index/id/17')}" target="_blank">新手不懂戳这里</a>
+                    </div>
+                    <div class="xinh">
+                        <volist name="list" id="vo">
+                            <a href="<?php echo U('Item/index/id/'.$vo["type_id"]); ?>">{$vo.type_name}</a>&nbsp;&nbsp;
+                        </volist>
+                    </div>
+                </div>
+                <!-- box-one end-->
+                <!-- column-->
+                <div class="column">
+                    <div class="column-pp">
+                      <div class="column-pp-lf">
+                            <ul class="pp-lf-top ul_top_a">
+                                <i class="top_a">手机</i>
+                                <div id='prolist' style="float:left;width:840px;">
+                                </div>
+                            </ul>
+
+                            <ul class="pp-lf-top ul_top_b prolist2">
+                                <i class="top_b">平板电脑</i>
+                                <div id='prolist2' style="float:left;width:840px;">
+                                </div>
+                            </ul>
+                            <ul class="pp-lf-top ul_top_a prolist3">
+                                <i class="top_a">笔记本</i>
+                                <div id='prolist3' style="float:left;width:840px;">
+                                </div>
+                            </ul>
+                            <ul class="pp-lf-bottom pp-lf-top ul_top_a prolist4">
+                                <i class="top_a">数码相机</i>
+                                <div id='prolist4' style="float:left;width:840px;">
+                                </div>
+                            </ul>
+                      </div>
+                        <div class="column-pp-rf">
+                            <a href="##"><img src="__PUBLIC__/Pc2.0/img/pp-rf_03.jpg" /></a>
+                        </div>
+                    </div>
+                        <span class="bll" item="22"><img src="__PUBLIC__/Pc2.0/img/a7-a.png" class='cc7'  tid='7'/></span>
+                        <span class="bll" item="1"><img src="__PUBLIC__/Pc2.0/img/a1-a.png" class='cc1' tid='1'/></span>
+                        <span class="bll" item="14"><img src="__PUBLIC__/Pc2.0/img/a8-a.png"  class='cc8' tid='8'/></span>
+                        <span class="bll" item="26"><img src="__PUBLIC__/Pc2.0/img/a9-a.png" class='cc9' tid='9' /></span>
+                        <span class="bll" item="5"><img src="__PUBLIC__/Pc2.0/img/a50-a.png"  class='cc50' tid='50'/></span>
+                        <span class="bll" item="6"><img src="__PUBLIC__/Pc2.0/img/a6-a.png"  class='cc6' tid='6'/></span>
+                        <span class="bll" item="16"><img src="__PUBLIC__/Pc2.0/img/a16-a.png"  class='cc16' tid='16'/></span>
+                        <span class="bll" item="2"><img src="__PUBLIC__/Pc2.0/img/a4-a.png"  class='cc4' tid='4'/></span>
+                        <span class="bll" item="17"><img src="__PUBLIC__/Pc2.0/img/a17-a.png"  class='cc17' tid='17'/></span>
+                        <span class="bll" item="brand"><img src="__PUBLIC__/Pc2.0/img/a10-a.png" class='cc10'  tid='10'/></span>
+                </div>
+                <!-- column end-->
+            </div>
+        </div>
+        <!-- menu end-->
+    </div>
+    <include file="Public/2.0footer"/>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/index.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/banner.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".ts").hide();
+        $(".kef").hide();
+    });
+    var $searchInput = $('#search');
+    $searchInput.bind('input propertychange', function() {
+            var key = $("#search").val();
+            var cid = $(".text").attr("cid");
+            $.post(
+              "__APP__/search/ajax_list",
+              {
+                "key":key,
+                "cid":cid
+              },
+            function(data) {
+                var length = data.length;
+                if (length > 10) {
+                    $(".ts").html(data);
+                }else{
+                    $(".ts").empty();
+                    $(".ts").hide();
+                    return false;
+                };
+            },
+              'html'
+         );    
+        $(".ts").show();
+    });
+    function change(e) {
+        var $e=$(e);
+        var text = $e.text();
+        var key = $("#search").val(text);
+        $(".ts").hide();
+        $("#types").val(2);
+        $("#froms").submit();
+    }
+    $searchInput.keyup(function(event) {
+        if (event.keyCode == 8) {
+            var len = $searchInput.val().length;
+            if (len == 0) {
+                $(".ts").hide()
+            } 
+        }
+    });
+    $('.box-one').hover(function(){
+        },function(){
+        $(".ts").hide()
+    })
+    $('.column span').hover(function(){
+            var brandid = $(this).attr('item');
+            var tid = $(this).find("img").attr("tid");
+            var str = '';var str2 = '';var str3=""; var str4="";
+            var brand_name ="";
+            $(".prolist2").hide();
+            $(".prolist3").hide();
+            $(".prolist4").hide();
+            $.ajax({
+                url:'{:U("index/get_product")}',
+                data:'brandid='+brandid,
+                dataType:'json',
+                type:'post',
+                success:function(data){
+                    if(data[0]['type_name']){
+                        $(data).each(function(k,v){
+                            if (v.cate_id==1) {
+                                str+='<li><a href="__ROOT__/item/index/id/'+v.type_id+'">'+v.type_name+'</a></li>';
+                            }else if(v.cate_id==2){
+                                str2+='<li><a href="__ROOT__/item/index/id/'+v.type_id+'">'+v.type_name+'</a></li>';
+                                $(".prolist2").show();
+                                $(".prolist2").addClass("pp-lf-bottom");
+                            }else if(v.cate_id==3){
+                                str3+='<li><a href="__ROOT__/item/index/id/'+v.type_id+'">'+v.type_name+'</a></li>';
+                                $(".prolist3").show();
+                                $(".prolist2").removeClass("pp-lf-bottom");
+                                $(".prolist3").addClass("pp-lf-bottom");
+                            }else if(v.cate_id==5){
+                                str4+='<li><a href="__ROOT__/item/index/id/'+v.type_id+'">'+v.type_name+'</a></li>';
+                                $(".prolist4").show();
+                                $(".prolist3").removeClass("pp-lf-bottom");
+                                $(".prolist4").addClass("pp-lf-bottom");
+                            }
+                            brand_name = v.brand_name;
+                            brand_id = v.brand_id;
+                        });
+                        $('#prolist').html(str);
+                        $('#prolist2').html(str2);
+                        $('#prolist3').html(str3);
+                        $('#prolist4').html(str4);
+                        $('#prolist').append("<li ><a href='__ROOT__/search/index/tid/1/bid/"+brand_id+"'style='color:#61bd52'>全部"+brand_name+"手机</a></li>");
+                        $('#prolist2').append("<li ><a href='__ROOT__/search/index/tid/2/bid/"+brand_id+"'style='color:#61bd52'>全部"+brand_name+"平板</a></li>");
+                        $('#prolist3').append("<li ><a href='__ROOT__/search/index/tid/3/bid/"+brand_id+"'style='color:#61bd52'>全部"+brand_name+"笔记本</a></li>");
+                        $('#prolist4').append("<li ><a href='__ROOT__/search/index/tid/5/bid/"+brand_id+"'style='color:#61bd52'>全部"+brand_name+"相机</a></li>");
+            $(".column-pp-rf").find("img").attr("src","__PUBLIC__/Pc2.0/img/img_"+tid+".jpg");
+
+                    }else{
+                        $(data).each(function(k,v){
+                            if (v.cate_id==1) {
+                                str+='<li><a href="__ROOT__/search/index/bid/'+v.brand_id+'/tid/1">'+v.brand_name+'</a></li>';
+                            }else if(v.cate_id==2){
+                                str2+='<li><a href="__ROOT__/search/index/bid/'+v.brand_id+'/tid/2">'+v.brand_name+'</a></li>';
+                                $(".prolist2").show();
+                                $(".prolist2").removeClass("pp-lf-bottom");
+                            }else if(v.cate_id==3){
+                                str3+='<li><a href="__ROOT__/search/index/bid/'+v.brand_id+'/tid/3">'+v.brand_name+'</a></li>';
+                                $(".prolist3").show();
+                                $(".prolist3").removeClass("pp-lf-bottom");
+                            }else if(v.cate_id==5){
+                                str4+='<li><a href="__ROOT__/search/index/bid/'+v.brand_id+'/tid/5">'+v.brand_name+'</a></li>';
+                                $(".prolist4").show();
+                            }
+                        });
+
+                        $('#prolist').html(str);
+                        $('#prolist2').html(str2);
+                        $('#prolist3').html(str3);
+                        $('#prolist4').html(str4);
+                    }
+                },
+                error:function(){
+                }
+            });
+            tid *=1;
+            switch(tid)
+            {
+                case 7:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/1115");
+                  break;
+                case 1:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/1062");
+                  break;
+                case 8:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/1822");
+                  break;
+                case 9:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/1517");
+                  break;
+                case 50:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/243");
+                  break;
+                case 6:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/306");
+                  break;
+                case 16:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/2350");
+                  break;
+                case 4:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/91");
+                  break;
+                case 17:
+                    $(".column-pp-rf").find("a").attr("href","__ROOT__/Item/index/id/2091");
+                  break;
+                default:
+            }
+            $(".column-pp-rf").find("img").attr("src","__PUBLIC__/Pc2.0/img/img_"+tid+".jpg");
+        },function(){
+
+    })
+    $("#searchs").click(function(){
+        var cid = $(".text").attr("cid");
+        $("#tids").val(cid);
+        $("#froms").submit();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户中心--收款帐号</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/shoukuan.css">
+	<link rel="stylesheet" href="__PUBLIC__/pc2.0/css/userpublic.css">
+	<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+	<script type="text/javascript" src="__PUBLIC__/new/new/js/jquery-1.7.2.min.js"></script>
+	<script src="__PUBLIC__/pc2.0/js/user_public.js"></script>
+</head>
+<body>
+    <include file="Public/2.0header"/>
+	<include file="Public/2.0hint"/>
+    <include file="Public/2.0user_header"/>
+	<div class="h"></div>
+	<div id="content2">
+    	<include file="Public/nav"/>
+		<div class="f-info">
+			<h5>收款账号</h5>
+			<volist name="pay_list" id="vo">
+				<h6 class="three">
+					<switch name="vo.pay_type">
+				        <case value="1">
+							<img src="__PUBLIC__/pc2.0/img/zhifubao.jpg" alt="">
+				        </case>
+				        <case value="2">
+							<img src="__PUBLIC__/pay/{$vo.pay_extend_1}.png" alt="" pay_mode="{$vo.pay_extend_1}" >
+				        </case>
+				        <default />
+				    </switch>
+					<em>尾号{$vo.pay_account|substr=-4,4}</em>
+					<span>联系人：{$vo.pay_name}</span>
+					<b>
+						<a href="javascript:void(0)" class="save" pay_account = "{$vo.pay_account}" pay_name = "{$vo.pay_name}" pay_type = "{$vo.pay_type}" pay_id = "{$vo.pay_id}"  pay_mode="{$vo.pay_extend_1}">修改</a>
+						&nbsp;&nbsp;
+						<a class="delete" href="javascript:void(0)" pay_id = "{$vo.pay_id}">删除</a>
+					</b>
+				</h6>
+			</volist>
+			<div class="aBox">
+				<a id="T" href="javascript:void(0)">
+					<em><img src="__PUBLIC__/pc2.0/img/tian.jpg" alt="" style="margin-right:10px">添加收款账号</em>
+				</a>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="bg">
+	 	<div class="info2">
+	 	<h6>添加收款卡号</h6>
+	 		<h5>
+	 			<b id="alipay" class="marginL hot" type="1"><img src="__PUBLIC__/pc2.0/img/an2.jpg" alt=""></b>
+	 			<b id="Unionpay" type="2"><img src="__PUBLIC__/pc2.0/img/an3.jpg" alt=""></b>
+	 		</h5>
+	 	<form name="name1" autocomplete="off"> 
+	 		<span class="span_"><i>银行</i>&nbsp;&nbsp;&nbsp;
+	 			<select name="" id="pay_mode">
+	 				<option value="0" class="pay_modes">请选择银行</option>
+	 				<volist name=":C('PAY_TYPE_LIST')" id="vo" key="k">
+		 				<option value="{$vo}" class="pay_modes">{$vo}</option>
+	 				</volist>
+	 			</select>
+	 		</span>
+	 		<span><i>账号</i>&nbsp;&nbsp;&nbsp;
+	 			<input type="text" id="cardNo" placeholder="请输入本人支付宝帐号">
+	 		</span>
+	 		<span><i>姓名</i>&nbsp;&nbsp;&nbsp;
+				<input type="text" id="realName" placeholder="请输入本人姓名">
+	 		</span>
+	 	 </form>
+
+	 		<input class="btn" id="L" type="submit" value="添加"  tid="1" type_id="0" pay_id="0">
+		 	<input class="btn" id="R" type="button" value="取消">
+		 	<p><strong>小提示：</strong>请填写真实信息，以免收不到回收款项。</p>
+			<em><img id="X" src="__PUBLIC__/pc2.0/img/x.jpg" alt=""></em>
+	 	</div>
+	 </div>	
+</body>
+    <include file="Public/2.0footer"/>
+
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript">
+	$(".save").click(function(){
+		$("#alipay").show();
+		$("#Unionpay").show();
+		var pay_type = $(this).attr("pay_type");
+		var pay_account = $(this).attr("pay_account");
+		var pay_name = $(this).attr("pay_name");
+		var pay_id = $(this).attr("pay_id");
+		if (pay_type == 2) {
+			var pay_mode = $(this).attr("pay_mode");
+			$("#alipay").hide();
+			$("#Unionpay").click();
+			$(".pay_modes").each(function(){
+				var mode = $(this).val();
+				if (mode == pay_mode) {
+					$(this).attr("selected","true");
+				};
+			})
+		}else{
+			$("#alipay").click();
+			$("#Unionpay").hide();
+		};
+		$("#cardNo").val(pay_account);
+		$("#realName").val(pay_name);
+		$("#bg").show();
+		$("#L").val("修改");
+		$("#L").attr("type_id",1);
+		$("#L").attr("pay_id",pay_id);
+	})
+	$("#T").click(function(){
+		$("#alipay").show();
+		$("#Unionpay").show();
+		$("#alipay").click();
+		$(".pay_modes:first").attr("selected","true");
+		$("#cardNo").val("");
+		$("#realName").val("");
+		$("#L").val("添加");
+		$("#L").attr("type_id",0);
+	})
+	$('#bg .info2 h5 b').click(function(){
+		$('#bg .info2 h5 b').removeClass("hot")
+		$(this).addClass("hot")
+		var aaa=$('#bg .info2 h5 b').index(this)
+		if(aaa==1){
+			$('#bg .info2 .span_').css("display","block");
+			$('#cardNo').attr('placeholder','请输入本人银行卡号')
+			$("#L").attr("tid","2");
+		}else{
+			$('#cardNo').attr('placeholder','请输入本人支付宝帐号')
+			$('#bg .info2 .span_').css("display","")
+			$("#L").attr("tid","1");
+		}
+	})
+	$(".delete").click(function(){
+		var pay_id = $(this).attr("pay_id");
+		$.post(
+			'__URL__/delete_pay_account',
+			{
+				'pay_id' : pay_id
+			},
+			function(data){
+          		if(data.status == 1) {
+    				show_cg(data.info);
+					refresh();
+            	}else {
+            		alert(data.info);
+          		}
+			},
+			'json'
+		)
+	})
+	$("#L").click(function(){
+		var pay_mode = $(this).attr("tid");
+    	var data_obj = {};
+		var pay_account = $("#cardNo").val();
+		data_obj.pay_type = pay_mode;
+		if (pay_account == "") {
+			show_cw("收款帐号不能为空");
+			return false;
+		};
+		data_obj.pay_account = pay_account;
+		var pay_name = $("#realName").val();
+		if (pay_name == "") {
+			show_cw("收款人姓名不能为空");
+			return false;	
+		};
+		data_obj.pay_name = pay_name;
+		if (pay_mode == 2) {
+			pay_mode = $("#pay_mode").val();
+			if (pay_mode == 0 ) {
+				show_cw("开户行不能为空");
+				return false;					
+			};
+			data_obj.pay_extend_1 = pay_mode;
+		};
+		var type_id = $(this).attr("type_id");
+		if (type_id == 1) {
+			data_obj.pay_id = $(this).attr("pay_id");
+		};
+		$.post(
+			'__URL__/save_pay_account',
+			data_obj,
+			function(data){
+          		if(data.status == 1) {
+    				show_cg(data.info);
+    				$("#bg").hide();
+					refresh();
+            	}else {
+            		alert(data.info);
+          		}
+			},
+			'json'
+		)
+	})
+</script>
+</html>

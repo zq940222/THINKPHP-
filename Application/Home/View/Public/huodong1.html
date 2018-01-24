@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>活动专题页</title>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/new/style/index.css" />
+
+	<script>
+	$(function(){
+		var btns=$('.xinxi h3')
+		var tab=$('.xinxi p')
+		btns.click(function(){
+			tab.addClass('hide_')
+			btns.removeClass('hot')
+			$(this).addClass('hot')
+			$('img',btns).attr('src','h5.jpg')
+			$('img',this).attr('src','h4.jpg')
+			var i=$(btns).index(this)
+			$(tab[i]).removeClass('hide_');
+		})
+	})
+	</script>
+	<style>
+		body,p,h3,h4{
+			margin:0;
+			padding:0;
+			font-family: "Microsoft YaHei";
+		}
+		.clear{
+			clear:both;
+		}
+		.main-box{
+			width:1920px;
+			margin:0 auto;
+		}
+		.box{
+			width:100%;
+			height:4917px;
+			background:url(__PUBLIC__/image/h1.jpg)no-repeat;
+		}
+		.box2{
+			margin-top:32px;
+		}
+		.left{
+			width:1434px;
+			float: left;
+		}
+		span{
+			float:left;
+			color:#666;
+			line-height: 200%;
+		}
+		.chengs{
+			border-top:13px solid #dcdcdc;
+			border-left:31px solid #dcdcdc;
+			border-bottom:13px solid #dcdcdc;
+			width:345px;
+		}
+		.quyu{
+			border-left:16px solid #dcdcdc;
+			width:330px;
+		}
+		.dizhi{
+			border-top:13px solid #dcdcdc;
+			border-left:16px solid #dcdcdc;
+			border-bottom:13px solid #dcdcdc;
+			border-right:68px solid #dcdcdc;
+			line-height: 200%;
+			width:505px;
+		}
+		.chaz{
+			float:left;
+			background:#1ba97b;
+			font-size:22px ;
+			color:#fff;
+			line-height: 200%;
+			padding:13px 0;
+			text-decoration: none;
+			width:121px ;
+			text-align: center;
+		}
+		#hr{
+			float:right;
+			border:1px solid #dcdcdc;
+			height:646px;
+		}
+		.dianmian{
+			width:431px;
+			height:727px;
+			float:right;
+			margin-right:33px;
+		}
+		.dianmian a{
+			display: block;
+			width:100%;
+			height:331px;
+		}
+		.ditu{
+			width:740px;
+			height:557px;
+			background:url(h3.jpg);
+			float:left;
+		}
+		.xinxi{
+			width:630px;
+			height:557px;
+			float:left;
+		}
+		.xinxi h3{
+			font-size:26px;
+			color: #747474;
+			font-weight: normal;
+			padding-left:100px;
+			margin-bottom:15px;
+			cursor: pointer;
+		}
+		.xinxi .hot{
+			color:#fe8a23;
+		}
+		.xinxi .hot i{
+			background:#fe8a23;
+		}
+		
+		.xinxi h3 i{
+			float:left;
+			width:5px;
+			height:31px;
+			background:#747474;
+			margin-top:3px;
+		}
+		.xinxi h3 img{
+			margin-left:10px;
+			margin-bottom:4px;
+		}
+		.xinxi p{
+			color:#999999;
+			font-size:22px;
+			line-height: 150%;
+			padding-left:122px;
+			height:100px;
+		}
+		.xinxi .hide_{
+			color:#fff;
+		}
+		.ditu,.xinxi{
+			margin-top:51px;
+		}
+		#footer{
+			width:100%;
+			background:#eaeaea;
+			height:345px;
+			box-sizing:border-box;
+			padding-left:352px ;
+			padding-right:366px;
+		}
+		#footer .info{
+			width:100%;
+			height:260px;
+			border-bottom:1px solid #cac8c8;
+			box-sizing:border-box;
+			padding-top:38px;
+		}
+		#footer em{
+			display: block;
+			color:#666;
+			font-style: normal;
+			float:left;
+			
+		}
+		#footer em h4{
+			font-weight: normal;
+			font-size:20px;
+			line-height: 267%;
+		}
+		#footer em span{
+			font-size:14px;
+			line-height: 230%;
+		}
+		#footer .xinwe{
+			margin-right:50px;
+		}
+		#footer .bangzhu{
+			margin-right:57px;
+		}
+		#footer .ewm{
+			text-align: center;
+			margin-left:167px;
+		}
+		#footer .ewm h4{
+
+			margin-bottom:8px;
+		}
+		#footer .lianxi{
+			float:right;
+		}
+		#footer .lianxi a{
+			display: block;
+		}
+		#footer p{
+			font-size:14px;
+			color:#666;
+			width:470px;
+			margin:15px auto 0;
+			text-align: center;
+			line-height: 200%;
+		}
+	</style>
+</head>
+<body>
+	<div class="main-box">
+		<div class="box"></div>
+
+	</div>
+	    <div class="crumb">
+      <div class="crumblf">
+        <div class="topa">
+          <!-- -->
+          <div class="iff">
+            <form action="" method="post">
+              <span>
+                <b>
+                  城市
+                </b>
+                <select name="province" class="section" style="outline:0" id="province">
+                  <volist name=":C('STORE_CITY_FIRM')" id="region">
+                    <option value="{$key}"  >
+                      {$region}
+                    </option>
+                  </volist>
+                </select>
+              </span>
+              <span>
+                <b>
+                  区域
+                </b>
+              <select name="province" class="section" id="m_addr" style="outline:0">
+                  <volist name="region_list" id="region">
+                    <option value="{$key}"  >
+                      {$region}
+                    </option>
+                  </volist>
+                </select>
+              </span>
+              <p>
+                <input type="text" id = "local" class="lei_a" placeholder="请输入您的详细地址" style="outline:0"/>
+                <input id = "search_local" type="button" class="lei_b" value="查找"  style="margin-left: 13px;"/>
+              </p>
+            </form>
+          </div>
+
+          <!-- -->
+        </div>
+        <div class="topb">
+          <div class = "topb_a" style="margin: 0;padding: 0;">
+            <div id="allmap" class="BMap_mask" style=" left: 0px; top: 0px; z-index: 9; overflow: hidden; -webkit-user-select: none; width:471px; height: 370px; "></div>
+          </div>
+          <div class="topb_b m_left" style="overflow: auto; width: 340px; height: 390px; ">
+
+
+          </div>
+        </div>
+
+
+      </div>
+      <div class="crumbrf">
+        <li>
+          <a href="">
+            <img src="__PUBLIC__/new/images/公益西桥易回购.jpg" style="max-width:269;" />
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="__PUBLIC__/new/images/富力.jpg" style="max-width:269;" />
+          </a>
+        </li>
+      </div>
+    </div>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Geqy4FXKjCSaFOfcvAXcYaRP"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />	
+<script type="text/javascript">
+  function changeStore(e) {
+    var $e=$(e);
+    $(".check").find("img").attr("src","__PUBLIC__/new/images/down.jpg");
+    $(".check").css('color','#666');
+    $(".check").find(".list_stores").hide();
+
+    $(".check").removeClass("check");
+    $e.find("img").attr("src","__PUBLIC__/new/images/up.jpg");
+    $e.addClass("check");
+    $e.css('color','#fc8a26');
+
+    $e.find(".list_stores").show(300);
+
+
+    var store_lbs =$e.attr("store_lbs");
+
+    show(store_lbs);
+    //换图
+  }
+
+  //更换图片
+  function showpic(e,id,t) {
+    var $e = $(e);    
+    if(t == 1) {
+      $e.attr("src", "__PUBLIC__/image/x_btn"+id+"2.png");
+    } else {
+      $e.attr("src", "__PUBLIC__/image/x_btn"+id+".png");
+    }
+  }
+    
+  //获取门店列表
+  function getStore(rid) {
+    var pid = $("#province").val();
+    $.post(
+      "__APP__/home/index/getStoreList",
+      {
+        "rid":rid,
+        "pid":pid
+      },
+      function(data) {
+        $(".m_left").html(data);
+        var sid = $(".stores").attr("sid");
+        var store_lbs = $(".stores").attr("store_lbs");
+        if (typeof(sid) != "undefined") {
+          show(store_lbs);
+        } else {
+          $(".store_list").html("暂无门店数据");
+        }
+      },
+      'html'
+    );    
+  }	
+  $("#province").change(function(){
+    var pid = $(this).val();
+        $.post(
+            '__APP__/home/index/ajax_area',  
+            {
+                "pid":pid
+            },function(data){
+              if(data.status == 1) {
+                var list = data.data;
+                $("#m_addr").empty();
+                $.each(list,function(i,val){
+                   $("#m_addr").append("<option value='"+i+"'>"+val+"</option>"); 
+                })
+              } else {
+                alert(data.info);
+              }
+            },
+            'json'
+        ) 
+  })
+
+   $(document).ajaxComplete(function(event, xhr, settings) {
+     if ( settings.url === "__APP__/home/index/ajax_area" ) {
+        var rid = $('#m_addr').val();
+        getStore(rid);
+     }
+  });
+  $("#m_addr").change(function(){
+     var rid = $(this).val();
+      getStore(rid);
+  })
+
+
+  //获取门店图片
+  function getStoreImg(sid) {
+    $.post(
+      "__URL__/getStoreImgList",
+      {
+        "sid":sid
+      },
+      function(data) {
+        $(".store_image_list").html(data);
+      },
+      'html'
+    );
+  }
+
+
+  $(function(){
+    getStore(1);
+  });
+    var map; //初始化
+
+    $(function(){
+        //地图API
+        map = new BMap.Map('allmap');
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); 
+        
+        var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+        var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+
+        map.addControl(top_left_control);        
+        map.addControl(top_left_navigation);     
+        
+        map.setCurrentCity("北京");
+     
+        //show("116.307852,40.057031","青年路回收店","北京市朝阳区朝阳北路10号","(010)59928888");
+    });
+
+    function show(lbs){
+      var lbs = lbs.split(",");
+      var poi = new BMap.Point(lbs[0],lbs[1]);
+      map.centerAndZoom(poi, 16);
+      var marker = new BMap.Marker(poi); //创建  
+      map.addOverlay(marker); //在地图中添加marker
+      
+    }
+    $("#search_local").click(function(){
+      var local_list = $.trim($("#local").val());
+      if (local_list == "") {
+        alert("请输入您的详细地址");
+        return false;
+      };
+      getStore(1);
+      local(local_list);
+    })
+    function local(list){
+        map = new BMap.Map('allmap');
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 15); 
+        var local = new BMap.LocalSearch(map, {
+          renderOptions:{map: map}
+        });
+        var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+        var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+        map.addControl(top_left_control);        
+        map.addControl(top_left_navigation);     
+        map.setCurrentCity("北京");
+        getStore(1);
+        local.search(list);
+    }
+
+
+</script>
+</body>
+</html>

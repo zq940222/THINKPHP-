@@ -1,0 +1,181 @@
+
+.download-header{
+	width: 100%;
+	height: 85px;
+	background: #333333;
+}
+
+.download-ul{
+	width: 1200px;
+	height: 85px;
+	line-height: 85px;
+	margin: 0 auto;
+}
+
+.download-ul img{
+	float: left;
+	margin-top: 16px;	
+}
+
+.download-ul P{
+	display: block;
+	float: left;
+	margin: 25px 0 0 25px;	
+	width: 155px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 20px;
+	color: #999;
+	background: url(../img/xiazai-04.png) no-repeat left center;
+}
+
+.download-ul li{
+	float: right;
+	width: 92px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 27px;	
+}
+
+.download-ul li.avci{
+	background: #2dbe97;
+	border-radius: 20px;
+}
+
+.download-ul li a{
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+.download-ul li.avci a:hover{
+	color: #FFFFFF;
+}
+
+.download-ul li a:hover{
+	color: #2dbe97;
+}
+
+.present-main{
+	width: 100%;
+	height: 848px;
+	background: url(../img/jiesao-02.jpg) no-repeat center center;
+}
+
+.main{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.main-img{
+	width: 240px;
+	height: 448px;
+	float: left;
+	margin: 117px 0 0 86px;
+	background: #F00;
+}
+
+
+  .slider{
+	width:240px;
+	height:448px;
+	position:relative;
+	overflow: hidden;
+  }
+
+  .slider .slider-pointer {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    list-style: none;
+    padding: 0;
+    z-index: 3;
+  }
+  .slider .slider-pointer li {
+    display: inline-block;
+    margin: 0 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    opacity: 0.85;
+    transition: all 320ms ease;
+	cursor:pointer
+  }
+  .slider .slider-pointer li:hover {
+    background-color: #61bd52;
+  }
+  .slider .slider-pointer li.active {
+    background-color: #61bd52;
+  }
+  .slider .slider-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .slider .slider-inner .item {
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+  .slider .slider-inner .img {
+    background-position: center top !important;
+    width: 100%;
+    height: 100%;
+  }  
+  .slider .slider-control {
+    position: absolute;
+    width: 20px;
+    height: 50px;
+    z-index: 3;
+    text-align: center;
+	font-family:"fantasy";
+    font-size: 30px;
+    line-height: 50px;
+    background-color: #222;
+    opacity: 0.5;
+    cursor: pointer;
+	color:#fff;
+    top: 40%;
+    transition: all 320ms ease;
+  }
+  .slider .slider-control:hover {
+    opacity: 1;
+    background-color: #61bd52;
+  }
+  .slider .slider-control:active {
+    opacity: 0.85;
+  }
+  .slider .slider-control.prev {
+    display: none;
+    left: 255px;
+  }
+  .slider .slider-control.next {
+    display: none;
+    right: 20px;
+  }
+  .slider:hover .slider-control.prev {
+    display: block;
+    left: 255px;
+  }
+  .slider:hover .slider-control.next {
+    display: block;
+    right: 20px;
+  }
+  
+  /*slider end*/
+ 
+.text{
+	width: 650px;
+	height: auto;
+	float: right;
+	margin:92px 82px 0 0;
+}
+
+.text em{
+	line-height: 55px;
+	font-size: 14px;
+	color: #666666;
+	text-indent:35px;
+}

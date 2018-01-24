@@ -1,0 +1,139 @@
+.header-one{
+	width:980px;
+}
+.nav{
+	width:980px;
+	height:80px;
+	margin:0 auto
+}
+
+.navlf{
+	width:255px;
+	height:60px;
+	padding:10px 0px;
+	float:left;
+}
+
+.navrf{
+	width:555px;
+	height:80px;
+	float:right
+}
+
+.navrf img{
+	max-height:80px;
+}
+
+
+
+.menus{
+	width:850px;
+	min-height:600px;
+	margin:0 auto;
+	padding-left:130px;
+	border:solid 1px #eaeaea
+}
+
+.spanone{
+	display:block;
+	width:810px;
+	height:30px;
+	padding-top:110px;
+	line-height:30px;
+	font-size:18px;
+	color:#61bd52;
+	padding-left:40px;
+	background:url(/Public/Pc2.0/img/shops-06.jpg) no-repeat 5px 110px
+}
+
+.ulone{
+	height:80px;
+	width:850px;
+	margin-top:75px;
+}
+
+.ulone li{
+	line-height:40px;
+	width:850px;
+	text-align:left;
+	font-size:14px;
+	color:#666666
+}
+
+.ulone li em{
+	display:inline
+}
+
+.pone{
+	width:850px;
+	line-height:35px;
+	text-align:left;
+	font-size:14px;
+	color:#666666;
+	margin-top:45px
+}
+
+.olone{
+	width:850px;
+	height:45px;
+}
+
+.olone li{
+	float:left;
+	font-size:16px;
+	text-align:center
+}
+
+.li-a{
+	width:140px;
+	line-height:40px;
+	background:#ef543b
+}
+
+.li-a a{
+	color:#FFF;
+	display:block;
+}
+
+.li-a:hover{
+	background:#e62323
+}
+
+.li-a:active{
+	background:#C71313
+}
+
+.li-b{
+	width:158px;
+	line-height:38px;
+	border:solid 1px #dadada;
+	margin-left:10px;
+}
+
+.li-b a{
+	color:#666666;
+	display: block;
+}
+
+.li-b:hover{
+	border:solid 1px #61bd52;
+	background:#61bd52
+}
+
+.li-b:hover a{
+	color:#FFF
+}
+
+.li-b:active{
+	border:solid 1px #056125;
+	background:#056125
+}
+
+.li-b:active a{
+	color:#FFF
+}
+
+
+.bottom{
+	margin-top:50px;
+}

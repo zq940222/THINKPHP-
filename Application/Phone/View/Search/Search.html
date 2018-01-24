@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">	
+    <title>易回购-机型搜索</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/phone2.0/style/base.css" />
+    <link rel="stylesheet" href="__PUBLIC__/phone2.0/style/index.css" />
+    <link REL = "Shortcut Icon" href="__PUBLIC__/phone/logo.ico"> 
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/phone/style/public.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-2.0.2.min.js" ></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <include file="Public/header"/>
+  
+  	<div class="container-fluid conter b-conter b-fluid">
+		<div class="row c-cont">
+			<div class="col-xs-12 b-search">									
+						<input type="text" class="b-search-input" id="ss" placeholder="请输入您要搜索的机型">
+						<div class="b-search-xl" >
+						<e class  = "text" cid = "1">手机</e>
+							<img src="__PUBLIC__/phone2.0/images/ss.jpg">
+						</div>
+						<a href="#">搜索</a>
+						<ul class="listUl">
+							<li cid = "1"><img src="__PUBLIC__/store/images/s5.jpg" alt="">&nbsp;手机</li>
+							<li cid = "2"><img src="__PUBLIC__/store/images/s3.jpg" alt="">&nbsp;平板</li>
+							<li cid = "3"><img src="__PUBLIC__/store/images/s2.jpg" alt="">&nbsp;笔记本</li>
+							<li cid = "5"><img src="__PUBLIC__/store/images/s4.jpg" alt="">&nbsp;数码相机</li>
+						</ul>									
+			</div>		
+		</div>
+		<div class="row">
+				<div class="col-xs-12">
+						<notempty name = "history">
+							<ul class="toolbar lis-box">
+								<em><img src="__PUBLIC__/phone2.0/images/lis.jpg"></em>
+								<volist name="history" id="vo1" offset="0" length='2'>
+									<a href="<?php echo U('Item/index/id/'.$vo1["0"]); ?>"><li>{$vo1.1}</li></a>
+								</volist>
+							</ul>
+						</notempty>
+
+						<ul class="toolbar lis-box">
+							<em><img src="__PUBLIC__/phone2.0/images/hot.jpg"></em>
+					    	<volist name="list" id="vo" >
+								<a href="<?php echo U('Item/index/id/'.$vo["type_id"]); ?>"><li>{$vo.type_name}</li></a>
+							</volist>
+						</ul>
+						
+						<ol class="tab-ol lis_">
+
+						</ol>
+				</div>
+		</div>
+		
+	</div>
+    <include file="Public/footer" />
+    <script type="text/javascript" src="__PUBLIC__/phone2.0/js/m.js" ></script>
+    <script type="text/javascript" src="__PUBLIC__/phone2.0/js/public.js" ></script>
+    <script>
+	$(function() {
+	  $(".b-search-xl").click(function() {
+	    var ul = $(".listUl");
+	    if (ul.css("display") == "none") {
+	      $('.b-search-xl img').css('transform', 'rotate(180deg)');
+	      ul.slideDown(150)
+	    } else {
+	      $('.b-search-xl img').css('transform', 'rotate(0deg)');
+	      ul.slideUp(150)
+	    }
+	  });
+	  $(".listUl li").click(function() {
+	    var txt = $(this).text();
+	    var cid = $(this).attr("cid");
+	    $(".text").text(txt);
+	    $('.text').attr("cid", cid);
+	    $('.b-search-xl img').css('transform', 'rotate(0deg)');
+	    $(".listUl").hide()
+	  })
+	});
+	var $searchInput = $('#ss');
+	$searchInput.keyup(function(event) {
+	  if (event.keyCode > 40 || event.keyCode == 32) {
+	    var key = $("#ss").val();
+	    var cid = $(".text").attr("cid");
+	    $.post("__URL__/ajax_list", {
+	      "key": key,
+	      "cid": cid
+	    },
+	    function(data) {
+	      $(".lis_").html(data)
+	    },
+	    'html');
+	    $('.lis-box').hide();
+	    $(".lis_").show()
+	  } else if (event.keyCode == 8) {
+	    var len = $searchInput.val().length;
+	    if (len == 0) {
+	      $('.lis-box').show();
+	      $(".lis_").hide()
+	    } else {
+	      var key = $("#ss").val();
+	      var cid = $(".text").attr("cid");
+	      $.post("__URL__/ajax_list", {
+	        "key": key,
+	        "cid": cid
+	      },
+	      function(data) {
+	        $(".lis_").html(data)
+	      },
+	      'html');
+	      $('.lis-box').hide();
+	      $(".lis_").show()
+	    }
+	  }
+	});
+	</script>
+  </body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}" />
+<meta name="description" content="{$seo['description']}" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/public.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/css/tab.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Pc2.0/font-awesome/css/font-awesome.css"/>
+<link REL = "Shortcut Icon" href="__PUBLIC__/logo.ico"> 
+
+</head>
+
+<body>
+<include file="Public/2.0hint"/>
+<include file="Public/2.0header"/>
+<div class="top" style="width:100%; height:60px; background:#FFF; border-bottom:solid 1px #eaeaea; position:relative; z-index:96;">
+        <div id="fixedMenu_top_com" style="background: #fff; width:100%; height:60px; border-bottom:solid 1px #eaeaea">
+                <div class="top-one">
+
+
+                                <div class="seek-copy" style="margin:11px 0 0 20px">
+                                    <form class="ul-p" method = 'get' id="froms" action = '__APP__/search/index'>
+                                        <input name="key"id="search" autocomplete="off" type="text" class="seek-input" placeholder="请输入您要搜索的机型" required />
+                                        <a href="javascript:" class="clear"></a>
+                                        <span id="searchs" >
+                                            搜索
+                                            <ul class="seek-ul ts">
+                                            </ul>
+                                        </span>
+                                    </form>
+                                </div>
+
+                                <div class="logo">
+                                    <a href="/"><img src="__PUBLIC__/Pc2.0/img/nav-logo.png" /></a>
+                                </div>
+                                <div class="nav">
+                                    <ul class="nav-lf">
+                                        <li class="one-a">
+                                            <a class="one-a-a" href="#" style="color:#61bd52">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                                <span class="one-b">
+                                                	<a href="/" style="width: 81px; padding-left:15px; height:38px; display: block; font-size:16px;color:#61bd52; line-height: 42px;margin: 0 auto;text-align: center;">旧机回收<img src="__PUBLIC__/Pc2.0/img/nav-b-02.png" /></a>
+                                                    <a href="{:U('Search/index/tid/1')}">手机回收</a>
+                                                    <a href="{:U('Search/index/tid/2')}">平板电脑回收</a>
+                                                    <a href="{:U('Search/index/tid/3')}">笔记本回收</a>
+                                                    <a href="{:U('Search/index/tid/5')}">数码相机回收</a>
+                                                </span>
+                                        </li>
+                                        <li><a href="http://shop.ehuigou.com">易购商城</a></li>
+                                        <li><a href="http://www.ehuigou.com/public/enterprise.html">库存机回收</a></li>
+                                    </ul>
+                                    <ul class="nav-rf">
+                                        <li>
+                                            <a href="__ROOT__/order/inquiry"><img src="__PUBLIC__/Pc2.0/img/nav-gw-b.jpg" /></a>
+                                            <em>{$_SESSION.cart_count|default="0"}</em>
+                                        </li>
+                                    </ul>
+                                </div>
+                </div>
+        </div>
+</div>
+<!-- top-one end-->
+
+<div class="column">
+    <a href="/" title='易回购_二手回收'>首页</a>{$tag1_url}<h1>{$tag2_url}</h1>{$tag3_url}
+
+
+</div>
+
+<!-- column end-->
+
+<div class="main">
+	<div class="main-lf">
+        <if condition="($type_info.cate_id eq 3) OR ($type_info.cate_id eq 4) ">
+            <div class="lf-left" style="margin-bottom: 80px;">
+                <volist name=":C('CONFLIST')" id="conf" key="conf_">
+                    <if condition="$conf_ eq 1 "> 
+                        <div class="cli" qok="1">
+                    <else />
+                        <div class="left-div" qok="0">
+                    </if> 
+                        <span class="span">
+                            <a class="a-xh">{$conf}</a><br />
+                            <a class="a-xq a-a"></a>
+                        </span>
+                        <p class="home">修改</p>
+                    </div>                    
+                </volist>
+                <volist name="right_list" id="right">
+                        <div class="left-div" qok="0">
+                        <span class="span">
+                            <a class="a-xh">{$right.interface_name}</a><br />
+                            <a class="a-xq a-a"></a>
+                        </span>
+                        <p class="home">修改</p>
+                    </div>
+                </volist>
+            </div>
+        <else />
+            <div class="lf-left">
+                <volist name="left_list" id="left">
+                    <if condition="$key eq 0 "> 
+                        <div class="cli " qok="1">
+                    <else />
+                        <div class="left-div" qok="0">
+                    </if>
+                        <span class="span">
+                        	<a class="a-xh">{$left.parameter_name}</a><br />
+                            <a class="a-xq a-a"></a>
+                        </span>
+                        <p class="home">修改</p>
+                    </div>
+                </volist>
+                <volist name="right_list" id="right">
+                    <div class="left-div" qok="0">
+                        <span class="span">
+                            <a class="a-xh">{$right.interface_name}</a><br />
+                            <a class="a-xq a-a"></a>
+                        </span>
+                        <p class="home">修改</p>
+                    </div>
+                </volist>
+            </div>
+        </if>
+            <div class="lf-right">
+            		<div class="conter">
+                    <if condition="($type_info.cate_id eq 3) OR ($type_info.cate_id eq 4) ">
+                        <volist name="conf_data" id="conf"  key="oot">
+                            <if condition="$oot eq 1 "> 
+                                <ul class="conf_click" key = "{$key}" id="{$key}">
+                            <else />
+                                <ul class="" key = "{$key}" id="{$key}">
+                            </if>
+                                <p>{$oot}、{:C('CONFLIST')["$key"]}</p>
+                                <volist name="conf" id="confs" >
+                                    <li class="right-li " type="conf">{$confs}</li>
+                                </volist>
+                            </ul>
+                        </volist>
+                    <else />
+                        <volist name="left_list" id="left"  key="oot">
+                            <ul>
+                                <p>{$oot}、{$left.parameter_name}</p>
+                                <volist name="left.congtions" id="congtion" >
+                                    <li class="right-li" type="left" qid="{$left.parameter_id}" itemid="{$congtion.congtion_id}">{$congtion.congtion_name}</li>
+                                </volist>
+                            </ul>
+                        </volist>
+                    </if>
+                    <volist name="right_list" id="right" key="root">
+                        <ul class="ul-b" id="lastul">
+                            <p>{$root+$oot}、{$right.interface_name}</p>
+                            <volist name="right.param_list" id="param" key="roots">
+                                <if condition="($root eq $last) AND ($right.interface_name eq '是否存在以下问题') ">
+                                        <if condition="$roots neq 1 ">
+                                            <samp>
+                                            <if condition="$param.right_name eq '无法正常开机'">
+                                                <li class="bottom-li kq" tid="11" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_11.png" /><br />无法正常开机</li>
+                                            <elseif condition="$param.right_name eq '有拆修'"/>
+                                                <li class="bottom-li fq" tid="6" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_6.png" /><br />有拆修</li>
+                                            <elseif condition="$param.right_name eq '机身变形'"/>
+                                                <li class="bottom-li dq" tid="4" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_4.png" /><br />机身变形</li>
+                                            <elseif condition="$param.right_name eq '通话异常'"/>
+                                                <li class="bottom-li bq" tid="2" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_2.png" /><br />通话异常</li>
+                                            <elseif condition="$param.right_name eq 'wifi/蓝牙/感应异常'"/>
+                                                <li class="bottom-li gq" tid ="7" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_7.png" /><br />wifi/蓝牙/感应异常</li>
+                                            <elseif condition="$param.right_name eq '拍照功能异常'"/>
+                                                <li class="bottom-li cq" tid="3" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_3.png" /><br />拍照功能异常</li>
+                                            <elseif condition="$param.right_name eq '指纹功能异常'"/>
+                                                <li class="bottom-li hq" tid="8" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_8.png" /><br />指纹功能异常</li>
+                                            <elseif condition="$param.right_name eq 'icloud无法注销'"/>
+                                                <li class="bottom-li jq" tid="10" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_10.png" /><br />icloud无法注销</li>
+                                            <elseif condition="$param.right_name eq '浸液/受潮'"/>
+                                                <li class="bottom-li aq"  tid="1" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_1.png" /><br />浸液/受潮</li>
+                                            <elseif condition="$param.right_name eq '屏幕缺角/碎裂'"/>
+                                                <li class="bottom-li aq"  tid="14" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_14.png" /><br />屏幕缺角/碎裂</li>
+                                            <elseif condition="$param.right_name eq '按键/充电/震动异常'"/>
+                                                <li class="bottom-li aq"  tid="13" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_13.png" /><br />按键/充电/震动异常</li>
+                                            <elseif condition="$param.right_name eq '系统曾经破解权限'"/>
+                                                <li class="bottom-li aq"  tid="15" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_15.png" /><br />系统曾经破解权限</li>
+                                            <elseif condition="$param.right_name eq 'Flyme账户无法注销'"/>
+                                                <li class="bottom-li aq"  tid="16" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_16.png" /><br />Flyme账户无法注销</li>
+                                            <elseif condition="$param.right_name eq 'wifi无法联网'"/>
+                                                <li class="bottom-li aq"  tid="17" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_17.png" /><br />wifi无法联网</li>
+                                            <elseif condition="$param.right_name eq 'USB无法正常使用'"/>
+                                                <li class="bottom-li aq"  tid="18" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_18.png" /><br /> USB无法正常使用</li>
+                                            <elseif condition="$param.right_name eq '摄像头损坏'"/>
+                                                <li class="bottom-li aq"  tid="23" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_23.png" /><br /> 摄像头损坏</li>
+                                            <elseif condition="$param.right_name eq '键盘无法正常使用'"/>
+                                                <li class="bottom-li aq"  tid="22" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_22.png" /><br />键盘无法正常使用</li>
+                                            <elseif condition="$param.right_name eq '触摸板无法正常使用'"/>
+                                                <li class="bottom-li aq"  tid="19" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_19.png" /><br />触摸板无法正常使用</li>
+                                            <elseif condition="$param.right_name eq '硬盘损坏'"/>
+                                                <li class="bottom-li aq"  tid="25" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_25.png" /><br />硬盘损坏</li>
+                                            <elseif condition="$param.right_name eq '显卡损坏'"/>
+                                                <li class="bottom-li aq"  tid="24" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_24.png" /><br />显卡损坏</li>
+                                            <elseif condition="$param.right_name eq '光驱损坏'"/>
+                                                <li class="bottom-li aq"  tid="20" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_20.png" /><br />光驱损坏</li>
+                                            <elseif condition="$param.right_name eq '机身严重变形'"/>
+                                                <li class="bottom-li aq"  tid="21" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_21.png" /><br />机身严重变形 </li>
+                                            <elseif condition="$param.right_name eq '声音异常'"/>
+                                                <li class="bottom-li aq"  tid="28" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_28.png" /><br />声音异常 </li>
+                                            <elseif condition="$param.right_name eq 'wifi/蓝牙异常'"/>
+                                                <li class="bottom-li aq"  tid="26" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_26.png" /><br />wifi/蓝牙异常 </li>
+                                            <elseif condition="$param.right_name eq '按键/充电异常'"/>
+                                                <li class="bottom-li aq"  tid="27" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_27.png" /><br />按键/充电异常 </li>
+                                            <elseif condition="$param.right_name eq '无键盘'"/>
+                                                <li class="bottom-li aq"  tid="29" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_29.png" /><br />无键盘 </li>
+                                            <elseif condition="$param.right_name eq '屏幕破损/触屏失灵'"/>
+                                                <li class="bottom-li aq"  tid="14" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_14.png" /><br />屏幕破损/触屏失灵</li>
+                                            <elseif condition="$param.right_name eq '外壳破损'"/>
+                                                <li class="bottom-li aq"  tid="31" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_31.png" /><br />外壳破损</li>
+                                            <elseif condition="$param.right_name eq '电池/后盖缺失'"/>
+                                                <li class="bottom-li aq"  tid="30" olk="0" qid="{$right.interface_id}" itemid="{$param.right_id}"><img src="__PUBLIC__/Pc2.0/img/zzy_30.png" /><br />电池/后盖缺失</li>
+                                            </if>
+                                            </samp>
+                                        </if>
+                                <else />
+                                    <li class="right-li" type="right"  qid="{$right.interface_id}" itemid="{$param.right_id}">{$param.right_name}</li>
+                                </if>
+                            </volist>
+                                
+                        </ul>
+                    </volist>
+
+                    </div>
+            </div>
+    </div>
+
+
+
+    <div class="main-rf">
+    	<div class="main-rf-a">
+            <h3>{$type_info.type_name}</h3>
+            <span><img src="__PUBLIC__/Uploads/{$type_info.type_photo}" width="170" height="170" /></span>
+            <h4>回收均价：￥{$type_info.highestprice}</h4>
+            <div class="dy" id="container">
+
+            </div>
+        </div>
+        <div class="main-rf-b-11 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-01.jpg" width="238" /></span>
+              <i>完全无法开机</i>
+              <i>指示灯不亮</i>
+              <i>按开机键或者其他按键无任何反应</i>
+        </div>
+        <div class="main-rf-b-10 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-02.jpg" width="238" /></span>
+              <i>找到“iCloud”</i>
+              <i>点击“删除账号”</i>
+              <i>点击“删除”</i>
+              <i>点击“从我的iPhone删除”</i>
+              <i>输入密码解除绑定</i>
+        </div>
+        <div class="main-rf-b-1 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-03.jpg" width="238" /></span>
+              <i>1.防潮标变色（图片标红位置）</i>
+              <i>2.螺丝，电池触点等机身内部金属有生锈，发霉的痕迹</i>
+              <i>3.摄像头内有水珠，水雾</i>
+        </div>
+        <div class="main-rf-b-14 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-04.jpg" width="238" /></span>
+              <i>屏幕有磕碰角或裂痕，或屏幕碎裂</i>
+        </div>
+        <div class="main-rf-b-4 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-05.jpg" width="238" /></span>
+              <i>机身与一平面参照物形成可见弧度</i>
+              <i>导致机身部件存在重大问题隐患</i>
+        </div>
+        <div class="main-rf-b-3 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-06.jpg" width="238" /></span>
+              <i>无法拍照，不能对焦</i>
+        </div>
+        <div class="main-rf-b-2 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-07.jpg" width="238" /></span>
+              <i>无法通话，通话异常</i>
+        </div>
+        <div class="main-rf-b-7 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-08.jpg" width="238" /></span>
+              <i>wifi/蓝牙/感应异常</i>
+        </div>
+        <div class="main-rf-b-13 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-09.jpg" width="238" /></span>
+              <i>按键/充电/震动不能使用</i>
+        </div>
+        <div class="main-rf-b-8 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-10.jpg" width="238" /></span>
+              <i>指纹模块无法正常读取您的指纹</i>
+              <i>或无法录入指纹</i>    
+        </div>
+        <div class="main-rf-b-6 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-11.jpg" width="238" /></span>
+              <i>维修或拆开过主板，出现以下情况数量>=3属于严重拆修。</i>
+              <i>1.1个或1个以上螺丝缺失</i>
+              <i>2.电池被更换或松动有撬痕</i>
+              <i>3.维修过尾插或扬声器</i>
+              <i>4.原厂标缺失或破损</i>
+              <i>5.机身内部贴有店标</i>
+              <i>6.内部（非主板处）有盖章或者有写字。</i>
+              <i>7.两码不合一，两码不合一是指机身IMEI和系统显示IMEI不一致</i>
+              <i>8.主板标贴被撕掉或者丢失</i>
+        </div>
+        <div class="main-rf-b-15 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-12.jpg" width="238" /></span>
+              <i>刷机操作，破解系统</i>
+        </div>
+        <div class="main-rf-b-16 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-13.jpg" width="238" /></span>
+              <i>魅族Flyme账户无法注销</i>
+        </div>
+        <div class="main-rf-b-18 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-14.jpg" width="238" /></span>
+              <i>至少1个接口无法正常读取U盘</i>
+              <i>如何辨别USB接口？USB接口为扁平长方形，一般位于笔记本两侧。</i>
+        </div>
+        <div class="main-rf-b-20 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-15.jpg" width="238" /></span>
+              <i>光驱无法弹出，无法识别光盘。</i>
+        </div>
+        <div class="main-rf-b-24 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-16.jpg" width="238" /></span>
+              <i>显卡损坏。</i>
+        </div>
+        <div class="main-rf-b-23 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-17.jpg" width="238" /></span>
+              <i>打开“摄像头”进行测试，如果无法启动摄像功能、摄像有黑点、白点或摄像头缺失或损坏，属于摄像头功能不正常。</i>
+        </div>
+        <div class="main-rf-b-25 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-18.jpg" width="238" /></span>
+              <i>无法开机，硬盘无法读取。</i>
+        </div>
+        <div class="main-rf-b-22 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-19.jpg" width="238" /></span>
+              <i>1、至少1个按键功能不正常。</i>
+              <i>2、键盘出现异常字符或形状。</i>
+              <i>3、至少3个字符脱落。</i>
+              <i>4、按键出现非原装颜色</i>
+              <i>5、至少1个键帽脱落。</i>
+        </div>
+        <div class="main-rf-b-19 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-20.jpg" width="238" /></span>
+              <i>1、触摸板上出现裂痕、缺角、碎裂或凹陷，或由于其他原因造成触摸板变形。</i>
+              <i>2、鼠标滑动不灵敏。</i>
+              <i>3、左右键功能异常。</i>
+        </div>
+        <div class="main-rf-b-17 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-21.jpg" width="238" /></span>
+              <i>笔记本无法联网。</i>
+        </div>
+        <div class="main-rf-b-21 main-rf-b" style="display:none">
+              <span><img src="__PUBLIC__/Pc2.0/img/zzm-22.jpg" width="238" /></span>
+              <i>机身与一平面参照物形成可见弧度，导致机身部件存在重大问题隐患。</i>
+        </div>
+    </div>
+    <span class="gj">
+        都正常，立即估价
+    </span>
+</div>
+
+<!-- main end-->
+
+<div class="container">
+    <div class="submenu">
+        <span><img src="__PUBLIC__/Uploads/{$type_info.type_photo}" /></span>
+        <p>
+        <a class="sub-a">您的&nbsp;</a>
+        <a class="sub-b" style="color:#61bd52">{$type_info.type_name}</a>
+        <a class="sub-a">&nbsp;价值：</a>
+        <a class="sub-c" style="font-size:36px; font-weight:bold; color:#ef543b;">￥0</a>
+        <a class="sub-d" onclick="location.reload();">重新询价</a>
+        </p>
+        <ul class="submenu-gw">
+            <a href="/" id="send"><li class="gw-a">立即回收</li></a>
+            <li class="gw-b">加入回收车</li>
+            <em>交易方式：门店回收 上门回收 快递回收</em>
+            <div class="position-b">
+                <i class="position-ia">亲，您的机器成功加入回收车</i>
+                <i class="position-iu">X</i>
+                <a href="__ROOT__/order/inquiry"class="position-aa">去回收车结算</a>
+                <a href="/"><a href="/" class="position-ab">继续回收</a></a>
+                <i class="position-ib">温馨提示：电子产品价格变动较快，请尽快回收</i>
+            </div>
+        </ul>
+    </div>
+    <!--submenu-->
+    
+    
+    <div class="cowt">
+        <div class="cowt-c">
+            常见问题
+        </div>
+        <div class="cowt-one">
+            <span>没有您想知道的答案，请咨询<a href="https://eco-api.meiqia.com/dist/standalone.html?eid=7872" target="_blank">在线客服</a></span>
+            <ul>
+            	<li class="li_q">
+                	找不到型号怎么办？
+                </li>
+                <li class="li_a">
+                	老款的机器网站上找不到型号则进行环保回收；新款的机型若找不到型号，可以拨打400热线告知客服，客服会提交给工作人员添加。
+                </li>
+            </ul>
+            <ul>
+            	<li class="li_q">
+                	机器寄出后如何保证我的利益？
+                </li>
+                <li class="li_a">
+                	易回购网站是和公安联网的，交易中有涉及欺诈交易的我们会在第一时间通过网络进行报案。易回购网站是提供平台给商户竞价回收的，易回购是作为第三方来担保，和用户确认好之后商户会把钱打到易回购的账户中，由易回购网来进行担保。
+                </li>
+            </ul>
+            <ul>
+            	<li class="li_q">
+                	哪些机器易回购不进行回收？
+                </li>
+                <li class="li_a">
+                	山寨机、高仿机、扳机、烧卡机（写号机）、改卡机以及网站上没有的品牌都不回收,笔记本08年以前的比较老款的机器不回收，没有硬盘内存的不回收，报废机不回收。
+                </li>
+            </ul>
+            <ul>
+            	<li class="li_q">
+                	快递费是谁承担，标准是多少？
+                </li>
+                <li class="li_a">
+                	手机和平板：京津冀承担12元，除京津冀以外承担22元；<br />
+					笔记本：京津冀承担30元，除京津冀以外承担45元，（高仿机、山寨机、保价费用户自费）
+                </li>
+            </ul>
+            <p><a href="{:U('Help/index/id/17')}">查看更多帮助说明>></a></p>
+        </div>
+    </div>
+</div>
+    <include file="Public/2.0footer"/>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/public.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Pc2.0/js/tab.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/highcharts.js"></script>
+
+<script type="text/javascript">
+    function change(e) {
+        var $e=$(e);
+        var text = $e.text();
+        var key = $("#search").val(text);
+        $(".ts").hide();
+        $("#types").val(2);
+        $("#froms").submit();
+    }
+    $("#searchs").click(function(){
+        $("#froms").submit();
+    })
+    var $searchInput = $('#search');
+    $searchInput.bind('input propertychange', function() {
+            var key = $("#search").val();
+            $.post(
+              "__APP__/search/ajax_list",
+              {
+                "key":key
+              },
+            function(data) {
+                var length = data.length;
+                if (length > 10) {
+                    $(".ts").html(data);
+                }else{
+                    $(".ts").empty();
+                    $(".ts").hide();
+                    return false;
+                };
+            },
+              'html'
+         );    
+        $(".ts").show();
+    });
+    $searchInput.keyup(function(event) {
+        if (event.keyCode == 8) {
+            var len = $searchInput.val().length;
+            if (len == 0) {
+                $(".ts").hide()
+            } 
+        }
+    });
+    $(function(){
+        $(".one-a").hover(function(){
+            var span = $(".one-b");
+            if(span.css("display")=="none"){
+                span.slideDown(10);
+            }else{
+                span.slideUp(10);
+            }
+        $(this).addClass('one-bb')
+            $("a img",this).attr("src","__PUBLIC__/Pc2.0/img/nav-02b.png");
+            $('.one-a-a',this).addClass('one-a-a1')
+        },function(){
+            $('.one-a-a',this).removeClass('one-a-a1')
+            $(this).removeClass('one-bb')
+            $("a img",this).attr("src","__PUBLIC__/Pc2.0/img/nav-b-02.png");
+            $(".one-b").slideUp(10);
+            });
+    });
+    $(function(){
+        $(".highcharts-legend-item").hide();
+        $("#container text:last").hide();
+        $(".highcharts-yaxis-title").hide();
+        $('.gj').hide();
+    });
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'line',
+            marginRight: 35,
+            marginBottom: 25
+        },
+        title: {
+            text: ' ',
+            x: 0 
+        },
+        xAxis: {
+            categories: ['3月', '4月','5月','6月']
+        },
+        yAxis: {
+            plotLines: [{
+              value: 0,
+              width: 10,
+              color: 'red'
+            }]
+        },
+        tooltip: {
+            formatter: function() {
+                return this.x +':  ￥'+ this.y;
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -10,
+            y: 100,
+            borderWidth: 0
+        },
+        series: [ {
+            name: 'price',
+            data: [{$trend.september},{$trend.october},{$trend.november},{$trend.december}]
+        }]
+    });
+    $(".i-wz-a").hover(function(){
+        $('.icon-caret-up').css('transform','rotate(0deg)');
+        $('.icon-caret-up').css('margin-top','7.3px');
+    },function(){
+        $('.icon-caret-up').css('transform','');
+        $('.icon-caret-up').css('margin-top','');
+    });
+
+    $(".bottom-li").toggle(function(){
+        var tid = $(this).attr("tid");
+        $(this).removeClass("bottom-li").addClass("box-li").addClass("one-li").addClass("item2_checkd");
+        $(this).find("img").attr("src","__PUBLIC__/Pc2.0/img/zzy_"+tid+"b.png");
+        $(this).attr("olk","1");
+        if ($(".main-rf-b-"+tid).length > 0 ) {
+            $(".main-rf-a").hide();
+            $(".main-rf-b").hide();
+            $(".main-rf-b-"+tid).show();
+        }else{
+            $(".main-rf-b").hide();
+            $(".main-rf-a").show();
+        }
+        $(".gj").text("立即估价");
+    },function(){
+        var tid = $(this).attr("tid");
+        $(this).addClass("bottom-li").removeClass("box-li").removeClass("one-li").removeClass("item2_checkd");
+        $(this).find("img").attr("src","__PUBLIC__/Pc2.0/img/zzy_"+tid+".png");
+        $(this).attr("olk","0");
+        $(".main-rf-b").hide();
+        $(".main-rf-a").show();
+        if ($(".one-li").length<1) {
+            $(".gj").text("都正常，立即估价");
+        }
+    })
+    $(".left-div:last").click(function(){
+        var qok = $(this).attr("qok");
+        if (qok == 1) {
+            $('.gj').show();
+        };
+    })
+    $(".bottom-li").hover(function(){
+        var tid = $(this).attr("tid");
+        var open = $(this).attr("olk");
+        if (open == 1) {
+            return false;
+        };
+        $(this).addClass("one-li");
+        $(this).find("img").attr("src","__PUBLIC__/Pc2.0/img/zzy_"+tid+"b.png");
+    },function(){
+        var tid = $(this).attr("tid"); 
+        var open = $(this).attr("olk");
+        if (open == 1) {
+            return false;
+        };      
+        $(this).removeClass("one-li");
+        $(this).find("img").attr("src","__PUBLIC__/Pc2.0/img/zzy_"+tid+".png");
+    })
+    $(".conf_click").click(function(){
+        $(this).addClass("config_sel");      
+        var arr = [];
+        $(".config_sel").each(function(){
+          var arrinfo = {};
+          arrinfo.tid = $(this).attr("key");
+          arrinfo.name = $(this).find(".item3_checkd").text();
+          arr.push(arrinfo);
+        })
+        $.post(
+        '__URL__/getConfList',
+        {
+          "tid":"{$type_info.type_id}",
+          "data":JSON.stringify(arr)
+        },
+        function(data){
+          if(data.status == 1) {
+            var list = data.data
+            for(var key in list){
+              $("#"+key).find("li").each(function(){
+                    if ($(this).text() == list[key]) {
+                        $(this).show();
+                        $(this).click();
+                    }else{
+                        $(this).hide();
+                    };
+              });
+            }
+          }else{
+            alert("该机型配置信息为空");
+          }
+        },
+        'json'
+      )
+    })
+    $(".gj").click(function(){
+        var num = 0;
+        var conf = [];
+        $(".left-div").each(function(){
+            if($(this).attr("qok") != 1) {
+              num++;
+              $(this).css("border-color","#FF0000");
+            }
+        });
+        if(num > 0) {
+            show_cw("您的订单信息还不完整哟");
+            return false;
+        }
+        var leftstr = "";
+        $(".item_checkd").each(function(){
+            leftstr += $(this).attr("itemid")+",";
+        });
+        var rightstr = "";
+        $(".item2_checkd").each(function(){
+            rightstr += $(this).attr("itemid")+",";
+        });
+        $(".item3_checkd").each(function(){
+          var confinfo = {};
+          confinfo.id = $(this).parent().attr("key");
+          confinfo.name = $(this).text();
+          conf.push(confinfo);
+        });
+        $.post(
+            '__URL__/addCarts',
+            {
+                "tid":"{$type_info.type_id}",
+                "conf":JSON.stringify(conf),
+                "leftstr":leftstr,
+                "rightstr":rightstr
+            },
+            function(data) {
+              if(data.status == 1) {
+                $(".container").show();
+                $(".sub-c").text("￥"+data.info);
+                $("#send").attr("href","__ROOT__/order/index/id/"+data.msg+"/type/2")
+                $(".gw-b").attr("cart_id",data.msg);
+                $("html,body").animate({scrollTop:$(".container").offset().top-65},500)
+              } else {
+                show_cw(data.info);
+              }
+            },
+            "json"
+        );            
+    })
+    $(".gw-b").click(function(){
+        var cart_id = $(this).attr("cart_id");
+        if (cart_id == "") {
+            show_cw("参数错误");
+            return false;
+        };
+
+        $.post(
+            '__URL__/Cart',
+            {
+                "cart_id":cart_id
+            },
+            function(data) {
+              if(data.status == 1) {
+                $(".position-b").show();
+              } else {
+                show_cw(data.info);
+              }
+            },
+            "json"
+        ); 
+    })
+</script>
+</body>
+</html>
